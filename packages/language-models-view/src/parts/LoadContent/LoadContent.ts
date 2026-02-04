@@ -4,6 +4,12 @@ export const loadContent = async (state: LanguageModelsState): Promise<LanguageM
   return {
     ...state,
     initial: false,
-    models: [], // TODO get them from somewhere
+    models: [
+      { id: '1', name: 'GPT-4' },
+      { id: '2', name: 'Claude 3 Opus' },
+      { id: '3', name: 'Llama 2' },
+      { id: '4', name: 'Mistral 7B' },
+      { id: '5', name: 'Gemini Pro' },
+    ],
   }
 }
