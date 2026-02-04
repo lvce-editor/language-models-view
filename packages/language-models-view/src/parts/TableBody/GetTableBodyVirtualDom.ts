@@ -19,7 +19,7 @@ const getTableCell = (text: string): VirtualDomNode => {
 export const getTableBody = (models: readonly LanguageModel[]): VirtualDomNode => {
   return {
     childCount: models.length,
-    type: VirtualDomElements.Tbody,
+    type: VirtualDomElements.TBody,
   }
 }
 
