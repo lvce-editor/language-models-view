@@ -1,6 +1,7 @@
 import { expect, test } from '@jest/globals'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
-import { getTableHead, getTableHeaderVirtualDom } from '../src/parts/TableHeader/GetTableHeaderVirtualDom.ts'
+import { getTableHead } from '../src/parts/TableHeader/GetTableHead/GetTableHead.ts'
+import { getTableHeaderVirtualDom } from '../src/parts/TableHeader/GetTableHeaderVirtualDom.ts'
 
 test('getTableHead returns thead element', () => {
   const result = getTableHead()
