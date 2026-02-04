@@ -5,6 +5,10 @@ export const account = (): string => {
   return I18nString.i18nString(UiStrings.Account)
 }
 
+export const addModels = (): string => {
+  return I18nString.i18nString(UiStrings.AddModels)
+}
+
 export const filterLanguageModels = (): string => {
   return I18nString.i18nString(UiStrings.FilterLanguageModels)
 }

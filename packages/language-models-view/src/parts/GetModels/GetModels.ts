@@ -4,7 +4,7 @@ export const getModels = async (): Promise<any[]> => {
     {
       enabled: true,
       id: 'claude-3-opus',
-      inputContextSize: 200000,
+      inputContextSize: 200_000,
       name: 'Claude 3 Opus',
       outputContextSize: 4096,
       provider: 'anthropic',

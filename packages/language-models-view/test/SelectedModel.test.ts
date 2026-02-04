@@ -5,8 +5,8 @@ import { getTableBodyVirtualDom } from '../src/parts/TableBody/GetTableBodyVirtu
 
 test('getTableBodyVirtualDom applies Selected class to selected model', () => {
   const models: readonly LanguageModel[] = [
-    { enabled: true, id: 'gpt-4', name: 'GPT-4', provider: 'openai', selected: true },
-    { enabled: true, id: 'claude', name: 'Claude', provider: 'anthropic', selected: false },
+    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: true },
+    { enabled: true, id: 'claude', inputContextSize: 200_000, name: 'Claude', outputContextSize: 4096, provider: 'anthropic', selected: false },
   ]
   const result = getTableBodyVirtualDom(models)
 
@@ -15,14 +15,14 @@ test('getTableBodyVirtualDom applies Selected class to selected model', () => {
   expect(firstRow.type).toEqual(VirtualDomElements.Tr)
   expect(firstRow.className).toEqual('Selected')
 
-  // Find the second table row (for non-selected model)
-  const secondRow = result[6]
+  // Find the second table row (for non-selected model) - now at index 8 due to 3 cells per row
+  const secondRow = result[8]
   expect(secondRow.type).toEqual(VirtualDomElements.Tr)
   expect(secondRow.className).toBeUndefined()
 })
 
 test('getTableBodyVirtualDom does not apply Selected class when no model is selected', () => {
-  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', name: 'GPT-4', provider: 'openai', selected: false }]
+  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false }]
   const result = getTableBodyVirtualDom(models)
 
   // Find the table row
@@ -33,8 +33,8 @@ test('getTableBodyVirtualDom does not apply Selected class when no model is sele
 
 test('getTableBodyVirtualDom applies Selected class to multiple selected models', () => {
   const models: readonly LanguageModel[] = [
-    { enabled: true, id: 'gpt-4', name: 'GPT-4', provider: 'openai', selected: true },
-    { enabled: true, id: 'claude', name: 'Claude', provider: 'anthropic', selected: true },
+    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: true },
+    { enabled: true, id: 'claude', inputContextSize: 200_000, name: 'Claude', outputContextSize: 4096, provider: 'anthropic', selected: true },
   ]
   const result = getTableBodyVirtualDom(models)
 
@@ -42,7 +42,7 @@ test('getTableBodyVirtualDom applies Selected class to multiple selected models'
   const firstRow = result[1]
   expect(firstRow.className).toEqual('Selected')
 
-  // Find the second table row
-  const secondRow = result[6]
+  // Find the second table row - now at index 8 due to 3 cells per row
+  const secondRow = result[8]
   expect(secondRow.className).toEqual('Selected')
 })

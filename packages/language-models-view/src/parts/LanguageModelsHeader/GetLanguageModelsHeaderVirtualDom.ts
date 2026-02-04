@@ -11,6 +11,6 @@ export const getLanguageModelsHeaderVirtualDom = (): readonly VirtualDomNode[] =
       type: VirtualDomElements.Div,
     },
     getFilterInput(),
-    getAddModelsButton(),
+    ...getAddModelsButton(),
   ]
 }

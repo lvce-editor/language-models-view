@@ -17,6 +17,10 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       params: ['handleFocus'],
     },
     {
+      name: DomEventListenerFunctions.HandleAddModelsClick,
+      params: ['handleAddModelsClick'],
+    },
+    {
       name: DomEventListenerFunctions.HandleContextMenu,
       params: ['handleContextMenu', EventExpression.Button, EventExpression.ClientX, EventExpression.ClientY],
       preventDefault: true,
