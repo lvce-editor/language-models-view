@@ -5,10 +5,6 @@ export default [
   ...config.default,
   ...actions.default,
   {
-    files: ['**/*.ts'],
-    rules: {},
-  },
-  {
     files: ['**/*.test.ts'],
     rules: {
       '@typescript-eslint/unbound-method': 'off',
