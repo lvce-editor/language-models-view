@@ -6,6 +6,8 @@ test('getFilterInput returns input element with correct properties', () => {
   const result = getFilterInput()
   expect(result).toEqual({
     className: 'LanguageModelsFilter',
+    inputType: 'search',
+    name: 'LanguageModelsFilter',
     placeholder: 'Filter language models...',
     type: VirtualDomElements.Input,
   })

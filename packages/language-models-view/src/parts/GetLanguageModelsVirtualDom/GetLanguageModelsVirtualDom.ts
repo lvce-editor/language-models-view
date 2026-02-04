@@ -19,6 +19,11 @@ export const getLanguageModelsVirtualDom = (models: readonly LanguageModel[]): r
       className: 'LanguageModels',
       type: VirtualDomElements.Div,
     },
+    {
+      childCount: 1,
+      className: 'LanguageModelsHeader',
+      type: VirtualDomElements.Div,
+    },
     getFilterInput(),
     getTable(models),
     ...getTableHeaderVirtualDom(),

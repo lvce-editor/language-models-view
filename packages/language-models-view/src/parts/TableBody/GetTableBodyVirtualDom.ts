@@ -1,12 +1,20 @@
 import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import type { LanguageModel } from '../LanguageModel/LanguageModel.ts'
+import * as ClassNames from '../ClassNames/ClassNames.ts'
 
 const getTableRow = (model: LanguageModel): VirtualDomNode => {
-  return {
+  const node: VirtualDomNode = {
     childCount: 2,
     type: VirtualDomElements.Tr,
   }
+  if (model.selected) {
+    return {
+      ...node,
+      className: ClassNames.Selected,
+    }
+  }
+  return node
 }
 
 const getTableCell = (text: string): VirtualDomNode => {

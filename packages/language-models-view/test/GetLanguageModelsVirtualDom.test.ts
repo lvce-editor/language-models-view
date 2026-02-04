@@ -12,7 +12,14 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
       type: VirtualDomElements.Div,
     },
     {
+      childCount: 1,
+      className: 'LanguageModelsHeader',
+      type: VirtualDomElements.Div,
+    },
+    {
       className: 'LanguageModelsFilter',
+      inputType: 'search',
+      name: 'LanguageModelsFilter',
       placeholder: 'Filter language models...',
       type: VirtualDomElements.Input,
     },
@@ -52,7 +59,7 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
 })
 
 test('getLanguageModelsVirtualDom returns correct structure for single model', () => {
-  const models: readonly LanguageModel[] = [{ id: 'gpt-4', name: 'GPT-4' }]
+  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false }]
   const result = getLanguageModelsVirtualDom(models)
   expect(result).toEqual([
     {
@@ -61,7 +68,14 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
       type: VirtualDomElements.Div,
     },
     {
+      childCount: 1,
+      className: 'LanguageModelsHeader',
+      type: VirtualDomElements.Div,
+    },
+    {
       className: 'LanguageModelsFilter',
+      inputType: 'search',
+      name: 'LanguageModelsFilter',
       placeholder: 'Filter language models...',
       type: VirtualDomElements.Input,
     },
@@ -122,8 +136,8 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
 
 test('getLanguageModelsVirtualDom returns correct structure for multiple models', () => {
   const models: readonly LanguageModel[] = [
-    { id: 'gpt-4', name: 'GPT-4' },
-    { id: 'claude', name: 'Claude' },
+    { enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false },
+    { enabled: true, id: 'claude', name: 'Claude', selected: false },
   ]
   const result = getLanguageModelsVirtualDom(models)
   expect(result).toEqual([
@@ -133,7 +147,14 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.Div,
     },
     {
+      childCount: 1,
+      className: 'LanguageModelsHeader',
+      type: VirtualDomElements.Div,
+    },
+    {
       className: 'LanguageModelsFilter',
+      inputType: 'search',
+      name: 'LanguageModelsFilter',
       placeholder: 'Filter language models...',
       type: VirtualDomElements.Input,
     },
@@ -213,14 +234,14 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
 })
 
 test('getLanguageModelsVirtualDom returns consistent results on multiple calls with same models', () => {
-  const models: readonly LanguageModel[] = [{ id: 'gpt-4', name: 'GPT-4' }]
+  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false }]
   const result1 = getLanguageModelsVirtualDom(models)
   const result2 = getLanguageModelsVirtualDom(models)
   expect(result1).toEqual(result2)
 })
 
 test('getLanguageModelsVirtualDom includes filter input', () => {
-  const models: readonly LanguageModel[] = [{ id: 'gpt-4', name: 'GPT-4' }]
+  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false }]
   const result = getLanguageModelsVirtualDom(models)
   const filterInput = result.find((node) => node.type === VirtualDomElements.Input)
   expect(filterInput).toBeDefined()
@@ -228,14 +249,14 @@ test('getLanguageModelsVirtualDom includes filter input', () => {
 })
 
 test('getLanguageModelsVirtualDom includes table header', () => {
-  const models: readonly LanguageModel[] = [{ id: 'gpt-4', name: 'GPT-4' }]
+  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false }]
   const result = getLanguageModelsVirtualDom(models)
   const thead = result.find((node) => node.type === VirtualDomElements.THead)
   expect(thead).toBeDefined()
 })
 
 test('getLanguageModelsVirtualDom includes table body', () => {
-  const models: readonly LanguageModel[] = [{ id: 'gpt-4', name: 'GPT-4' }]
+  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false }]
   const result = getLanguageModelsVirtualDom(models)
   const tbody = result.find((node) => node.type === VirtualDomElements.THead)
   expect(tbody).toBeDefined()

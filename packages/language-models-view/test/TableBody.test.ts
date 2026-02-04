@@ -12,7 +12,7 @@ test('getTableBody returns tbody element with correct childCount for empty array
 })
 
 test('getTableBody returns tbody element with correct childCount for single model', () => {
-  const models: readonly LanguageModel[] = [{ id: 'gpt-4', name: 'GPT-4' }]
+  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false }]
   const result = getTableBody(models)
   expect(result).toEqual({
     childCount: 1,
@@ -22,9 +22,9 @@ test('getTableBody returns tbody element with correct childCount for single mode
 
 test('getTableBody returns tbody element with correct childCount for multiple models', () => {
   const models: readonly LanguageModel[] = [
-    { id: 'gpt-4', name: 'GPT-4' },
-    { id: 'gpt-3.5', name: 'GPT-3.5' },
-    { id: 'claude', name: 'Claude' },
+    { enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false },
+    { enabled: true, id: 'gpt-3.5', name: 'GPT-3.5', selected: false },
+    { enabled: false, id: 'claude', name: 'Claude', selected: false },
   ]
   const result = getTableBody(models)
   expect(result).toEqual({
@@ -44,7 +44,7 @@ test('getTableBodyVirtualDom returns empty array for empty models', () => {
 })
 
 test('getTableBodyVirtualDom returns correct structure for single model', () => {
-  const models: readonly LanguageModel[] = [{ id: 'gpt-4', name: 'GPT-4' }]
+  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false }]
   const result = getTableBodyVirtualDom(models)
   expect(result).toEqual([
     {
@@ -76,8 +76,8 @@ test('getTableBodyVirtualDom returns correct structure for single model', () => 
 
 test('getTableBodyVirtualDom returns correct structure for multiple models', () => {
   const models: readonly LanguageModel[] = [
-    { id: 'gpt-4', name: 'GPT-4' },
-    { id: 'claude', name: 'Claude' },
+    { enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false },
+    { enabled: true, id: 'claude', name: 'Claude', selected: false },
   ]
   const result = getTableBodyVirtualDom(models)
   expect(result).toEqual([
@@ -129,7 +129,7 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
 })
 
 test('getTableBodyVirtualDom returns consistent results on multiple calls with same models', () => {
-  const models: readonly LanguageModel[] = [{ id: 'gpt-4', name: 'GPT-4' }]
+  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false }]
   const result1 = getTableBodyVirtualDom(models)
   const result2 = getTableBodyVirtualDom(models)
   expect(result1).toEqual(result2)

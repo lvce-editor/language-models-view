@@ -2,8 +2,9 @@ import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsS
 import type { SavedState } from '../SavedState/SavedState.ts'
 
 export const saveState = (state: LanguageModelsState): SavedState => {
-  const { models } = state
+  const { models, filterValue } = state
   return {
     models,
+    filterValue,
   }
 }

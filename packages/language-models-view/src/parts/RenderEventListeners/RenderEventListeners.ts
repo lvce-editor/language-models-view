@@ -9,6 +9,10 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       params: ['handleBlur'],
     },
     {
+      name: DomEventListenerFunctions.HandleFilterInput,
+      params: ['handleFilterInput'],
+    },
+    {
       name: DomEventListenerFunctions.HandleFocus,
       params: ['handleFocus'],
     },
