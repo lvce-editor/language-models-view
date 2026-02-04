@@ -64,7 +64,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
-      deprecated: false,
+        deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -209,7 +209,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
-      deprecated: false,
+        deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -220,7 +220,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       capabilities: { tools: false, vision: false },
-      deprecated: false,
+        deprecated: false,
       enabled: true,
       id: 'claude',
       inputContextSize: 200_000,
@@ -401,7 +401,7 @@ test('getLanguageModelsVirtualDom returns consistent results on multiple calls w
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
-      deprecated: false,
+        deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -420,7 +420,7 @@ test('getLanguageModelsVirtualDom includes filter input', () => {
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
-      deprecated: false,
+        deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -440,7 +440,7 @@ test('getLanguageModelsVirtualDom includes table header', () => {
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
-      deprecated: false,
+        deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -459,7 +459,7 @@ test('getLanguageModelsVirtualDom includes table body', () => {
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
-      deprecated: false,
+        deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,

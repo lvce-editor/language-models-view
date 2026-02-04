@@ -11,6 +11,8 @@ test('handleAddModelsClick adds a dummy model', () => {
     models: [],
     platform: 1,
     scrollBarHeight: 0,
+    headerHeight: 25,
+    rowHeight: 20,
     uid: 1,
     width: 800,
     x: 0,
@@ -37,6 +39,7 @@ test('handleAddModelsClick preserves all state properties and adds a model', () 
     models: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -47,6 +50,7 @@ test('handleAddModelsClick preserves all state properties and adds a model', () 
       },
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: false,
         id: 'claude',
         inputContextSize: 200_000,
@@ -85,6 +89,7 @@ test('handleAddModelsClick does not mutate input state', () => {
     models: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -124,6 +129,7 @@ test('handleAddModelsClick works with filtered models', () => {
     filteredModels: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -137,6 +143,7 @@ test('handleAddModelsClick works with filtered models', () => {
     models: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -147,6 +154,7 @@ test('handleAddModelsClick works with filtered models', () => {
       },
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: false,
         id: 'claude',
         inputContextSize: 200_000,
