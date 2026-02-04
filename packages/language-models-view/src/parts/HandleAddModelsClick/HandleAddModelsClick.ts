@@ -4,6 +4,7 @@ import type { LanguageModel } from '../LanguageModel/LanguageModel.ts'
 export const handleAddModelsClick = (state: LanguageModelsState): LanguageModelsState => {
   // Create a dummy model
   const dummyModel: LanguageModel = {
+    capabilities: { tools: false, vision: false },
     enabled: true,
     id: `dummy-model-${Date.now()}`,
     inputContextSize: 4096,
