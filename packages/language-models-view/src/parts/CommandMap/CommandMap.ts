@@ -1,6 +1,8 @@
 import { terminate } from '@lvce-editor/viewlet-registry'
 import * as Create from '../Create/Create.ts'
 import { diff2 } from '../Diff2/Diff2.ts'
+import { disableModel } from '../DisableModel/DisableModel.ts'
+import { enableModel } from '../EnableModel/EnableModel.ts'
 import { getKeyBindings } from '../GetKeyBindings/GetKeyBindings.ts'
 import { getMenuEntries } from '../GetMenuEntries/GetMenuEntries.ts'
 import { getMenuEntryIds } from '../GetMenuEntryIds/GetMenuEntryIds.ts'
@@ -18,6 +20,8 @@ import { selectTableRow } from '../SelectTableRow/SelectTableRow.ts'
 export const commandMap = {
   'LanguageModels.create': Create.create,
   'LanguageModels.diff2': diff2,
+  'LanguageModels.disableModel': WrapCommand.wrapCommand(disableModel),
+  'LanguageModels.enableModel': WrapCommand.wrapCommand(enableModel),
   'LanguageModels.getCommandIds': WrapCommand.getCommandIds,
   'LanguageModels.getKeyBindings': getKeyBindings,
   'LanguageModels.getMenuEntries': WrapCommand.wrapGetter(getMenuEntries),
