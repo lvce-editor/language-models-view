@@ -26,12 +26,7 @@ test('RenderFilterValue.renderFilterValue should return the correct command arra
 
   const result = RenderFilterValue.renderFilterValue(oldState, newState)
 
-  expect(result).toEqual([
-    ViewletCommand.SetValueByName,
-    42,
-    'LanguageModelsFilter',
-    'new filter value',
-  ])
+  expect(result).toEqual([ViewletCommand.SetValueByName, 42, 'LanguageModelsFilter', 'new filter value'])
 })
 
 test('RenderFilterValue.renderFilterValue should use newState.filterValue in the command', () => {
