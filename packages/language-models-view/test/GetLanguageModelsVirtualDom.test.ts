@@ -45,7 +45,7 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
       type: VirtualDomElements.THead,
     },
     {
-      childCount: 3,
+      childCount: 4,
       type: VirtualDomElements.Tr,
     },
     {
@@ -70,6 +70,14 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
     },
     {
       text: 'Provider',
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      type: VirtualDomElements.Th,
+    },
+    {
+      text: 'Context Size',
       type: VirtualDomElements.Text,
     },
     {
@@ -124,7 +132,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
       type: VirtualDomElements.THead,
     },
     {
-      childCount: 3,
+      childCount: 4,
       type: VirtualDomElements.Tr,
     },
     {
@@ -153,10 +161,18 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 1,
+      type: VirtualDomElements.Th,
+    },
+    {
+      text: 'Context Size',
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
       type: VirtualDomElements.TBody,
     },
     {
-      childCount: 3,
+      childCount: 4,
       type: VirtualDomElements.Tr,
     },
     {
@@ -181,6 +197,14 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       text: 'openai',
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      type: VirtualDomElements.Td,
+    },
+    {
+      text: 'in: 8192, out: 4096',
       type: VirtualDomElements.Text,
     },
   ])
@@ -232,7 +256,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.THead,
     },
     {
-      childCount: 3,
+      childCount: 4,
       type: VirtualDomElements.Tr,
     },
     {
@@ -260,11 +284,19 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.Text,
     },
     {
+      childCount: 1,
+      type: VirtualDomElements.Th,
+    },
+    {
+      text: 'Context Size',
+      type: VirtualDomElements.Text,
+    },
+    {
       childCount: 2,
       type: VirtualDomElements.TBody,
     },
     {
-      childCount: 3,
+      childCount: 4,
       type: VirtualDomElements.Tr,
     },
     {
@@ -292,7 +324,15 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.Text,
     },
     {
-      childCount: 3,
+      childCount: 1,
+      type: VirtualDomElements.Td,
+    },
+    {
+      text: 'in: 8192, out: 4096',
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 4,
       type: VirtualDomElements.Tr,
     },
     {
@@ -317,6 +357,14 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       text: 'anthropic',
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      type: VirtualDomElements.Td,
+    },
+    {
+      text: 'in: 200000, out: 4096',
       type: VirtualDomElements.Text,
     },
   ])
