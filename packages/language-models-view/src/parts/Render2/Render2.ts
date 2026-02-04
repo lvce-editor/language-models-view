@@ -1,0 +1,9 @@
+import * as ExplorerStates from '../LanguageModelsViewStates/LanguageModelsViewStates.ts'
+import * as ApplyRender from '../ApplyRender/ApplyRender.ts'
+
+export const render2 = (uid: number, diffResult: readonly number[]): readonly any[] => {
+  const { newState, oldState } = ExplorerStates.get(uid)
+  ExplorerStates.set(uid, newState, newState)
+  const commands = ApplyRender.applyRender(oldState, newState, diffResult)
+  return commands
+}

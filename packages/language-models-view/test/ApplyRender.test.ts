@@ -1,0 +1,170 @@
+import { expect, test } from '@jest/globals'
+import { ViewletCommand } from '@lvce-editor/constants'
+import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
+import { applyRender } from '../src/parts/ApplyRender/ApplyRender.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import * as DiffType from '../src/parts/DiffType/DiffType.ts'
+import * as FocusId from '../src/parts/FocusId/FocusId.ts'
+
+test('applyRender returns empty array when diffResult is empty', () => {
+  const oldState: LanguageModelsState = createDefaultState()
+  const newState: LanguageModelsState = createDefaultState()
+  const diffResult: readonly number[] = []
+
+  const result: readonly any[] = applyRender(oldState, newState, diffResult)
+
+  expect(result).toEqual([])
+})
+
+test('applyRender returns empty array when diffResult contains RenderCss', () => {
+  const oldState: LanguageModelsState = createDefaultState()
+  const newState: LanguageModelsState = createDefaultState()
+  const diffResult: readonly number[] = [DiffType.RenderCss]
+
+  const result: readonly any[] = applyRender(oldState, newState, diffResult)
+
+  expect(result).toEqual([
+    [
+      'Viewlet.setCss',
+      0,
+      `:root {
+  --ActivityBarItemHeight: var(--48px);
+}
+`,
+    ],
+  ])
+})
+
+test('applyRender returns empty array when diffResult contains RenderFocusContext with focus not List', () => {
+  const oldState: LanguageModelsState = createDefaultState()
+  const newState: LanguageModelsState = {
+    ...createDefaultState(),
+    focus: 0,
+    uid: 123,
+  }
+  const diffResult: readonly number[] = [DiffType.RenderFocusContext]
+
+  const result: readonly any[] = applyRender(oldState, newState, diffResult)
+
+  expect(result).toEqual([])
+})
+
+test('applyRender returns commands when diffResult contains RenderFocusContext with focus List', () => {
+  const oldState: LanguageModelsState = createDefaultState()
+  const newState: LanguageModelsState = {
+    ...createDefaultState(),
+    focus: FocusId.List,
+    uid: 456,
+  }
+  const diffResult: readonly number[] = [DiffType.RenderFocusContext]
+
+  const result: readonly any[] = applyRender(oldState, newState, diffResult)
+
+  expect(result.length).toBe(1)
+  expect(result[0].length).toBe(3)
+  expect(result[0][0]).toBe(ViewletCommand.SetFocusContext)
+  expect(result[0][1]).toBe(456)
+})
+
+test('applyRender returns commands when diffResult contains RenderItems', () => {
+  const oldState: LanguageModelsState = createDefaultState()
+  const newState: LanguageModelsState = {
+    ...createDefaultState(),
+    activityBarItems: [],
+    uid: 789,
+  }
+  const diffResult: readonly number[] = [DiffType.RenderItems]
+
+  const result: readonly any[] = applyRender(oldState, newState, diffResult)
+
+  expect(result.length).toBe(1)
+  expect(result[0].length).toBe(3)
+  expect(result[0][0]).toBe(ViewletCommand.SetDom2)
+  expect(result[0][1]).toBe(789)
+})
+
+test('applyRender filters out empty results', () => {
+  const oldState: LanguageModelsState = createDefaultState()
+  const newState: LanguageModelsState = {
+    ...createDefaultState(),
+    focus: FocusId.List,
+    uid: 123,
+  }
+  const diffResult: readonly number[] = [DiffType.RenderCss, DiffType.RenderFocusContext, DiffType.RenderCss]
+
+  const result: readonly any[] = applyRender(oldState, newState, diffResult)
+
+  expect(result).toEqual([
+    [
+      'Viewlet.setCss',
+      123,
+      `:root {
+  --ActivityBarItemHeight: var(--48px);
+}
+`,
+    ],
+    ['Viewlet.setFocusContext', 123, 13],
+    [
+      'Viewlet.setCss',
+      123,
+      `:root {
+  --ActivityBarItemHeight: var(--48px);
+}
+`,
+    ],
+  ])
+})
+
+test('applyRender collects multiple non-empty results', () => {
+  const oldState: LanguageModelsState = createDefaultState()
+  const newState: LanguageModelsState = {
+    ...createDefaultState(),
+    activityBarItems: [],
+    focus: FocusId.List,
+    uid: 456,
+  }
+  const diffResult: readonly number[] = [DiffType.RenderItems, DiffType.RenderFocusContext]
+
+  const result: readonly any[] = applyRender(oldState, newState, diffResult)
+
+  expect(result.length).toBe(2)
+  expect(result[0][0]).toBe(ViewletCommand.SetDom2)
+  expect(result[1][0]).toBe(ViewletCommand.SetFocusContext)
+})
+
+test('applyRender returns new array each time', () => {
+  const oldState: LanguageModelsState = createDefaultState()
+  const newState: LanguageModelsState = createDefaultState()
+  const diffResult: readonly number[] = []
+
+  const result1: readonly any[] = applyRender(oldState, newState, diffResult)
+  const result2: readonly any[] = applyRender(oldState, newState, diffResult)
+
+  expect(result1).not.toBe(result2)
+  expect(result1).toEqual(result2)
+})
+
+test('applyRender throws error for unknown diffType', () => {
+  const oldState: LanguageModelsState = createDefaultState()
+  const newState: LanguageModelsState = createDefaultState()
+  const diffResult: readonly number[] = [999]
+
+  expect(() => {
+    applyRender(oldState, newState, diffResult)
+  }).toThrow('unknown renderer')
+})
+
+test('applyRender handles RenderFocus with focus List', () => {
+  const oldState: LanguageModelsState = createDefaultState()
+  const newState: LanguageModelsState = {
+    ...createDefaultState(),
+    focus: FocusId.List,
+    uid: 111,
+  }
+  const diffResult: readonly number[] = [DiffType.RenderFocus]
+
+  const result: readonly any[] = applyRender(oldState, newState, diffResult)
+
+  expect(result.length).toBe(1)
+  expect(result[0][0]).toBe(ViewletCommand.SetFocusContext)
+})
