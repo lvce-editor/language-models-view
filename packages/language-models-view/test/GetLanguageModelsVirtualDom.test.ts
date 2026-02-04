@@ -17,6 +17,7 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
       type: VirtualDomElements.Div,
     },
     {
+      autocomplete: 'off',
       className: 'InputBox LanguageModelsFilter',
       inputType: 'search',
       name: 'LanguageModelsFilter',
@@ -74,6 +75,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
       type: VirtualDomElements.Div,
     },
     {
+      autocomplete: 'off',
       className: 'InputBox LanguageModelsFilter',
       inputType: 'search',
       name: 'LanguageModelsFilter',
@@ -154,6 +156,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.Div,
     },
     {
+      autocomplete: 'off',
       className: 'InputBox LanguageModelsFilter',
       inputType: 'search',
       name: 'LanguageModelsFilter',

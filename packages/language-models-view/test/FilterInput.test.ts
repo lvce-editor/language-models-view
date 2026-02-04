@@ -5,6 +5,7 @@ import { getFilterInput } from '../src/parts/FilterInput/GetFilterInputVirtualDo
 test('getFilterInput returns input element with correct properties', () => {
   const result = getFilterInput()
   expect(result).toEqual({
+    autocomplete: 'off',
     className: 'InputBox LanguageModelsFilter',
     inputType: 'search',
     name: 'LanguageModelsFilter',

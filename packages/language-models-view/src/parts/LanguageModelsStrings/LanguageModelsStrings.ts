@@ -16,3 +16,7 @@ export const id = (): string => {
 export const name = (): string => {
   return I18nString.i18nString(UiStrings.Name)
 }
+
+export const provider = (): string => {
+  return I18nString.i18nString(UiStrings.Provider)
+}

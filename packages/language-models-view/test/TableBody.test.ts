@@ -52,7 +52,7 @@ test('getTableBodyVirtualDom returns correct structure for single model', () => 
       type: VirtualDomElements.TBody,
     },
     {
-      childCount: 2,
+      childCount: 3,
       type: VirtualDomElements.Tr,
     },
     {
@@ -69,6 +69,14 @@ test('getTableBodyVirtualDom returns correct structure for single model', () => 
     },
     {
       text: 'GPT-4',
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      type: VirtualDomElements.Td,
+    },
+    {
+      text: 'openai',
       type: VirtualDomElements.Text,
     },
   ])
@@ -86,7 +94,7 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
       type: VirtualDomElements.TBody,
     },
     {
-      childCount: 2,
+      childCount: 3,
       type: VirtualDomElements.Tr,
     },
     {
@@ -106,7 +114,15 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
       type: VirtualDomElements.Text,
     },
     {
-      childCount: 2,
+      childCount: 1,
+      type: VirtualDomElements.Td,
+    },
+    {
+      text: 'openai',
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 3,
       type: VirtualDomElements.Tr,
     },
     {
@@ -123,6 +139,14 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
     },
     {
       text: 'Claude',
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      type: VirtualDomElements.Td,
+    },
+    {
+      text: 'anthropic',
       type: VirtualDomElements.Text,
     },
   ])
