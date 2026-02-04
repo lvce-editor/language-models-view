@@ -1,10 +1,11 @@
 import { expect, test } from '@jest/globals'
+import type { LanguageModel } from '../src/parts/LanguageModel/LanguageModel.ts'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
 import { handleFilterInput } from '../src/parts/HandleFilterInput/HandleFilterInput.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 
 test('handleFilterInput - empty filter returns all models', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
       deprecated: false,
@@ -37,7 +38,7 @@ test('handleFilterInput - empty filter returns all models', () => {
 })
 
 test('handleFilterInput - filters by model name (exact match)', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
       deprecated: false,
@@ -70,7 +71,7 @@ test('handleFilterInput - filters by model name (exact match)', () => {
 })
 
 test('handleFilterInput - filters by model name (partial match)', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
       deprecated: false,
@@ -102,7 +103,7 @@ test('handleFilterInput - filters by model name (partial match)', () => {
 })
 
 test('handleFilterInput - filters by model id', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
       deprecated: false,
@@ -135,7 +136,7 @@ test('handleFilterInput - filters by model id', () => {
 })
 
 test('handleFilterInput - case-insensitive filtering for name', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
       deprecated: false,
@@ -159,7 +160,7 @@ test('handleFilterInput - case-insensitive filtering for name', () => {
       selected: false,
     },
   ]
-  const state = { ...createDefaultState(), models, filteredModels: models }
+  const state: LanguageModelsState = { ...createDefaultState(), models, filteredModels: models }
   const result = handleFilterInput(state, 'gpt')
 
   expect(result.filteredModels).toHaveLength(1)
@@ -167,7 +168,7 @@ test('handleFilterInput - case-insensitive filtering for name', () => {
 })
 
 test('handleFilterInput - case-insensitive filtering for id', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
       deprecated: false,
@@ -191,7 +192,7 @@ test('handleFilterInput - case-insensitive filtering for id', () => {
       selected: false,
     },
   ]
-  const state = { ...createDefaultState(), models, filteredModels: models }
+  const state: LanguageModelsState = { ...createDefaultState(), models, filteredModels: models }
   const result = handleFilterInput(state, 'GPT-4')
 
   expect(result.filteredModels).toHaveLength(1)
@@ -199,7 +200,7 @@ test('handleFilterInput - case-insensitive filtering for id', () => {
 })
 
 test('handleFilterInput - no matches returns empty array', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
       deprecated: false,
@@ -231,7 +232,7 @@ test('handleFilterInput - no matches returns empty array', () => {
 })
 
 test('handleFilterInput - multiple matches', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
       deprecated: false,
@@ -274,7 +275,7 @@ test('handleFilterInput - multiple matches', () => {
 })
 
 test('handleFilterInput - preserves state immutability', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
       deprecated: false,
@@ -297,7 +298,7 @@ test('handleFilterInput - preserves state immutability', () => {
 })
 
 test('handleFilterInput - updates filterValue correctly', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
       deprecated: false,
@@ -317,7 +318,7 @@ test('handleFilterInput - updates filterValue correctly', () => {
 })
 
 test('handleFilterInput - preserves other state properties', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
       deprecated: false,
@@ -349,7 +350,7 @@ test('handleFilterInput - handles empty models array', () => {
 })
 
 test('handleFilterInput - whitespace handling', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
       deprecated: false,
