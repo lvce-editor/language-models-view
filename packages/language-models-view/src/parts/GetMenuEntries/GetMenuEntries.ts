@@ -3,5 +3,39 @@ import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsS
 import type { MenuEntry } from '../MenuEntry/MenuEntry.ts'
 
 export const getMenuEntries = (state: LanguageModelsState, options: ContextMenuProps): readonly MenuEntry[] => {
-  return []
+  const { filteredModels } = state
+  
+  // For now, use the selected model if available
+  // In a more complete implementation, you could compute the row from context menu position
+  const selectedModel = filteredModels.find((model) => model.selected)
+  
+  if (!selectedModel) {
+    return []
+  }
+
+  const entries: MenuEntry[] = []
+
+  // Add Enable Model entry if the model is currently disabled
+  if (!selectedModel.enabled) {
+    entries.push({
+      args: selectedModel.id,
+      command: 'LanguageModels.enableModel',
+      flags: 0,
+      id: 'enable-model',
+      label: 'Enable Model',
+    })
+  }
+
+  // Add Disable Model entry if the model is currently enabled
+  if (selectedModel.enabled) {
+    entries.push({
+      args: selectedModel.id,
+      command: 'LanguageModels.disableModel',
+      flags: 0,
+      id: 'disable-model',
+      label: 'Disable Model',
+    })
+  }
+
+  return entries
 }

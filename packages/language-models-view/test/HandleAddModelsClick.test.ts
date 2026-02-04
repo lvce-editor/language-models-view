@@ -9,6 +9,7 @@ test('handleAddModelsClick adds a dummy model', () => {
     filterValue: '',
     headerHeight: 25,
     initial: false,
+    inputSource: 0,
     models: [],
     platform: 1,
     rowHeight: 20,

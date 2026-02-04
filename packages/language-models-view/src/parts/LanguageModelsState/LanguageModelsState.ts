@@ -5,6 +5,7 @@ export interface LanguageModelsState {
   readonly filterValue: string
   readonly headerHeight: number
   readonly initial: boolean
+  readonly inputSource: number
   readonly models: readonly LanguageModel[]
   readonly platform: number
   readonly rowHeight: number

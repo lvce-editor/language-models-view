@@ -5,6 +5,7 @@ export const createDefaultState = (): LanguageModelsState => ({
   filterValue: '',
   headerHeight: 25,
   initial: false,
+  inputSource: 1,
   models: [],
   platform: 0,
   rowHeight: 20,
