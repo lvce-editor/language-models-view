@@ -30,6 +30,7 @@ const getTableCell = (text: string): VirtualDomNode => {
 export const getTableBody = (models: readonly LanguageModel[]): VirtualDomNode => {
   return {
     childCount: models.length,
+    className: ClassNames.TableBody,
     onMouseDown: DomEventListenerFunctions.HandleMouseDown,
     type: VirtualDomElements.TBody,
   }
