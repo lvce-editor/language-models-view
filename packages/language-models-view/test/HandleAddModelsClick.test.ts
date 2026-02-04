@@ -1,6 +1,6 @@
 import { expect, test } from '@jest/globals'
-import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { handleAddModelsClick } from '../src/parts/HandleAddModelsClick/HandleAddModelsClick.ts'
 
 test('handleAddModelsClick adds a dummy model', () => {
@@ -91,10 +91,10 @@ test('handleAddModelsClick works with empty models', () => {
 test('handleAddModelsClick works with filtered models', () => {
   const state = {
     ...createDefaultState(),
-    filterValue: 'gpt',
     filteredModels: [
       { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
     ],
+    filterValue: 'gpt',
     models: [
       { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
       { enabled: false, id: 'claude', inputContextSize: 200_000, name: 'Claude', outputContextSize: 4096, provider: 'anthropic', selected: false },

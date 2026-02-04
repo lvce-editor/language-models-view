@@ -1,5 +1,5 @@
-import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsState.ts'
 import type { LanguageModel } from '../LanguageModel/LanguageModel.ts'
+import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsState.ts'
 
 export const handleAddModelsClick = (state: LanguageModelsState): LanguageModelsState => {
   // Create a dummy model
@@ -22,7 +22,7 @@ export const handleAddModelsClick = (state: LanguageModelsState): LanguageModels
 
   return {
     ...state,
-    models: newModels,
     filteredModels: newFilteredModels,
+    models: newModels,
   }
 }
