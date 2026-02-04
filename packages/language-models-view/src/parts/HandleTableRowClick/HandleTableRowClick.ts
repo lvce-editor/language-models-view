@@ -8,7 +8,7 @@ export const handleTableRowClick = (state: LanguageModelsState, button: number, 
     return state
   }
 
-  const { filteredModels, headerHeight, rowHeight, y: stateY } = state
+  const { headerHeight, rowHeight, y: stateY } = state
 
   // Calculate relative Y position from the top of the table
   const relativeY = y - stateY
