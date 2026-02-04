@@ -5,7 +5,7 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import { handleTableContextMenu } from '../src/parts/HandleTableContextMenu/HandleTableContextMenu.ts'
 
 test('handleTableContextMenu calls ContextMenu.show2 with correct parameters', async () => {
-  const mockRpc = RendererWorker.registerMockRpc({
+  using mockRpc = RendererWorker.registerMockRpc({
     'ContextMenu.show2'() {},
   })
 
@@ -44,7 +44,7 @@ test('handleTableContextMenu returns state unchanged', async () => {
 })
 
 test('handleTableContextMenu handles different coordinates', async () => {
-  const mockRpc = RendererWorker.registerMockRpc({
+  using mockRpc = RendererWorker.registerMockRpc({
     'ContextMenu.show2'() {},
   })
 
@@ -59,7 +59,7 @@ test('handleTableContextMenu handles different coordinates', async () => {
 })
 
 test('handleTableContextMenu handles large coordinates', async () => {
-  const mockRpc = RendererWorker.registerMockRpc({
+  using mockRpc = RendererWorker.registerMockRpc({
     'ContextMenu.show2'() {},
   })
 
@@ -74,7 +74,7 @@ test('handleTableContextMenu handles large coordinates', async () => {
 })
 
 test('handleTableContextMenu uses correct menu ID', async () => {
-  const mockRpc = RendererWorker.registerMockRpc({
+  using mockRpc = RendererWorker.registerMockRpc({
     'ContextMenu.show2'() {},
   })
 

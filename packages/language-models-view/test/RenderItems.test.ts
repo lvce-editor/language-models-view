@@ -2,6 +2,7 @@ import { expect, test } from '@jest/globals'
 import { ViewletCommand } from '@lvce-editor/constants'
 import type { LanguageModel } from '../src/parts/LanguageModel/LanguageModel.ts'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { renderItems } from '../src/parts/RenderItems/RenderItems.ts'
 
 const createMockLanguageModel = (overrides: Partial<LanguageModel> = {}): LanguageModel => ({
@@ -18,19 +19,10 @@ const createMockLanguageModel = (overrides: Partial<LanguageModel> = {}): Langua
 })
 
 const createMockState = (overrides: Partial<LanguageModelsState> = {}): LanguageModelsState => ({
-  filteredModels: [],
-  filterValue: '',
+  ...createDefaultState(),
   headerHeight: 0,
-  initial: false,
-  inputSource: 0,
-  models: [],
-  platform: 0,
   rowHeight: 0,
-  scrollBarHeight: 0,
-  uid: 1,
   width: 0,
-  x: 0,
-  y: 0,
   ...overrides,
 })
 

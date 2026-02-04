@@ -1,22 +1,14 @@
 import { expect, test } from '@jest/globals'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DiffFilterValue from '../src/parts/DiffFilterValue/DiffFilterValue.ts'
 
 test('DiffFilterValue.diffFilterValue should return true when filterValue is the same', () => {
   const oldState: LanguageModelsState = {
-    filteredModels: [],
+    ...createDefaultState(),
     filterValue: 'test',
-    headerHeight: 25,
     initial: true,
-    inputSource: 0,
-    models: [],
-    platform: 0,
-    rowHeight: 20,
-    scrollBarHeight: 0,
-    uid: 1,
     width: 100,
-    x: 0,
-    y: 0,
   }
 
   const newState: LanguageModelsState = {
@@ -30,19 +22,11 @@ test('DiffFilterValue.diffFilterValue should return true when filterValue is the
 
 test('DiffFilterValue.diffFilterValue should return false when filterValue is different', () => {
   const oldState: LanguageModelsState = {
-    filteredModels: [],
+    ...createDefaultState(),
     filterValue: 'test1',
-    headerHeight: 25,
     initial: true,
-    inputSource: 0,
-    models: [],
-    platform: 0,
-    rowHeight: 20,
-    scrollBarHeight: 0,
-    uid: 1,
+    inputSource: 2,
     width: 100,
-    x: 0,
-    y: 0,
   }
 
   const newState: LanguageModelsState = {
@@ -56,19 +40,11 @@ test('DiffFilterValue.diffFilterValue should return false when filterValue is di
 
 test('DiffFilterValue.diffFilterValue should return true when inputSource is 1 (user input), even if filterValue is different', () => {
   const oldState: LanguageModelsState = {
-    filteredModels: [],
+    ...createDefaultState(),
     filterValue: 'test1',
-    headerHeight: 25,
     initial: true,
     inputSource: 1,
-    models: [],
-    platform: 0,
-    rowHeight: 20,
-    scrollBarHeight: 0,
-    uid: 1,
     width: 100,
-    x: 0,
-    y: 0,
   }
 
   const newState: LanguageModelsState = {
@@ -82,19 +58,11 @@ test('DiffFilterValue.diffFilterValue should return true when inputSource is 1 (
 
 test('DiffFilterValue.diffFilterValue should return true when inputSource is 1 (user input), even if filterValue is the same', () => {
   const oldState: LanguageModelsState = {
-    filteredModels: [],
+    ...createDefaultState(),
     filterValue: 'test',
-    headerHeight: 25,
     initial: true,
     inputSource: 1,
-    models: [],
-    platform: 0,
-    rowHeight: 20,
-    scrollBarHeight: 0,
-    uid: 1,
     width: 100,
-    x: 0,
-    y: 0,
   }
 
   const newState: LanguageModelsState = {

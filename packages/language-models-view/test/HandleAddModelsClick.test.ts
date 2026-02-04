@@ -5,19 +5,9 @@ import { handleAddModelsClick } from '../src/parts/HandleAddModelsClick/HandleAd
 
 test('handleAddModelsClick adds a dummy model', () => {
   const state: LanguageModelsState = {
-    filteredModels: [],
-    filterValue: '',
-    headerHeight: 25,
-    initial: false,
-    inputSource: 0,
-    models: [],
+    ...createDefaultState(),
     platform: 1,
-    rowHeight: 20,
-    scrollBarHeight: 0,
-    uid: 1,
     width: 800,
-    x: 0,
-    y: 0,
   }
 
   const result = handleAddModelsClick(state)

@@ -3,7 +3,7 @@ import type { LanguageModelsState } from '../src/parts/LanguageModelsState/Langu
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { enableModel } from '../src/parts/EnableModel/EnableModel.ts'
 
-test('enableModel enables a model by id', () => {
+test('enableModel enables a model by id', async () => {
   const state: LanguageModelsState = {
     ...createDefaultState(),
     models: [
@@ -32,13 +32,13 @@ test('enableModel enables a model by id', () => {
     ],
   }
 
-  const result = enableModel(state, 'gpt-4')
+  const result = await enableModel(state, 'gpt-4')
 
   expect(result.models[0].enabled).toBe(true)
   expect(result.models[1].enabled).toBe(false)
 })
 
-test('enableModel returns unchanged state if model id not found', () => {
+test('enableModel returns unchanged state if model id not found', async () => {
   const state: LanguageModelsState = {
     ...createDefaultState(),
     models: [
@@ -56,12 +56,12 @@ test('enableModel returns unchanged state if model id not found', () => {
     ],
   }
 
-  const result = enableModel(state, 'nonexistent')
+  const result = await enableModel(state, 'nonexistent')
 
   expect(result.models[0].enabled).toBe(false)
 })
 
-test('enableModel does not modify other model properties', () => {
+test('enableModel does not modify other model properties', async () => {
   const state: LanguageModelsState = {
     ...createDefaultState(),
     models: [
@@ -79,13 +79,13 @@ test('enableModel does not modify other model properties', () => {
     ],
   }
 
-  const result = enableModel(state, 'gpt-4')
+  const result = await enableModel(state, 'gpt-4')
 
   expect(result.models[0].id).toBe('gpt-4')
   expect(result.models[0].name).toBe('GPT-4')
 })
 
-test('enableModel preserves other state properties', () => {
+test('enableModel preserves other state properties', async () => {
   const state: LanguageModelsState = {
     ...createDefaultState(),
     filterValue: 'test',
@@ -110,7 +110,7 @@ test('enableModel preserves other state properties', () => {
     y: 20,
   }
 
-  const result = enableModel(state, 'gpt-4')
+  const result = await enableModel(state, 'gpt-4')
 
   expect(result.initial).toBe(false)
   expect(result.filterValue).toBe('test')

@@ -1,15 +1,6 @@
 import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsState.ts'
+import * as UpdateModel from '../UpdateModel/UpdateModel.ts'
 
-export const enableModel = ({ models, ...state }: LanguageModelsState, modelId: string): LanguageModelsState => {
-  const updatedModels = models.map(({ id, ...rest }) => {
-    if (id === modelId) {
-      return { ...rest, enabled: true, id }
-    }
-    return { ...rest, id }
-  })
-
-  return {
-    ...state,
-    models: updatedModels,
-  }
+export const enableModel = (state: LanguageModelsState, modelId: string): Promise<LanguageModelsState> => {
+  return UpdateModel.updateModel(state, modelId, true)
 }

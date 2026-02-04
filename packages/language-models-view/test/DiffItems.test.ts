@@ -30,6 +30,8 @@ test('isEqual returns true when models and filteredModels are the same', () => {
   ]
 
   const state1: LanguageModelsState = {
+    cacheKey: 'disabled-models',
+    cacheName: 'language-models-cache',
     filteredModels: models,
     filterValue: '',
     headerHeight: 25,
@@ -85,6 +87,8 @@ test('isEqual returns false when models are different', () => {
   ]
 
   const state1: LanguageModelsState = {
+    cacheKey: 'disabled-models',
+    cacheName: 'language-models-cache',
     filteredModels: models1,
     filterValue: '',
     headerHeight: 25,
@@ -101,6 +105,8 @@ test('isEqual returns false when models are different', () => {
   }
 
   const state2: LanguageModelsState = {
+    cacheKey: 'disabled-models',
+    cacheName: 'language-models-cache',
     filteredModels: models1,
     filterValue: '',
     headerHeight: 25,
@@ -150,6 +156,8 @@ test('isEqual returns false when filteredModels are different', () => {
   ]
 
   const state1: LanguageModelsState = {
+    cacheKey: 'disabled-models',
+    cacheName: 'language-models-cache',
     filteredModels: models,
     filterValue: '',
     headerHeight: 25,
@@ -166,6 +174,8 @@ test('isEqual returns false when filteredModels are different', () => {
   }
 
   const state2: LanguageModelsState = {
+    cacheKey: 'disabled-models',
+    cacheName: 'language-models-cache',
     filteredModels: filteredModels,
     filterValue: '',
     headerHeight: 25,
@@ -243,6 +253,8 @@ test('isEqual returns false when both models and filteredModels are different', 
   ]
 
   const state1: LanguageModelsState = {
+    cacheKey: 'disabled-models',
+    cacheName: 'language-models-cache',
     filteredModels: filteredModels1,
     filterValue: '',
     headerHeight: 25,
@@ -259,6 +271,8 @@ test('isEqual returns false when both models and filteredModels are different', 
   }
 
   const state2: LanguageModelsState = {
+    cacheKey: 'disabled-models',
+    cacheName: 'language-models-cache',
     filteredModels: filteredModels2,
     filterValue: '',
     headerHeight: 25,
@@ -282,6 +296,8 @@ test('isEqual returns true with empty models arrays', () => {
   const models: any[] = []
 
   const state1: LanguageModelsState = {
+    cacheKey: 'disabled-models',
+    cacheName: 'language-models-cache',
     filteredModels: models,
     filterValue: '',
     headerHeight: 25,
@@ -323,6 +339,8 @@ test('isEqual ignores other state properties like filterValue', () => {
   ]
 
   const state1: LanguageModelsState = {
+    cacheKey: 'disabled-models',
+    cacheName: 'language-models-cache',
     filteredModels: models,
     filterValue: 'search1',
     headerHeight: 25,
@@ -339,6 +357,8 @@ test('isEqual ignores other state properties like filterValue', () => {
   }
 
   const state2: LanguageModelsState = {
+    cacheKey: 'disabled-models',
+    cacheName: 'language-models-cache',
     filteredModels: models,
     filterValue: 'search2',
     headerHeight: 25,

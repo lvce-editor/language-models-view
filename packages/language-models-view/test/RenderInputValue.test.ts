@@ -1,23 +1,16 @@
 import { expect, test } from '@jest/globals'
 import { ViewletCommand } from '@lvce-editor/constants'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as RenderInputValue from '../src/parts/RenderInputValue/RenderInputValue.ts'
 
 test('RenderInputValue.renderInputValue should return the correct command array', () => {
   const oldState: LanguageModelsState = {
-    filteredModels: [],
+    ...createDefaultState(),
     filterValue: 'old',
-    headerHeight: 25,
     initial: true,
-    inputSource: 0,
-    models: [],
-    platform: 0,
-    rowHeight: 20,
-    scrollBarHeight: 0,
     uid: 42,
     width: 100,
-    x: 0,
-    y: 0,
   }
 
   const newState: LanguageModelsState = {
@@ -32,35 +25,20 @@ test('RenderInputValue.renderInputValue should return the correct command array'
 
 test('RenderInputValue.renderInputValue should use newState values', () => {
   const oldState: LanguageModelsState = {
-    filteredModels: [],
+    ...createDefaultState(),
     filterValue: 'initial',
-    headerHeight: 25,
     initial: true,
-    inputSource: 0,
-    models: [],
-    platform: 0,
-    rowHeight: 20,
-    scrollBarHeight: 0,
-    uid: 1,
+    uid: 42,
     width: 100,
-    x: 0,
-    y: 0,
   }
 
   const newState: LanguageModelsState = {
-    filteredModels: [],
+    ...createDefaultState(),
     filterValue: 'updated value',
-    headerHeight: 25,
     initial: false,
     inputSource: 1,
-    models: [],
-    platform: 0,
-    rowHeight: 20,
-    scrollBarHeight: 0,
     uid: 99,
     width: 100,
-    x: 0,
-    y: 0,
   }
 
   const result = RenderInputValue.renderInputValue(oldState, newState)
@@ -73,19 +51,11 @@ test('RenderInputValue.renderInputValue should use newState values', () => {
 
 test('RenderInputValue.renderInputValue should handle empty filter value', () => {
   const oldState: LanguageModelsState = {
-    filteredModels: [],
+    ...createDefaultState(),
     filterValue: 'something',
-    headerHeight: 25,
     initial: true,
-    inputSource: 0,
-    models: [],
-    platform: 0,
-    rowHeight: 20,
-    scrollBarHeight: 0,
     uid: 5,
     width: 100,
-    x: 0,
-    y: 0,
   }
 
   const newState: LanguageModelsState = {
@@ -100,19 +70,11 @@ test('RenderInputValue.renderInputValue should handle empty filter value', () =>
 
 test('RenderInputValue.renderInputValue should return array format', () => {
   const oldState: LanguageModelsState = {
-    filteredModels: [],
+    ...createDefaultState(),
     filterValue: 'test',
-    headerHeight: 25,
     initial: true,
-    inputSource: 0,
-    models: [],
-    platform: 0,
-    rowHeight: 20,
-    scrollBarHeight: 0,
     uid: 10,
     width: 100,
-    x: 0,
-    y: 0,
   }
 
   const newState: LanguageModelsState = {
