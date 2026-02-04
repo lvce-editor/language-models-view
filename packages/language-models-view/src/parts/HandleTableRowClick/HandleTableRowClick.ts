@@ -23,6 +23,11 @@ export const handleTableRowClick = (state: LanguageModelsState, button: number, 
   // Get the clicked model
   const clickedModel = filteredModels[rowIndex]
 
+  // Guard against undefined clickedModel
+  if (!clickedModel) {
+    return state
+  }
+
   // Update models - toggle selection on clicked model, clear others
   const updatedModels = models.map((model) => ({
     ...model,
