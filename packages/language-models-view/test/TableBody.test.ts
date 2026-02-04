@@ -13,7 +13,7 @@ test('getTableBody returns tbody element with correct childCount for empty array
 
 test('getTableBody returns tbody element with correct childCount for single model', () => {
   const models: readonly LanguageModel[] = [
-    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+    { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
   ]
   const result = getTableBody(models)
   expect(result).toEqual({
@@ -24,9 +24,9 @@ test('getTableBody returns tbody element with correct childCount for single mode
 
 test('getTableBody returns tbody element with correct childCount for multiple models', () => {
   const models: readonly LanguageModel[] = [
-    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
-    { enabled: true, id: 'gpt-3.5', inputContextSize: 16_385, name: 'GPT-3.5', outputContextSize: 4096, provider: 'openai', selected: false },
-    { enabled: false, id: 'claude', inputContextSize: 200_000, name: 'Claude', outputContextSize: 4096, provider: 'anthropic', selected: false },
+    { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+    { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-3.5', inputContextSize: 16_385, name: 'GPT-3.5', outputContextSize: 4096, provider: 'openai', selected: false },
+    { capabilities: { tools: false, vision: false }, enabled: false, id: 'claude', inputContextSize: 200_000, name: 'Claude', outputContextSize: 4096, provider: 'anthropic', selected: false },
   ]
   const result = getTableBody(models)
   expect(result).toEqual({
@@ -47,7 +47,7 @@ test('getTableBodyVirtualDom returns empty array for empty models', () => {
 
 test('getTableBodyVirtualDom returns correct structure for single model', () => {
   const models: readonly LanguageModel[] = [
-    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+    { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
   ]
   const result = getTableBodyVirtualDom(models)
   expect(result).toEqual([
@@ -96,8 +96,8 @@ test('getTableBodyVirtualDom returns correct structure for single model', () => 
 
 test('getTableBodyVirtualDom returns correct structure for multiple models', () => {
   const models: readonly LanguageModel[] = [
-    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
-    { enabled: true, id: 'claude', inputContextSize: 200_000, name: 'Claude', outputContextSize: 4096, provider: 'anthropic', selected: false },
+    { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+    { capabilities: { tools: false, vision: false }, enabled: true, id: 'claude', inputContextSize: 200_000, name: 'Claude', outputContextSize: 4096, provider: 'anthropic', selected: false },
   ]
   const result = getTableBodyVirtualDom(models)
   expect(result).toEqual([
@@ -182,7 +182,7 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
 
 test('getTableBodyVirtualDom returns consistent results on multiple calls with same models', () => {
   const models: readonly LanguageModel[] = [
-    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+    { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
   ]
   const result1 = getTableBodyVirtualDom(models)
   const result2 = getTableBodyVirtualDom(models)

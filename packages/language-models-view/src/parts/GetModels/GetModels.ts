@@ -1,4 +1,6 @@
-export const getModels = async (): Promise<any[]> => {
+import type { LanguageModel } from '../LanguageModel/LanguageModel.ts'
+
+export const getModels = async (): Promise<readonly LanguageModel[]> => {
   return [
     {
       capabilities: { tools: true, vision: true },

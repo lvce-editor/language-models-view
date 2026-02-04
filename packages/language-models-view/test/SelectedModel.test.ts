@@ -5,8 +5,8 @@ import { getTableBodyVirtualDom } from '../src/parts/TableBody/GetTableBodyVirtu
 
 test('getTableBodyVirtualDom applies Selected class to selected model', () => {
   const models: readonly LanguageModel[] = [
-    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: true },
-    { enabled: true, id: 'claude', inputContextSize: 200_000, name: 'Claude', outputContextSize: 4096, provider: 'anthropic', selected: false },
+    { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: true },
+    { capabilities: { tools: false, vision: false }, enabled: true, id: 'claude', inputContextSize: 200_000, name: 'Claude', outputContextSize: 4096, provider: 'anthropic', selected: false },
   ]
   const result = getTableBodyVirtualDom(models)
 
@@ -23,7 +23,7 @@ test('getTableBodyVirtualDom applies Selected class to selected model', () => {
 
 test('getTableBodyVirtualDom does not apply Selected class when no model is selected', () => {
   const models: readonly LanguageModel[] = [
-    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+    { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
   ]
   const result = getTableBodyVirtualDom(models)
 
@@ -35,8 +35,8 @@ test('getTableBodyVirtualDom does not apply Selected class when no model is sele
 
 test('getTableBodyVirtualDom applies Selected class to multiple selected models', () => {
   const models: readonly LanguageModel[] = [
-    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: true },
-    { enabled: true, id: 'claude', inputContextSize: 200_000, name: 'Claude', outputContextSize: 4096, provider: 'anthropic', selected: true },
+    { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: true },
+    { capabilities: { tools: false, vision: false }, enabled: true, id: 'claude', inputContextSize: 200_000, name: 'Claude', outputContextSize: 4096, provider: 'anthropic', selected: true },
   ]
   const result = getTableBodyVirtualDom(models)
 

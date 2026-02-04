@@ -19,6 +19,7 @@ test('handleAddModelsClick adds a dummy model', () => {
 
   const result = handleAddModelsClick(state)
   expect(result.models.length).toBe(1)
+  expect(result.models[0].capabilities).toEqual({ tools: false, vision: false })
   expect(result.models[0].name).toBe('Dummy Model')
   expect(result.models[0].provider).toBe('mock-provider')
   expect(result.models[0].enabled).toBe(true)
@@ -34,8 +35,8 @@ test('handleAddModelsClick preserves all state properties and adds a model', () 
     ...createDefaultState(),
     filterValue: 'test filter',
     models: [
-      { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
-      { enabled: false, id: 'claude', inputContextSize: 200_000, name: 'Claude', outputContextSize: 4096, provider: 'anthropic', selected: true },
+      { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+      { capabilities: { tools: false, vision: false }, enabled: false, id: 'claude', inputContextSize: 200_000, name: 'Claude', outputContextSize: 4096, provider: 'anthropic', selected: true },
     ],
     platform: 2,
     scrollBarHeight: 15,
@@ -63,7 +64,7 @@ test('handleAddModelsClick preserves all state properties and adds a model', () 
 test('handleAddModelsClick does not mutate input state', () => {
   const state = {
     ...createDefaultState(),
-    models: [{ enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false }],
+    models: [{ capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false }],
   }
 
   const originalModels = state.models
