@@ -1,6 +1,8 @@
 import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsState.ts'
 
 export const createDefaultState = (): LanguageModelsState => ({
+  cacheKey: 'disabled-models',
+  cacheName: 'language-models-cache',
   filteredModels: [],
   filterValue: '',
   headerHeight: 25,

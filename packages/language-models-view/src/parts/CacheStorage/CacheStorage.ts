@@ -1,10 +1,7 @@
-const CACHE_NAME = 'language-models-cache'
-const CACHE_KEY = 'disabled-models'
-
-export const getDisabledModels = async (): Promise<string[]> => {
+export const getDisabledModels = async (cacheName: string, cacheKey: string): Promise<string[]> => {
   try {
-    const cache = await caches.open(CACHE_NAME)
-    const response = await cache.match(CACHE_KEY)
+    const cache = await caches.open(cacheName)
+    const response = await cache.match(cacheKey)
 
     if (!response) {
       return []
@@ -13,7 +10,7 @@ export const getDisabledModels = async (): Promise<string[]> => {
     const data = await response.json()
 
     if (Array.isArray(data.disabledModelIds)) {
-      return data.disabledModelIds
+      return data.disabledModelIds.filter((id): id is string => typeof id === 'string')
     }
 
     return []
@@ -23,13 +20,13 @@ export const getDisabledModels = async (): Promise<string[]> => {
   }
 }
 
-export const saveDisabledModels = async (disabledModelIds: string[]): Promise<void> => {
+export const saveDisabledModels = async (disabledModelIds: string[], cacheName: string, cacheKey: string): Promise<void> => {
   try {
-    const cache = await caches.open(CACHE_NAME)
+    const cache = await caches.open(cacheName)
     const response = Response.json({ disabledModelIds }, {
       headers: { 'Content-Type': 'application/json' },
     })
-    await cache.put(CACHE_KEY, response)
+    await cache.put(cacheKey, response)
   } catch (error) {
     console.error('Error writing to cache storage:', error)
   }

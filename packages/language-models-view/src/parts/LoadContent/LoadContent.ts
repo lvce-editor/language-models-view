@@ -7,7 +7,7 @@ export const loadContent = async (state: LanguageModelsState, savedState?: unkno
   const models = await getModels()
 
   // Load disabled models from cache
-  const disabledModelIds = await CacheStorage.getDisabledModels()
+  const disabledModelIds = await CacheStorage.getDisabledModels(state.cacheName, state.cacheKey)
 
   // Apply cached disabled state to models
   const modelsWithCachedState = models.map((model) => ({

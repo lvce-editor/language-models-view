@@ -14,6 +14,8 @@ export const create = (
   platform: number = 0,
 ): any => {
   const state: LanguageModelsState = {
+    cacheKey: 'disabled-models',
+    cacheName: 'language-models-cache',
     filteredModels: [],
     filterValue: '',
     headerHeight: 25,
