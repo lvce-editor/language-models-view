@@ -1,26 +1,13 @@
 import { expect, test } from '@jest/globals'
+import type { LanguageModel } from '../src/parts/LanguageModel/LanguageModel.ts'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { handleFilterInput } from '../src/parts/HandleFilterInput/HandleFilterInput.ts'
 
-const createMockState = (models: any[] = []): LanguageModelsState => ({
-  filteredModels: models,
-  filterValue: '',
-  headerHeight: 25,
-  initial: false,
-  models,
-  platform: 1,
-  rowHeight: 20,
-  scrollBarHeight: 15,
-  uid: 1,
-  width: 300,
-  x: 0,
-  y: 0,
-})
-
 test('handleFilterInput - empty filter returns all models', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -31,7 +18,7 @@ test('handleFilterInput - empty filter returns all models', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-3.5',
@@ -42,7 +29,7 @@ test('handleFilterInput - empty filter returns all models', () => {
       selected: false,
     },
   ]
-  const state = createMockState(models)
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, '')
 
   expect(result.filteredModels).toHaveLength(2)
@@ -51,9 +38,9 @@ test('handleFilterInput - empty filter returns all models', () => {
 })
 
 test('handleFilterInput - filters by model name (exact match)', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -64,7 +51,7 @@ test('handleFilterInput - filters by model name (exact match)', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-3.5',
@@ -75,7 +62,7 @@ test('handleFilterInput - filters by model name (exact match)', () => {
       selected: false,
     },
   ]
-  const state = createMockState(models)
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'GPT-4')
 
   expect(result.filteredModels).toHaveLength(1)
@@ -84,9 +71,9 @@ test('handleFilterInput - filters by model name (exact match)', () => {
 })
 
 test('handleFilterInput - filters by model name (partial match)', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -97,7 +84,7 @@ test('handleFilterInput - filters by model name (partial match)', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-3.5',
@@ -108,7 +95,7 @@ test('handleFilterInput - filters by model name (partial match)', () => {
       selected: false,
     },
   ]
-  const state = createMockState(models)
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'GPT')
 
   expect(result.filteredModels).toHaveLength(2)
@@ -116,9 +103,9 @@ test('handleFilterInput - filters by model name (partial match)', () => {
 })
 
 test('handleFilterInput - filters by model id', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -129,7 +116,7 @@ test('handleFilterInput - filters by model id', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-3.5',
@@ -140,7 +127,7 @@ test('handleFilterInput - filters by model id', () => {
       selected: false,
     },
   ]
-  const state = createMockState(models)
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'gpt-4')
 
   expect(result.filteredModels).toHaveLength(1)
@@ -149,9 +136,9 @@ test('handleFilterInput - filters by model id', () => {
 })
 
 test('handleFilterInput - case-insensitive filtering for name', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -162,7 +149,7 @@ test('handleFilterInput - case-insensitive filtering for name', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'claude',
@@ -173,7 +160,7 @@ test('handleFilterInput - case-insensitive filtering for name', () => {
       selected: false,
     },
   ]
-  const state = createMockState(models)
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'gpt')
 
   expect(result.filteredModels).toHaveLength(1)
@@ -181,9 +168,9 @@ test('handleFilterInput - case-insensitive filtering for name', () => {
 })
 
 test('handleFilterInput - case-insensitive filtering for id', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -194,7 +181,7 @@ test('handleFilterInput - case-insensitive filtering for id', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'claude',
@@ -205,7 +192,7 @@ test('handleFilterInput - case-insensitive filtering for id', () => {
       selected: false,
     },
   ]
-  const state = createMockState(models)
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'GPT-4')
 
   expect(result.filteredModels).toHaveLength(1)
@@ -213,9 +200,9 @@ test('handleFilterInput - case-insensitive filtering for id', () => {
 })
 
 test('handleFilterInput - no matches returns empty array', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -226,7 +213,7 @@ test('handleFilterInput - no matches returns empty array', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'claude',
@@ -237,7 +224,7 @@ test('handleFilterInput - no matches returns empty array', () => {
       selected: false,
     },
   ]
-  const state = createMockState(models)
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'nonexistent')
 
   expect(result.filteredModels).toHaveLength(0)
@@ -245,9 +232,9 @@ test('handleFilterInput - no matches returns empty array', () => {
 })
 
 test('handleFilterInput - multiple matches', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -258,7 +245,7 @@ test('handleFilterInput - multiple matches', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-3.5',
@@ -269,7 +256,7 @@ test('handleFilterInput - multiple matches', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: true,
       enabled: false,
       id: 'gpt-3',
@@ -280,7 +267,7 @@ test('handleFilterInput - multiple matches', () => {
       selected: false,
     },
   ]
-  const state = createMockState(models)
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, '3')
 
   expect(result.filteredModels).toHaveLength(2)
@@ -288,9 +275,9 @@ test('handleFilterInput - multiple matches', () => {
 })
 
 test('handleFilterInput - preserves state immutability', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -301,7 +288,7 @@ test('handleFilterInput - preserves state immutability', () => {
       selected: false,
     },
   ]
-  const state = createMockState(models)
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const originalState = { ...state }
   const result = handleFilterInput(state, 'gpt')
 
@@ -311,9 +298,9 @@ test('handleFilterInput - preserves state immutability', () => {
 })
 
 test('handleFilterInput - updates filterValue correctly', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -324,16 +311,16 @@ test('handleFilterInput - updates filterValue correctly', () => {
       selected: false,
     },
   ]
-  const state = createMockState(models)
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'search-term')
 
   expect(result.filterValue).toBe('search-term')
 })
 
 test('handleFilterInput - preserves other state properties', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -344,7 +331,7 @@ test('handleFilterInput - preserves other state properties', () => {
       selected: false,
     },
   ]
-  const state = createMockState(models)
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'gpt')
 
   expect(result.headerHeight).toBe(state.headerHeight)
@@ -355,7 +342,7 @@ test('handleFilterInput - preserves other state properties', () => {
 })
 
 test('handleFilterInput - handles empty models array', () => {
-  const state = createMockState([])
+  const state: LanguageModelsState = { ...createDefaultState() }
   const result = handleFilterInput(state, 'search')
 
   expect(result.filteredModels).toHaveLength(0)
@@ -363,9 +350,9 @@ test('handleFilterInput - handles empty models array', () => {
 })
 
 test('handleFilterInput - whitespace handling', () => {
-  const models = [
+  const models: readonly LanguageModel[] = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -376,7 +363,7 @@ test('handleFilterInput - whitespace handling', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'claude',
@@ -387,7 +374,7 @@ test('handleFilterInput - whitespace handling', () => {
       selected: false,
     },
   ]
-  const state = createMockState(models)
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'Turbo')
 
   expect(result.filteredModels).toHaveLength(1)

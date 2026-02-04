@@ -168,6 +168,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 1,
+      className: 'TableBody',
       onMouseDown: DomEventListenerFunctions.HandleMouseDown,
       type: VirtualDomElements.TBody,
     },
@@ -334,6 +335,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 2,
+      className: 'TableBody',
       onMouseDown: DomEventListenerFunctions.HandleMouseDown,
       type: VirtualDomElements.TBody,
     },
