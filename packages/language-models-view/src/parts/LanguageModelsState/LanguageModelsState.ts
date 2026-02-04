@@ -1,8 +1,10 @@
+import type { LanguageModel } from '../LanguageModel/LanguageModel.ts'
+
 export interface LanguageModelsState {
   readonly initial: boolean
-  readonly models: readonly any[]
+  readonly models: readonly LanguageModel[]
   readonly platform: number
-  readonly scrollBarHeight: any
+  readonly scrollBarHeight: number
   readonly uid: number
   readonly width: number
   readonly x: number
