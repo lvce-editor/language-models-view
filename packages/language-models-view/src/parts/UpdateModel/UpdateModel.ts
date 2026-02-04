@@ -1,9 +1,10 @@
+import type { LanguageModel } from '../LanguageModel/LanguageModel.ts'
 import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsState.ts'
 import * as CacheStorage from '../CacheStorage/CacheStorage.ts'
 
-const isEnabled = (model: any): boolean => model.enabled
+const isEnabled = (model: LanguageModel): boolean => model.enabled
 
-const getModelId = (model: any): string => model.id
+const getModelId = (model: LanguageModel): string => model.id
 
 export const updateModel = async (state: LanguageModelsState, modelId: string, enabled: boolean): Promise<LanguageModelsState> => {
   const { cacheKey, cacheName, models } = state
