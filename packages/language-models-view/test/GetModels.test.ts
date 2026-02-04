@@ -15,10 +15,12 @@ test('getModels should return models with correct properties', async () => {
     expect(model).toHaveProperty('enabled')
     expect(model).toHaveProperty('id')
     expect(model).toHaveProperty('name')
+    expect(model).toHaveProperty('provider')
     expect(model).toHaveProperty('selected')
     expect(typeof model.enabled).toBe('boolean')
     expect(typeof model.id).toBe('string')
     expect(typeof model.name).toBe('string')
+    expect(typeof model.provider).toBe('string')
     expect(typeof model.selected).toBe('boolean')
   }
 })
@@ -27,11 +29,11 @@ test('getModels should return specific models', async () => {
   const models = await GetModels.getModels()
 
   expect(models).toEqual([
-    { enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false },
-    { enabled: true, id: 'claude-3-opus', name: 'Claude 3 Opus', selected: false },
-    { enabled: true, id: 'llama-2', name: 'Llama 2', selected: false },
-    { enabled: false, id: 'mistral-7b', name: 'Mistral 7B', selected: false },
-    { enabled: true, id: 'gemini-pro', name: 'Gemini Pro', selected: false },
+    { enabled: true, id: 'gpt-4', name: 'GPT-4', provider: 'openai', selected: false },
+    { enabled: true, id: 'claude-3-opus', name: 'Claude 3 Opus', provider: 'anthropic', selected: false },
+    { enabled: true, id: 'llama-2', name: 'Llama 2', provider: 'meta', selected: false },
+    { enabled: false, id: 'mistral-7b', name: 'Mistral 7B', provider: 'mistral', selected: false },
+    { enabled: true, id: 'gemini-pro', name: 'Gemini Pro', provider: 'google', selected: false },
   ])
 })
 

@@ -5,16 +5,16 @@ import { getTableBodyVirtualDom } from '../src/parts/TableBody/GetTableBodyVirtu
 
 test('getTableBodyVirtualDom applies Selected class to selected model', () => {
   const models: readonly LanguageModel[] = [
-    { enabled: true, id: 'gpt-4', name: 'GPT-4', selected: true },
-    { enabled: true, id: 'claude', name: 'Claude', selected: false },
+    { enabled: true, id: 'gpt-4', name: 'GPT-4', provider: 'openai', selected: true },
+    { enabled: true, id: 'claude', name: 'Claude', provider: 'anthropic', selected: false },
   ]
   const result = getTableBodyVirtualDom(models)
-  
+
   // Find the first table row (for selected model)
   const firstRow = result[1]
   expect(firstRow.type).toEqual(VirtualDomElements.Tr)
   expect(firstRow.className).toEqual('Selected')
-  
+
   // Find the second table row (for non-selected model)
   const secondRow = result[6]
   expect(secondRow.type).toEqual(VirtualDomElements.Tr)
@@ -22,11 +22,9 @@ test('getTableBodyVirtualDom applies Selected class to selected model', () => {
 })
 
 test('getTableBodyVirtualDom does not apply Selected class when no model is selected', () => {
-  const models: readonly LanguageModel[] = [
-    { enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false },
-  ]
+  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', name: 'GPT-4', provider: 'openai', selected: false }]
   const result = getTableBodyVirtualDom(models)
-  
+
   // Find the table row
   const row = result[1]
   expect(row.type).toEqual(VirtualDomElements.Tr)
@@ -35,15 +33,15 @@ test('getTableBodyVirtualDom does not apply Selected class when no model is sele
 
 test('getTableBodyVirtualDom applies Selected class to multiple selected models', () => {
   const models: readonly LanguageModel[] = [
-    { enabled: true, id: 'gpt-4', name: 'GPT-4', selected: true },
-    { enabled: true, id: 'claude', name: 'Claude', selected: true },
+    { enabled: true, id: 'gpt-4', name: 'GPT-4', provider: 'openai', selected: true },
+    { enabled: true, id: 'claude', name: 'Claude', provider: 'anthropic', selected: true },
   ]
   const result = getTableBodyVirtualDom(models)
-  
+
   // Find the first table row
   const firstRow = result[1]
   expect(firstRow.className).toEqual('Selected')
-  
+
   // Find the second table row
   const secondRow = result[6]
   expect(secondRow.className).toEqual('Selected')

@@ -76,8 +76,8 @@ test('getTableBodyVirtualDom returns correct structure for single model', () => 
 
 test('getTableBodyVirtualDom returns correct structure for multiple models', () => {
   const models: readonly LanguageModel[] = [
-    { enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false },
-    { enabled: true, id: 'claude', name: 'Claude', selected: false },
+    { enabled: true, id: 'gpt-4', name: 'GPT-4', provider: 'openai', selected: false },
+    { enabled: true, id: 'claude', name: 'Claude', provider: 'anthropic', selected: false },
   ]
   const result = getTableBodyVirtualDom(models)
   expect(result).toEqual([
@@ -129,7 +129,7 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
 })
 
 test('getTableBodyVirtualDom returns consistent results on multiple calls with same models', () => {
-  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false }]
+  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', name: 'GPT-4', provider: 'openai', selected: false }]
   const result1 = getTableBodyVirtualDom(models)
   const result2 = getTableBodyVirtualDom(models)
   expect(result1).toEqual(result2)
