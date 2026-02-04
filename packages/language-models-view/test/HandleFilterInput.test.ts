@@ -61,7 +61,7 @@ test('handleFilterInput - filters by model name (exact match)', () => {
       selected: false,
     },
   ]
-  const state = createMockState(models)
+  const state = { ...createDefaultState(), models, filteredModels: models }
   const result = handleFilterInput(state, 'GPT-4')
 
   expect(result.filteredModels).toHaveLength(1)
