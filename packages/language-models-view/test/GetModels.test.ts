@@ -12,6 +12,7 @@ test('getModels should return models with correct properties', async () => {
   const models = await GetModels.getModels()
 
   for (const model of models) {
+    expect(model).toHaveProperty('capabilities')
     expect(model).toHaveProperty('enabled')
     expect(model).toHaveProperty('id')
     expect(model).toHaveProperty('inputContextSize')
@@ -19,6 +20,9 @@ test('getModels should return models with correct properties', async () => {
     expect(model).toHaveProperty('outputContextSize')
     expect(model).toHaveProperty('provider')
     expect(model).toHaveProperty('selected')
+    expect(typeof model.capabilities).toBe('object')
+    expect(typeof model.capabilities.tools).toBe('boolean')
+    expect(typeof model.capabilities.vision).toBe('boolean')
     expect(typeof model.enabled).toBe('boolean')
     expect(typeof model.id).toBe('string')
     expect(typeof model.inputContextSize).toBe('number')
