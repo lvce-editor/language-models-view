@@ -27,6 +27,30 @@ const getTableCell = (text: string): VirtualDomNode => {
   }
 }
 
+const getModelRowVirtualDom = (model: LanguageModel): readonly VirtualDomNode[] => [
+  getTableRow(model),
+  getTableCell(model.id),
+  {
+    text: model.id,
+    type: VirtualDomElements.Text,
+  },
+  getTableCell(model.name),
+  {
+    text: model.name,
+    type: VirtualDomElements.Text,
+  },
+  getTableCell(model.provider),
+  {
+    text: model.provider,
+    type: VirtualDomElements.Text,
+  },
+  getTableCell(`in: ${model.inputContextSize}, out: ${model.outputContextSize}`),
+  {
+    text: `in: ${model.inputContextSize}, out: ${model.outputContextSize}`,
+    type: VirtualDomElements.Text,
+  },
+]
+
 export const getTableBody = (models: readonly LanguageModel[]): VirtualDomNode => {
   return {
     childCount: models.length,
@@ -36,30 +60,5 @@ export const getTableBody = (models: readonly LanguageModel[]): VirtualDomNode =
 }
 
 export const getTableBodyVirtualDom = (models: readonly LanguageModel[]): readonly VirtualDomNode[] => {
-  return [
-    getTableBody(models),
-    ...models.flatMap((model) => [
-      getTableRow(model),
-      getTableCell(model.id),
-      {
-        text: model.id,
-        type: VirtualDomElements.Text,
-      },
-      getTableCell(model.name),
-      {
-        text: model.name,
-        type: VirtualDomElements.Text,
-      },
-      getTableCell(model.provider),
-      {
-        text: model.provider,
-        type: VirtualDomElements.Text,
-      },
-      getTableCell(`in: ${model.inputContextSize}, out: ${model.outputContextSize}`),
-      {
-        text: `in: ${model.inputContextSize}, out: ${model.outputContextSize}`,
-        type: VirtualDomElements.Text,
-      },
-    ]),
-  ]
+  return [getTableBody(models), ...models.flatMap(getModelRowVirtualDom)]
 }
