@@ -2,6 +2,7 @@ import type { ModelCapabilities } from '../ModelCapabilities/ModelCapabilities.t
 
 export interface LanguageModel {
   readonly capabilities: ModelCapabilities
+  readonly deprecated: boolean
   readonly enabled: boolean
   readonly id: string
   readonly inputContextSize: number

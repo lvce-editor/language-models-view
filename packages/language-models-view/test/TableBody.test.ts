@@ -1,12 +1,14 @@
 import { expect, test } from '@jest/globals'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import type { LanguageModel } from '../src/parts/LanguageModel/LanguageModel.ts'
+import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import { getTableBody, getTableBodyVirtualDom } from '../src/parts/TableBody/GetTableBodyVirtualDom.ts'
 
 test('getTableBody returns tbody element with correct childCount for empty array', () => {
   const result = getTableBody([])
   expect(result).toEqual({
     childCount: 0,
+    onMouseDown: DomEventListenerFunctions.HandleMouseDown,
     type: VirtualDomElements.TBody,
   })
 })
@@ -15,6 +17,7 @@ test('getTableBody returns tbody element with correct childCount for single mode
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -27,6 +30,7 @@ test('getTableBody returns tbody element with correct childCount for single mode
   const result = getTableBody(models)
   expect(result).toEqual({
     childCount: 1,
+    onMouseDown: DomEventListenerFunctions.HandleMouseDown,
     type: VirtualDomElements.TBody,
   })
 })
@@ -35,6 +39,7 @@ test('getTableBody returns tbody element with correct childCount for multiple mo
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -45,6 +50,7 @@ test('getTableBody returns tbody element with correct childCount for multiple mo
     },
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'gpt-3.5',
       inputContextSize: 16_385,
@@ -55,6 +61,7 @@ test('getTableBody returns tbody element with correct childCount for multiple mo
     },
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: false,
       id: 'claude',
       inputContextSize: 200_000,
@@ -67,6 +74,7 @@ test('getTableBody returns tbody element with correct childCount for multiple mo
   const result = getTableBody(models)
   expect(result).toEqual({
     childCount: 3,
+    onMouseDown: DomEventListenerFunctions.HandleMouseDown,
     type: VirtualDomElements.TBody,
   })
 })
@@ -76,6 +84,7 @@ test('getTableBodyVirtualDom returns empty array for empty models', () => {
   expect(result).toEqual([
     {
       childCount: 0,
+      onMouseDown: DomEventListenerFunctions.HandleMouseDown,
       type: VirtualDomElements.TBody,
     },
   ])
@@ -85,6 +94,7 @@ test('getTableBodyVirtualDom returns correct structure for single model', () => 
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -98,6 +108,7 @@ test('getTableBodyVirtualDom returns correct structure for single model', () => 
   expect(result).toEqual([
     {
       childCount: 1,
+      onMouseDown: DomEventListenerFunctions.HandleMouseDown,
       type: VirtualDomElements.TBody,
     },
     {
@@ -143,6 +154,7 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -153,6 +165,7 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
     },
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'claude',
       inputContextSize: 200_000,
@@ -166,6 +179,7 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
   expect(result).toEqual([
     {
       childCount: 2,
+      onMouseDown: DomEventListenerFunctions.HandleMouseDown,
       type: VirtualDomElements.TBody,
     },
     {
@@ -247,6 +261,7 @@ test('getTableBodyVirtualDom returns consistent results on multiple calls with s
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,

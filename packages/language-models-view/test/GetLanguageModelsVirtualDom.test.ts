@@ -1,6 +1,7 @@
 import { expect, test } from '@jest/globals'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import type { LanguageModel } from '../src/parts/LanguageModel/LanguageModel.ts'
+import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import { getLanguageModelsVirtualDom } from '../src/parts/GetLanguageModelsVirtualDom/GetLanguageModelsVirtualDom.ts'
 
 test('getLanguageModelsVirtualDom returns correct structure for empty models', () => {
@@ -12,7 +13,7 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
       type: VirtualDomElements.Div,
     },
     {
-      childCount: 2,
+      childCount: 3,
       className: 'LanguageModelsHeader',
       type: VirtualDomElements.Div,
     },
@@ -24,6 +25,17 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
       onInput: 3,
       placeholder: 'Filter language models...',
       type: VirtualDomElements.Input,
+    },
+    {
+      childCount: 1,
+      className: 'Button ClearButton',
+      name: 'ClearButton',
+      onClick: 8,
+      type: VirtualDomElements.Button,
+    },
+    {
+      text: 'Clear',
+      type: VirtualDomElements.Text,
     },
     {
       childCount: 1,
@@ -52,6 +64,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -69,7 +82,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
       type: VirtualDomElements.Div,
     },
     {
-      childCount: 2,
+      childCount: 3,
       className: 'LanguageModelsHeader',
       type: VirtualDomElements.Div,
     },
@@ -81,6 +94,17 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
       onInput: 3,
       placeholder: 'Filter language models...',
       type: VirtualDomElements.Input,
+    },
+    {
+      childCount: 1,
+      className: 'Button ClearButton',
+      name: 'ClearButton',
+      onClick: 8,
+      type: VirtualDomElements.Button,
+    },
+    {
+      text: 'Clear',
+      type: VirtualDomElements.Text,
     },
     {
       childCount: 1,
@@ -139,6 +163,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 1,
+      onMouseDown: DomEventListenerFunctions.HandleMouseDown,
       type: VirtualDomElements.TBody,
     },
     {
@@ -184,6 +209,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -194,6 +220,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'claude',
       inputContextSize: 200_000,
@@ -211,7 +238,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.Div,
     },
     {
-      childCount: 2,
+      childCount: 3,
       className: 'LanguageModelsHeader',
       type: VirtualDomElements.Div,
     },
@@ -223,6 +250,17 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       onInput: 3,
       placeholder: 'Filter language models...',
       type: VirtualDomElements.Input,
+    },
+    {
+      childCount: 1,
+      className: 'Button ClearButton',
+      name: 'ClearButton',
+      onClick: 8,
+      type: VirtualDomElements.Button,
+    },
+    {
+      text: 'Clear',
+      type: VirtualDomElements.Text,
     },
     {
       childCount: 1,
@@ -281,6 +319,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 2,
+      onMouseDown: DomEventListenerFunctions.HandleMouseDown,
       type: VirtualDomElements.TBody,
     },
     {
@@ -362,6 +401,7 @@ test('getLanguageModelsVirtualDom returns consistent results on multiple calls w
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -380,6 +420,7 @@ test('getLanguageModelsVirtualDom includes filter input', () => {
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -399,6 +440,7 @@ test('getLanguageModelsVirtualDom includes table header', () => {
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -417,6 +459,7 @@ test('getLanguageModelsVirtualDom includes table body', () => {
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,

@@ -9,6 +9,7 @@ test('disableModel disables a model by id', () => {
     models: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -19,6 +20,7 @@ test('disableModel disables a model by id', () => {
       },
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'claude',
         inputContextSize: 200_000,
@@ -42,6 +44,7 @@ test('disableModel returns unchanged state if model id not found', () => {
     models: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -64,6 +67,7 @@ test('disableModel does not modify other model properties', () => {
     models: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -88,6 +92,7 @@ test('disableModel preserves other state properties', () => {
     models: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,

@@ -4,6 +4,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
   return [
     {
       capabilities: { tools: true, vision: true },
+      deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -14,6 +15,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: true, vision: true },
+      deprecated: false,
       enabled: true,
       id: 'gpt-4-turbo',
       inputContextSize: 128_000,
@@ -24,6 +26,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: true, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'gpt-3.5-turbo',
       inputContextSize: 16_385,
@@ -34,6 +37,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: true, vision: true },
+      deprecated: false,
       enabled: true,
       id: 'claude-3-opus',
       inputContextSize: 200_000,
@@ -44,6 +48,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: true, vision: true },
+      deprecated: false,
       enabled: true,
       id: 'claude-3-sonnet',
       inputContextSize: 200_000,
@@ -54,6 +59,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: true, vision: true },
+      deprecated: false,
       enabled: true,
       id: 'claude-3-haiku',
       inputContextSize: 200_000,
@@ -64,6 +70,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: true, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'claude-2.1',
       inputContextSize: 200_000,
@@ -74,6 +81,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'llama-2',
       inputContextSize: 4096,
@@ -84,6 +92,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'llama-2-70b',
       inputContextSize: 4096,
@@ -94,6 +103,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: true, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'llama-3',
       inputContextSize: 8192,
@@ -104,6 +114,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: false,
       id: 'mistral-7b',
       inputContextSize: 8192,
@@ -114,6 +125,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: true, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'mistral-medium',
       inputContextSize: 32_768,
@@ -124,6 +136,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: true, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'mistral-large',
       inputContextSize: 32_768,
@@ -134,6 +147,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: true, vision: true },
+      deprecated: false,
       enabled: true,
       id: 'gemini-pro',
       inputContextSize: 32_768,
@@ -144,6 +158,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: true, vision: true },
+      deprecated: false,
       enabled: true,
       id: 'gemini-ultra',
       inputContextSize: 32_768,
@@ -154,6 +169,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: false,
       id: 'palm-2',
       inputContextSize: 8192,
@@ -164,6 +180,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'codellama-34b',
       inputContextSize: 16_384,
@@ -174,6 +191,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'deepseek-coder',
       inputContextSize: 16_384,
@@ -184,6 +202,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: false, vision: false },
+      deprecated: false,
       enabled: false,
       id: 'falcon-180b',
       inputContextSize: 2048,
@@ -194,6 +213,7 @@ export const getModels = async (): Promise<readonly LanguageModel[]> => {
     },
     {
       capabilities: { tools: true, vision: false },
+      deprecated: false,
       enabled: true,
       id: 'mixtral-8x7b',
       inputContextSize: 32_768,

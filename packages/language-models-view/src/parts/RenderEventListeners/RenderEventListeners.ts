@@ -21,13 +21,17 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       params: ['handleAddModelsClick'],
     },
     {
+      name: DomEventListenerFunctions.HandleClearClick,
+      params: ['handleClearClick'],
+    },
+    {
       name: DomEventListenerFunctions.HandleContextMenu,
       params: ['handleContextMenu', EventExpression.Button, EventExpression.ClientX, EventExpression.ClientY],
       preventDefault: true,
     },
     {
       name: DomEventListenerFunctions.HandleMouseDown,
-      params: ['handleClick', EventExpression.Button, EventExpression.ClientX, EventExpression.ClientY],
+      params: ['handleTableRowClick', EventExpression.Button, EventExpression.ClientX, EventExpression.ClientY],
       preventDefault: true,
       stopPropagation: true,
     },
