@@ -8,3 +8,11 @@ export const account = (): string => {
 export const filterLanguageModels = (): string => {
   return I18nString.i18nString(UiStrings.FilterLanguageModels)
 }
+
+export const id = (): string => {
+  return I18nString.i18nString(UiStrings.Id)
+}
+
+export const name = (): string => {
+  return I18nString.i18nString(UiStrings.Name)
+}

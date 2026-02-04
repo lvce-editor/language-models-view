@@ -1,4 +1,4 @@
 export interface SavedState {
-  readonly models: readonly any[]
   readonly filterValue: string
+  readonly models: readonly any[]
 }

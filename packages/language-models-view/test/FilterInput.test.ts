@@ -8,6 +8,7 @@ test('getFilterInput returns input element with correct properties', () => {
     className: 'InputBox LanguageModelsFilter',
     inputType: 'search',
     name: 'LanguageModelsFilter',
+    onInput: 3,
     placeholder: 'Filter language models...',
     type: VirtualDomElements.Input,
   })

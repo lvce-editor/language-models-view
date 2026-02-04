@@ -5,8 +5,8 @@ import { getTableBodyVirtualDom } from '../src/parts/TableBody/GetTableBodyVirtu
 
 test('getTableBodyVirtualDom applies Selected class to selected model', () => {
   const models: readonly LanguageModel[] = [
-    { id: 'gpt-4', name: 'GPT-4', enabled: true, selected: true },
-    { id: 'claude', name: 'Claude', enabled: true, selected: false },
+    { enabled: true, id: 'gpt-4', name: 'GPT-4', selected: true },
+    { enabled: true, id: 'claude', name: 'Claude', selected: false },
   ]
   const result = getTableBodyVirtualDom(models)
   
@@ -23,7 +23,7 @@ test('getTableBodyVirtualDom applies Selected class to selected model', () => {
 
 test('getTableBodyVirtualDom does not apply Selected class when no model is selected', () => {
   const models: readonly LanguageModel[] = [
-    { id: 'gpt-4', name: 'GPT-4', enabled: true, selected: false },
+    { enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false },
   ]
   const result = getTableBodyVirtualDom(models)
   
@@ -35,8 +35,8 @@ test('getTableBodyVirtualDom does not apply Selected class when no model is sele
 
 test('getTableBodyVirtualDom applies Selected class to multiple selected models', () => {
   const models: readonly LanguageModel[] = [
-    { id: 'gpt-4', name: 'GPT-4', enabled: true, selected: true },
-    { id: 'claude', name: 'Claude', enabled: true, selected: true },
+    { enabled: true, id: 'gpt-4', name: 'GPT-4', selected: true },
+    { enabled: true, id: 'claude', name: 'Claude', selected: true },
   ]
   const result = getTableBodyVirtualDom(models)
   

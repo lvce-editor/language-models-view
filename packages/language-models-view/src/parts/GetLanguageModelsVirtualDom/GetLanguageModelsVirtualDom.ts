@@ -1,16 +1,8 @@
 import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import type { LanguageModel } from '../LanguageModel/LanguageModel.ts'
-import { getFilterInput } from '../FilterInput/GetFilterInputVirtualDom.ts'
-import { getTableBodyVirtualDom } from '../TableBody/GetTableBodyVirtualDom.ts'
-import { getTableHeaderVirtualDom } from '../TableHeader/GetTableHeaderVirtualDom.ts'
-
-const getTable = (models: readonly LanguageModel[]): VirtualDomNode => {
-  return {
-    childCount: 2,
-    type: VirtualDomElements.Table,
-  }
-}
+import { getLanguageModelsHeaderVirtualDom } from '../LanguageModelsHeader/GetLanguageModelsHeaderVirtualDom.ts'
+import { getTableVirtualDom } from '../Table/GetTableVirtualDom.ts'
 
 export const getLanguageModelsVirtualDom = (models: readonly LanguageModel[]): readonly VirtualDomNode[] => {
   return [
@@ -19,14 +11,7 @@ export const getLanguageModelsVirtualDom = (models: readonly LanguageModel[]): r
       className: 'LanguageModels',
       type: VirtualDomElements.Div,
     },
-    {
-      childCount: 1,
-      className: 'LanguageModelsHeader',
-      type: VirtualDomElements.Div,
-    },
-    getFilterInput(),
-    getTable(models),
-    ...getTableHeaderVirtualDom(),
-    ...getTableBodyVirtualDom(models),
+    ...getLanguageModelsHeaderVirtualDom(),
+    ...getTableVirtualDom(models),
   ]
 }
