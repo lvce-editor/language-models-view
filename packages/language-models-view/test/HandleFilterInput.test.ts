@@ -6,7 +6,7 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 test('handleFilterInput - empty filter returns all models', () => {
   const models = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -17,7 +17,7 @@ test('handleFilterInput - empty filter returns all models', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-3.5',
@@ -39,7 +39,7 @@ test('handleFilterInput - empty filter returns all models', () => {
 test('handleFilterInput - filters by model name (exact match)', () => {
   const models = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -50,7 +50,7 @@ test('handleFilterInput - filters by model name (exact match)', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-3.5',
@@ -72,7 +72,7 @@ test('handleFilterInput - filters by model name (exact match)', () => {
 test('handleFilterInput - filters by model name (partial match)', () => {
   const models = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -83,7 +83,7 @@ test('handleFilterInput - filters by model name (partial match)', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-3.5',
@@ -104,7 +104,7 @@ test('handleFilterInput - filters by model name (partial match)', () => {
 test('handleFilterInput - filters by model id', () => {
   const models = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -115,7 +115,7 @@ test('handleFilterInput - filters by model id', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-3.5',
@@ -137,7 +137,7 @@ test('handleFilterInput - filters by model id', () => {
 test('handleFilterInput - case-insensitive filtering for name', () => {
   const models = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -148,7 +148,7 @@ test('handleFilterInput - case-insensitive filtering for name', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'claude',
@@ -169,7 +169,7 @@ test('handleFilterInput - case-insensitive filtering for name', () => {
 test('handleFilterInput - case-insensitive filtering for id', () => {
   const models = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -180,7 +180,7 @@ test('handleFilterInput - case-insensitive filtering for id', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'claude',
@@ -201,7 +201,7 @@ test('handleFilterInput - case-insensitive filtering for id', () => {
 test('handleFilterInput - no matches returns empty array', () => {
   const models = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -212,7 +212,7 @@ test('handleFilterInput - no matches returns empty array', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'claude',
@@ -233,7 +233,7 @@ test('handleFilterInput - no matches returns empty array', () => {
 test('handleFilterInput - multiple matches', () => {
   const models = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -244,7 +244,7 @@ test('handleFilterInput - multiple matches', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-3.5',
@@ -255,7 +255,7 @@ test('handleFilterInput - multiple matches', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: true,
       enabled: false,
       id: 'gpt-3',
@@ -276,7 +276,7 @@ test('handleFilterInput - multiple matches', () => {
 test('handleFilterInput - preserves state immutability', () => {
   const models = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -299,7 +299,7 @@ test('handleFilterInput - preserves state immutability', () => {
 test('handleFilterInput - updates filterValue correctly', () => {
   const models = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -319,7 +319,7 @@ test('handleFilterInput - updates filterValue correctly', () => {
 test('handleFilterInput - preserves other state properties', () => {
   const models = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -351,7 +351,7 @@ test('handleFilterInput - handles empty models array', () => {
 test('handleFilterInput - whitespace handling', () => {
   const models = [
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'gpt-4',
@@ -362,7 +362,7 @@ test('handleFilterInput - whitespace handling', () => {
       selected: false,
     },
     {
-      capabilities: {},
+      capabilities: { tools: false, vision: false },
       deprecated: false,
       enabled: true,
       id: 'claude',
