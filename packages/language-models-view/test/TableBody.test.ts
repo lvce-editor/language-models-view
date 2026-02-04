@@ -1,8 +1,8 @@
 import { expect, test } from '@jest/globals'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import type { LanguageModel } from '../src/parts/LanguageModel/LanguageModel.ts'
-import { getTableBody, getTableBodyVirtualDom } from '../src/parts/TableBody/GetTableBodyVirtualDom.ts'
 import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
+import { getTableBody, getTableBodyVirtualDom } from '../src/parts/TableBody/GetTableBodyVirtualDom.ts'
 
 test('getTableBody returns tbody element with correct childCount for empty array', () => {
   const result = getTableBody([])

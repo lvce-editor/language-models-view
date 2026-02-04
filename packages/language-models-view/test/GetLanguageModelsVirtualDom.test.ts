@@ -1,8 +1,8 @@
 import { expect, test } from '@jest/globals'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import type { LanguageModel } from '../src/parts/LanguageModel/LanguageModel.ts'
-import { getLanguageModelsVirtualDom } from '../src/parts/GetLanguageModelsVirtualDom/GetLanguageModelsVirtualDom.ts'
 import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
+import { getLanguageModelsVirtualDom } from '../src/parts/GetLanguageModelsVirtualDom/GetLanguageModelsVirtualDom.ts'
 
 test('getLanguageModelsVirtualDom returns correct structure for empty models', () => {
   const result = getLanguageModelsVirtualDom([])
