@@ -19,7 +19,7 @@ test('getTableHeaderVirtualDom returns array with all header elements', () => {
       type: VirtualDomElements.THead,
     },
     {
-      childCount: 3,
+      childCount: 4,
       type: VirtualDomElements.Tr,
     },
     {
@@ -46,12 +46,20 @@ test('getTableHeaderVirtualDom returns array with all header elements', () => {
       text: 'Provider',
       type: VirtualDomElements.Text,
     },
+    {
+      childCount: 1,
+      type: VirtualDomElements.Th,
+    },
+    {
+      text: 'Context Size',
+      type: VirtualDomElements.Text,
+    },
   ])
 })
 
 test('getTableHeaderVirtualDom returns array with 8 elements', () => {
   const result = getTableHeaderVirtualDom()
-  expect(result.length).toEqual(8)
+  expect(result.length).toEqual(10)
 })
 
 test('getTableHeaderVirtualDom returns consistent results on multiple calls', () => {

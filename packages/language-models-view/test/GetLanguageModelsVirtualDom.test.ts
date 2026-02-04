@@ -28,6 +28,7 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
     {
       childCount: 1,
       className: 'Button AddModelsButton',
+      name: 'AddModelsButton',
       onClick: 6,
       type: VirtualDomElements.Button,
     },
@@ -214,6 +215,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     {
       childCount: 1,
       className: 'Button AddModelsButton',
+      name: 'AddModelsButton',
       onClick: 6,
       type: VirtualDomElements.Button,
     },
