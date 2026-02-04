@@ -35,8 +35,26 @@ test('handleAddModelsClick preserves all state properties and adds a model', () 
     ...createDefaultState(),
     filterValue: 'test filter',
     models: [
-      { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
-      { capabilities: { tools: false, vision: false }, enabled: false, id: 'claude', inputContextSize: 200_000, name: 'Claude', outputContextSize: 4096, provider: 'anthropic', selected: true },
+      {
+        capabilities: { tools: false, vision: false },
+        enabled: true,
+        id: 'gpt-4',
+        inputContextSize: 8192,
+        name: 'GPT-4',
+        outputContextSize: 4096,
+        provider: 'openai',
+        selected: false,
+      },
+      {
+        capabilities: { tools: false, vision: false },
+        enabled: false,
+        id: 'claude',
+        inputContextSize: 200_000,
+        name: 'Claude',
+        outputContextSize: 4096,
+        provider: 'anthropic',
+        selected: true,
+      },
     ],
     platform: 2,
     scrollBarHeight: 15,
@@ -64,7 +82,18 @@ test('handleAddModelsClick preserves all state properties and adds a model', () 
 test('handleAddModelsClick does not mutate input state', () => {
   const state = {
     ...createDefaultState(),
-    models: [{ capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false }],
+    models: [
+      {
+        capabilities: { tools: false, vision: false },
+        enabled: true,
+        id: 'gpt-4',
+        inputContextSize: 8192,
+        name: 'GPT-4',
+        outputContextSize: 4096,
+        provider: 'openai',
+        selected: false,
+      },
+    ],
   }
 
   const originalModels = state.models
