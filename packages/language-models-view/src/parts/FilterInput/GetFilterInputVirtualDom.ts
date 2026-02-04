@@ -5,6 +5,7 @@ import * as LanguageModelsStrings from '../LanguageModelsStrings/LanguageModelsS
 
 export const getFilterInput = (): VirtualDomNode => {
   return {
+    autocomplete: 'off',
     className: 'InputBox LanguageModelsFilter',
     inputType: 'search',
     name: 'LanguageModelsFilter',

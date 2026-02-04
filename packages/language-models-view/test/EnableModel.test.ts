@@ -6,8 +6,8 @@ test('enableModel enables a model by id', () => {
   const state = {
     ...createDefaultState(),
     models: [
-      { enabled: false, id: 'gpt-4', name: 'GPT-4', selected: false },
-      { enabled: false, id: 'claude', name: 'Claude', selected: false },
+      { enabled: false, id: 'gpt-4', name: 'GPT-4', provider: 'openai', selected: false },
+      { enabled: false, id: 'claude', name: 'Claude', provider: 'anthropic', selected: false },
     ],
   }
 
@@ -20,7 +20,7 @@ test('enableModel enables a model by id', () => {
 test('enableModel returns unchanged state if model id not found', () => {
   const state = {
     ...createDefaultState(),
-    models: [{ enabled: false, id: 'gpt-4', name: 'GPT-4', selected: false }],
+    models: [{ enabled: false, id: 'gpt-4', name: 'GPT-4', provider: 'openai', selected: false }],
   }
 
   const result = enableModel(state, 'nonexistent')
@@ -31,7 +31,7 @@ test('enableModel returns unchanged state if model id not found', () => {
 test('enableModel does not modify other model properties', () => {
   const state = {
     ...createDefaultState(),
-    models: [{ enabled: false, id: 'gpt-4', name: 'GPT-4', selected: false }],
+    models: [{ enabled: false, id: 'gpt-4', name: 'GPT-4', provider: 'openai', selected: false }],
   }
 
   const result = enableModel(state, 'gpt-4')
@@ -44,7 +44,7 @@ test('enableModel preserves other state properties', () => {
   const state = {
     ...createDefaultState(),
     filterValue: 'test',
-    models: [{ enabled: false, id: 'gpt-4', name: 'GPT-4', selected: false }],
+    models: [{ enabled: false, id: 'gpt-4', name: 'GPT-4', provider: 'openai', selected: false }],
     platform: 1,
     scrollBarHeight: 10,
     uid: 123,
