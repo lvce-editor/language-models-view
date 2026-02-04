@@ -18,19 +18,9 @@ const createTestModel = (id: string, name: string, enabled = true): LanguageMode
   selected: false,
 })
 
-// Helper function to create a test state
-const createTestState = (uid: number, models: readonly LanguageModel[] = [], filteredModels?: readonly LanguageModel[]): LanguageModelsState => ({
-  ...createDefaultState(),
-  filteredModels: filteredModels ?? models,
-  models,
-  platform: 1,
-  uid,
-  width: 800,
-})
-
 test('renderIncremental returns a command array with three elements', () => {
-  const oldState = createTestState(1)
-  const newState = createTestState(2)
+  const oldState = createDefaultState()
+  const newState = { ...createDefaultState(), uid: 2 }
 
   const result = renderIncremental(oldState, newState)
 
@@ -39,8 +29,8 @@ test('renderIncremental returns a command array with three elements', () => {
 })
 
 test('renderIncremental returns SetPatches as the first element', () => {
-  const oldState = createTestState(1)
-  const newState = createTestState(2)
+  const oldState = createDefaultState()
+  const newState = { ...createDefaultState(), uid: 2 }
 
   const result = renderIncremental(oldState, newState)
 
@@ -48,8 +38,8 @@ test('renderIncremental returns SetPatches as the first element', () => {
 })
 
 test('renderIncremental uses the newState uid as the second element', () => {
-  const oldState = createTestState(100)
-  const newState = createTestState(42)
+  const oldState = { ...createDefaultState(), uid: 100 }
+  const newState = { ...createDefaultState(), uid: 42 }
 
   const result = renderIncremental(oldState, newState)
 
@@ -57,8 +47,8 @@ test('renderIncremental uses the newState uid as the second element', () => {
 })
 
 test('renderIncremental returns patches as the third element', () => {
-  const oldState = createTestState(1)
-  const newState = createTestState(2)
+  const oldState = createDefaultState()
+  const newState = { ...createDefaultState(), uid: 2 }
 
   const result = renderIncremental(oldState, newState)
 
@@ -67,8 +57,8 @@ test('renderIncremental returns patches as the third element', () => {
 
 test('renderIncremental with identical states and models', () => {
   const model = createTestModel('model1', 'Model 1')
-  const oldState = createTestState(1, [model])
-  const newState = createTestState(2, [model])
+  const oldState = { ...createDefaultState(), models: [model], filteredModels: [model] }
+  const newState = { ...createDefaultState(), uid: 2, models: [model], filteredModels: [model] }
 
   const result = renderIncremental(oldState, newState)
 
@@ -80,8 +70,8 @@ test('renderIncremental with identical states and models', () => {
 test('renderIncremental with different models between states', () => {
   const model1 = createTestModel('model1', 'Model 1')
   const model2 = createTestModel('model2', 'Model 2')
-  const oldState = createTestState(1, [model1])
-  const newState = createTestState(2, [model1, model2])
+  const oldState = { ...createDefaultState(), models: [model1], filteredModels: [model1] }
+  const newState = { ...createDefaultState(), uid: 2, models: [model1, model2], filteredModels: [model1, model2] }
 
   const result = renderIncremental(oldState, newState)
 
@@ -91,8 +81,8 @@ test('renderIncremental with different models between states', () => {
 })
 
 test('renderIncremental with empty models', () => {
-  const oldState = createTestState(1, [])
-  const newState = createTestState(2, [])
+  const oldState = createDefaultState()
+  const newState = { ...createDefaultState(), uid: 2 }
 
   const result = renderIncremental(oldState, newState)
 
@@ -101,8 +91,8 @@ test('renderIncremental with empty models', () => {
 
 test('renderIncremental with enabled models', () => {
   const model = createTestModel('model1', 'Model 1', true)
-  const oldState = createTestState(1, [model])
-  const newState = createTestState(2, [model])
+  const oldState = { ...createDefaultState(), models: [model], filteredModels: [model] }
+  const newState = { ...createDefaultState(), uid: 2, models: [model], filteredModels: [model] }
 
   const result = renderIncremental(oldState, newState)
 
@@ -113,8 +103,8 @@ test('renderIncremental with enabled models', () => {
 
 test('renderIncremental with disabled models', () => {
   const model = createTestModel('model1', 'Model 1', false)
-  const oldState = createTestState(1, [model])
-  const newState = createTestState(2, [model])
+  const oldState = { ...createDefaultState(), models: [model], filteredModels: [model] }
+  const newState = { ...createDefaultState(), uid: 2, models: [model], filteredModels: [model] }
 
   const result = renderIncremental(oldState, newState)
 
@@ -125,8 +115,8 @@ test('renderIncremental with disabled models', () => {
 
 test('renderIncremental with models list changing from populated to empty', () => {
   const model = createTestModel('model1', 'Model 1')
-  const oldState = createTestState(1, [model])
-  const newState = createTestState(2, [])
+  const oldState = { ...createDefaultState(), models: [model], filteredModels: [model] }
+  const newState = { ...createDefaultState(), uid: 2 }
 
   const result = renderIncremental(oldState, newState)
 
@@ -138,8 +128,8 @@ test('renderIncremental with models list changing from populated to empty', () =
 test('renderIncremental with filtered models', () => {
   const model1 = createTestModel('model1', 'Model 1')
   const model2 = createTestModel('model2', 'Model 2')
-  const oldState = createTestState(1, [model1, model2], [model1])
-  const newState = createTestState(2, [model1, model2], [model2])
+  const oldState = { ...createDefaultState(), models: [model1, model2], filteredModels: [model1] }
+  const newState = { ...createDefaultState(), uid: 2, models: [model1, model2], filteredModels: [model2] }
 
   const result = renderIncremental(oldState, newState)
 
@@ -154,8 +144,8 @@ test('renderIncremental with multiple models changes', () => {
   const model3 = createTestModel('model3', 'Model 3')
   const model4 = createTestModel('model4', 'Model 4')
 
-  const oldState = createTestState(1, [model1, model2, model3])
-  const newState = createTestState(2, [model2, model3, model4])
+  const oldState = { ...createDefaultState(), models: [model1, model2, model3], filteredModels: [model1, model2, model3] }
+  const newState = { ...createDefaultState(), uid: 2, models: [model2, model3, model4], filteredModels: [model2, model3, model4] }
 
   const result = renderIncremental(oldState, newState)
 
