@@ -7,7 +7,7 @@ test('getTableBody returns tbody element with correct childCount for empty array
   const result = getTableBody([])
   expect(result).toEqual({
     childCount: 0,
-    type: VirtualDomElements.Tbody,
+    type: VirtualDomElements.TBody,
   })
 })
 
@@ -16,7 +16,7 @@ test('getTableBody returns tbody element with correct childCount for single mode
   const result = getTableBody(models)
   expect(result).toEqual({
     childCount: 1,
-    type: VirtualDomElements.Tbody,
+    type: VirtualDomElements.TBody,
   })
 })
 
@@ -29,7 +29,7 @@ test('getTableBody returns tbody element with correct childCount for multiple mo
   const result = getTableBody(models)
   expect(result).toEqual({
     childCount: 3,
-    type: VirtualDomElements.Tbody,
+    type: VirtualDomElements.TBody,
   })
 })
 
@@ -38,7 +38,7 @@ test('getTableBodyVirtualDom returns empty array for empty models', () => {
   expect(result).toEqual([
     {
       childCount: 0,
-      type: VirtualDomElements.Tbody,
+      type: VirtualDomElements.TBody,
     },
   ])
 })
@@ -49,7 +49,7 @@ test('getTableBodyVirtualDom returns correct structure for single model', () => 
   expect(result).toEqual([
     {
       childCount: 1,
-      type: VirtualDomElements.Tbody,
+      type: VirtualDomElements.TBody,
     },
     {
       childCount: 2,
@@ -83,7 +83,7 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
   expect(result).toEqual([
     {
       childCount: 2,
-      type: VirtualDomElements.Tbody,
+      type: VirtualDomElements.TBody,
     },
     {
       childCount: 2,

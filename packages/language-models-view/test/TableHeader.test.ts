@@ -7,7 +7,7 @@ test('getTableHead returns thead element', () => {
   const result = getTableHead()
   expect(result).toEqual({
     childCount: 1,
-    type: VirtualDomElements.Thead,
+    type: VirtualDomElements.THead,
   })
 })
 
@@ -16,7 +16,7 @@ test('getTableHeaderVirtualDom returns array with all header elements', () => {
   expect(result).toEqual([
     {
       childCount: 1,
-      type: VirtualDomElements.Thead,
+      type: VirtualDomElements.THead,
     },
     {
       childCount: 2,
