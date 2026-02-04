@@ -159,7 +159,7 @@ test('handleFilterInput - case-insensitive filtering for name', () => {
       selected: false,
     },
   ]
-  const state = createMockState(models)
+  const state = { ...createDefaultState(), models, filteredModels: models }
   const result = handleFilterInput(state, 'gpt')
 
   expect(result.filteredModels).toHaveLength(1)
@@ -191,7 +191,7 @@ test('handleFilterInput - case-insensitive filtering for id', () => {
       selected: false,
     },
   ]
-  const state = createMockState(models)
+  const state = { ...createDefaultState(), models, filteredModels: models }
   const result = handleFilterInput(state, 'GPT-4')
 
   expect(result.filteredModels).toHaveLength(1)
