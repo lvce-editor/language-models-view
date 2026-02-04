@@ -24,3 +24,7 @@ export const name = (): string => {
 export const provider = (): string => {
   return I18nString.i18nString(UiStrings.Provider)
 }
+
+export const contextSize = (): string => {
+  return I18nString.i18nString(UiStrings.ContextSize)
+}

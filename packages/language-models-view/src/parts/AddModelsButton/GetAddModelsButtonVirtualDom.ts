@@ -8,6 +8,7 @@ export const getAddModelsButton = (): readonly VirtualDomNode[] => {
     {
       childCount: 1,
       className: 'Button AddModelsButton',
+      name: 'AddModelsButton',
       onClick: DomEventListenerFunctions.HandleAddModelsClick,
       type: VirtualDomElements.Button,
     },

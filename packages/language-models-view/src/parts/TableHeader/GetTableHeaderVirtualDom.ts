@@ -24,5 +24,10 @@ export const getTableHeaderVirtualDom = (): readonly VirtualDomNode[] => {
       text: LanguageModelsStrings.provider(),
       type: VirtualDomElements.Text,
     },
+    getTableHeaderCell(LanguageModelsStrings.contextSize()),
+    {
+      text: LanguageModelsStrings.contextSize(),
+      type: VirtualDomElements.Text,
+    },
   ]
 }

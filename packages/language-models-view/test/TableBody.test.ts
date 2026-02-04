@@ -25,7 +25,7 @@ test('getTableBody returns tbody element with correct childCount for single mode
 test('getTableBody returns tbody element with correct childCount for multiple models', () => {
   const models: readonly LanguageModel[] = [
     { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
-    { enabled: true, id: 'gpt-3.5', inputContextSize: 16385, name: 'GPT-3.5', outputContextSize: 4096, provider: 'openai', selected: false },
+    { enabled: true, id: 'gpt-3.5', inputContextSize: 16_385, name: 'GPT-3.5', outputContextSize: 4096, provider: 'openai', selected: false },
     { enabled: false, id: 'claude', inputContextSize: 200_000, name: 'Claude', outputContextSize: 4096, provider: 'anthropic', selected: false },
   ]
   const result = getTableBody(models)

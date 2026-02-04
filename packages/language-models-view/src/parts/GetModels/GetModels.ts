@@ -12,6 +12,6 @@ export const getModels = async (): Promise<any[]> => {
     },
     { enabled: true, id: 'llama-2', inputContextSize: 4096, name: 'Llama 2', outputContextSize: 2048, provider: 'meta', selected: false },
     { enabled: false, id: 'mistral-7b', inputContextSize: 8192, name: 'Mistral 7B', outputContextSize: 4096, provider: 'mistral', selected: false },
-    { enabled: true, id: 'gemini-pro', inputContextSize: 32768, name: 'Gemini Pro', outputContextSize: 2048, provider: 'google', selected: false },
+    { enabled: true, id: 'gemini-pro', inputContextSize: 32_768, name: 'Gemini Pro', outputContextSize: 2048, provider: 'google', selected: false },
   ]
 }
