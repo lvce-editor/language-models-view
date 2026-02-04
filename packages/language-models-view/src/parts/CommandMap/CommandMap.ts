@@ -1,3 +1,4 @@
+import { terminate } from '@lvce-editor/viewlet-registry'
 import * as Create from '../Create/Create.ts'
 import { diff2 } from '../Diff2/Diff2.ts'
 import { getKeyBindings } from '../GetKeyBindings/GetKeyBindings.ts'
@@ -18,4 +19,5 @@ export const commandMap = {
   'LanguageModels.loadContent': WrapCommand.wrapCommand(loadContent),
   'LanguageModels.render2': Render2.render2,
   'LanguageModels.renderEventListeners': RenderEventListeners.renderEventListeners,
+  'LanguageModels.terminate': terminate,
 }
