@@ -5,3 +5,4 @@ export const HandleFocus = 4
 export const HandleMouseDown = 5
 export const HandleAddModelsClick = 6
 export const HandleTableRowClick = 7
+export const HandleClearClick = 8

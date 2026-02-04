@@ -9,6 +9,10 @@ export const addModels = (): string => {
   return I18nString.i18nString(UiStrings.AddModels)
 }
 
+export const clear = (): string => {
+  return I18nString.i18nString(UiStrings.Clear)
+}
+
 export const filterLanguageModels = (): string => {
   return I18nString.i18nString(UiStrings.FilterLanguageModels)
 }

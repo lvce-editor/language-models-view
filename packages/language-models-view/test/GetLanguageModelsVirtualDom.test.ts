@@ -13,7 +13,7 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
       type: VirtualDomElements.Div,
     },
     {
-      childCount: 2,
+      childCount: 3,
       className: 'LanguageModelsHeader',
       type: VirtualDomElements.Div,
     },
@@ -25,6 +25,17 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
       onInput: 3,
       placeholder: 'Filter language models...',
       type: VirtualDomElements.Input,
+    },
+    {
+      childCount: 1,
+      className: 'Button ClearButton',
+      name: 'ClearButton',
+      onClick: 8,
+      type: VirtualDomElements.Button,
+    },
+    {
+      text: 'Clear',
+      type: VirtualDomElements.Text,
     },
     {
       childCount: 1,
