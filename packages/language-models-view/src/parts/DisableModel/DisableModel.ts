@@ -1,15 +1,15 @@
 import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsState.ts'
 
-export const disableModel = (state: LanguageModelsState, modelId: string): LanguageModelsState => {
-  const updatedModels = state.models.map((model) => {
-    if (model.id === modelId) {
-      return { ...model, enabled: false }
+export const disableModel = ({ models, ...rest }: LanguageModelsState, modelId: string): LanguageModelsState => {
+  const updatedModels = models.map(({ id, ...modelRest }) => {
+    if (id === modelId) {
+      return { id, ...modelRest, enabled: false }
     }
-    return model
+    return { id, ...modelRest }
   })
 
   return {
-    ...state,
+    ...rest,
     models: updatedModels,
   }
 }

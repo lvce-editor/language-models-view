@@ -1,6 +1,7 @@
 import type { ContextMenuProps } from '../ContextMenuProps/ContextMenuProps.ts'
 import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsState.ts'
 import type { MenuEntry } from '../MenuEntry/MenuEntry.ts'
+import * as LanguageModelsStrings from '../LanguageModelsStrings/LanguageModelsStrings.ts'
 
 export const getMenuEntries = (state: LanguageModelsState, options: ContextMenuProps): readonly MenuEntry[] => {
   const { filteredModels } = state
@@ -22,7 +23,7 @@ export const getMenuEntries = (state: LanguageModelsState, options: ContextMenuP
       command: 'LanguageModels.enableModel',
       flags: 0,
       id: 'enable-model',
-      label: 'Enable Model',
+      label: LanguageModelsStrings.enableModel(),
     })
   }
 
@@ -33,7 +34,7 @@ export const getMenuEntries = (state: LanguageModelsState, options: ContextMenuP
       command: 'LanguageModels.disableModel',
       flags: 0,
       id: 'disable-model',
-      label: 'Disable Model',
+      label: LanguageModelsStrings.disableModel(),
     })
   }
 

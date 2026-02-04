@@ -36,3 +36,11 @@ export const contextSize = (): string => {
 export const noMatchingModels = (): string => {
   return I18nString.i18nString(UiStrings.NoMatchingModels)
 }
+
+export const enableModel = (): string => {
+  return I18nString.i18nString(UiStrings.EnableModel)
+}
+
+export const disableModel = (): string => {
+  return I18nString.i18nString(UiStrings.DisableModel)
+}
