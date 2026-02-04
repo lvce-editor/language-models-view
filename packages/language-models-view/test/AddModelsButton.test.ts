@@ -8,6 +8,7 @@ test('getAddModelsButton returns button with correct properties', () => {
     {
       childCount: 1,
       className: 'Button AddModelsButton',
+      name: 'AddModelsButton',
       onClick: 6,
       type: VirtualDomElements.Button,
     },

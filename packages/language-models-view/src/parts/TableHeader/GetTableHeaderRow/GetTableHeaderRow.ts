@@ -3,7 +3,7 @@ import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 
 export const getTableHeaderRow = (): VirtualDomNode => {
   return {
-    childCount: 3,
+    childCount: 4,
     type: VirtualDomElements.Tr,
   }
 }

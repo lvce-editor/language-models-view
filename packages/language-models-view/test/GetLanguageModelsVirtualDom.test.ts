@@ -106,6 +106,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     {
       childCount: 1,
       className: 'Button AddModelsButton',
+      name: 'AddModelsButton',
       onClick: 6,
       type: VirtualDomElements.Button,
     },

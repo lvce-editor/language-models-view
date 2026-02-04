@@ -5,7 +5,7 @@ import * as ClassNames from '../ClassNames/ClassNames.ts'
 
 const getTableRow = (model: LanguageModel): VirtualDomNode => {
   const node: VirtualDomNode = {
-    childCount: 3,
+    childCount: 4,
     type: VirtualDomElements.Tr,
   }
   if (model.selected) {
@@ -49,6 +49,11 @@ export const getTableBodyVirtualDom = (models: readonly LanguageModel[]): readon
       getTableCell(model.provider),
       {
         text: model.provider,
+        type: VirtualDomElements.Text,
+      },
+      getTableCell(`in: ${model.inputContextSize}, out: ${model.outputContextSize}`),
+      {
+        text: `in: ${model.inputContextSize}, out: ${model.outputContextSize}`,
         type: VirtualDomElements.Text,
       },
     ]),
