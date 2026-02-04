@@ -1,15 +1,11 @@
 import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsState.ts'
 import * as CacheStorage from '../CacheStorage/CacheStorage.ts'
 
-const isEnabled = (model: any) => model.enabled
+const isEnabled = (model: any): boolean => model.enabled
 
-const getModelId = (model: any) => model.id
+const getModelId = (model: any): string => model.id
 
-export const updateModel = async (
-  state: LanguageModelsState,
-  modelId: string,
-  enabled: boolean,
-): Promise<LanguageModelsState> => {
+export const updateModel = async (state: LanguageModelsState, modelId: string, enabled: boolean): Promise<LanguageModelsState> => {
   const { cacheKey, cacheName, models, ...rest } = state
   const updatedModels = models.map((model) => {
     if (model.id === modelId) {
@@ -25,7 +21,7 @@ export const updateModel = async (
   await CacheStorage.saveDisabledModels(disabledModels, cacheName, cacheKey)
 
   return {
-    ...rest,
+    ...state,
     models: updatedModels,
   }
 }
