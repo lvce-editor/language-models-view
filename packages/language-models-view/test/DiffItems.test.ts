@@ -39,9 +39,13 @@ test('isEqual returns true when models and filteredModels are the same', () => {
 })
 
 test('isEqual returns false when models are different', () => {
-  const models1 = [{ enabled: true, id: 'model1', inputContextSize: 8192, name: 'Model 1', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const models1 = [
+    { enabled: true, id: 'model1', inputContextSize: 8192, name: 'Model 1', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
 
-  const models2 = [{ enabled: true, id: 'model2', inputContextSize: 8192, name: 'Model 2', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const models2 = [
+    { enabled: true, id: 'model2', inputContextSize: 8192, name: 'Model 2', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
 
   const state1: LanguageModelsState = {
     filteredModels: models1,
@@ -74,9 +78,13 @@ test('isEqual returns false when models are different', () => {
 })
 
 test('isEqual returns false when filteredModels are different', () => {
-  const models = [{ enabled: true, id: 'model1', inputContextSize: 8192, name: 'Model 1', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const models = [
+    { enabled: true, id: 'model1', inputContextSize: 8192, name: 'Model 1', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
 
-  const filteredModels = [{ enabled: true, id: 'model2', inputContextSize: 8192, name: 'Model 2', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const filteredModels = [
+    { enabled: true, id: 'model2', inputContextSize: 8192, name: 'Model 2', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
 
   const state1: LanguageModelsState = {
     filteredModels: models,
@@ -109,13 +117,21 @@ test('isEqual returns false when filteredModels are different', () => {
 })
 
 test('isEqual returns false when both models and filteredModels are different', () => {
-  const models1 = [{ enabled: true, id: 'model1', inputContextSize: 8192, name: 'Model 1', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const models1 = [
+    { enabled: true, id: 'model1', inputContextSize: 8192, name: 'Model 1', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
 
-  const models2 = [{ enabled: true, id: 'model2', inputContextSize: 8192, name: 'Model 2', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const models2 = [
+    { enabled: true, id: 'model2', inputContextSize: 8192, name: 'Model 2', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
 
-  const filteredModels1 = [{ enabled: true, id: 'model3', inputContextSize: 8192, name: 'Model 3', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const filteredModels1 = [
+    { enabled: true, id: 'model3', inputContextSize: 8192, name: 'Model 3', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
 
-  const filteredModels2 = [{ enabled: true, id: 'model4', inputContextSize: 8192, name: 'Model 4', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const filteredModels2 = [
+    { enabled: true, id: 'model4', inputContextSize: 8192, name: 'Model 4', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
 
   const state1: LanguageModelsState = {
     filteredModels: filteredModels1,
@@ -181,7 +197,9 @@ test('isEqual returns true with empty models arrays', () => {
 })
 
 test('isEqual ignores other state properties like filterValue', () => {
-  const models = [{ enabled: true, id: 'model1', inputContextSize: 8192, name: 'Model 1', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const models = [
+    { enabled: true, id: 'model1', inputContextSize: 8192, name: 'Model 1', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
 
   const state1: LanguageModelsState = {
     filteredModels: models,
