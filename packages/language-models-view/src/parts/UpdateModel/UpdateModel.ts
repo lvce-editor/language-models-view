@@ -5,8 +5,8 @@ const isEnabled = (model: any) => model.enabled
 
 const getModelId = (model: any) => model.id
 
-export const updateModel = async (cachKeymodls
-  { models, cacheName, cacheKey, ...rest }: LanguageModelsState,
+export const updateModel = async (
+  { cacheKey, cacheName, models, ...rest }: LanguageModelsState,
   modelId: string,
   enabled: boolean,
 ): Promise<LanguageModelsState> => {
