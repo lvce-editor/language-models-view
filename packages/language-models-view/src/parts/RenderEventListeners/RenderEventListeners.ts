@@ -10,7 +10,7 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
     },
     {
       name: DomEventListenerFunctions.HandleFilterInput,
-      params: ['handleFilterInput'],
+      params: ['handleFilterInput', EventExpression.TargetValue],
     },
     {
       name: DomEventListenerFunctions.HandleFocus,

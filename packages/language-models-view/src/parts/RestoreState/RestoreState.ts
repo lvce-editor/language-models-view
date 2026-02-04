@@ -13,7 +13,7 @@ export const restoreState = (state: LanguageModelsState, savedState: unknown): L
     return state
   }
 
-  const updates: Partial<LanguageModelsState> = {}
+  const updates: Partial<{ -readonly [K in keyof LanguageModelsState]: LanguageModelsState[K] }> = {}
 
   // Try to restore filter value
   if ('filterValue' in savedState && isString(savedState.filterValue)) {
