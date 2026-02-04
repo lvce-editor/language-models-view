@@ -19,7 +19,7 @@ test('getTableHeaderVirtualDom returns array with all header elements', () => {
       type: VirtualDomElements.THead,
     },
     {
-      childCount: 4,
+      childCount: 3,
       type: VirtualDomElements.Tr,
     },
     {
@@ -44,14 +44,6 @@ test('getTableHeaderVirtualDom returns array with all header elements', () => {
     },
     {
       text: 'Provider',
-      type: VirtualDomElements.Text,
-    },
-    {
-      childCount: 1,
-      type: VirtualDomElements.Th,
-    },
-    {
-      text: 'Context Size',
       type: VirtualDomElements.Text,
     },
   ])
