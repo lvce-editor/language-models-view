@@ -4,7 +4,7 @@ import { matchesFilterValue } from '../src/parts/MatchesFilterValue/MatchesFilte
 
 test('matchesFilterValue - should match by name', () => {
   const model: LanguageModel = {
-    capabilities: {},
+    capabilities: { tools: false, vision: false },
     deprecated: false,
     enabled: true,
     id: 'model-1',
@@ -19,7 +19,7 @@ test('matchesFilterValue - should match by name', () => {
 
 test('matchesFilterValue - should match by name (full)', () => {
   const model: LanguageModel = {
-    capabilities: {},
+    capabilities: { tools: false, vision: false },
     deprecated: false,
     enabled: true,
     id: 'model-1',
@@ -34,7 +34,7 @@ test('matchesFilterValue - should match by name (full)', () => {
 
 test('matchesFilterValue - should match by id', () => {
   const model: LanguageModel = {
-    capabilities: {},
+    capabilities: { tools: false, vision: false },
     deprecated: false,
     enabled: true,
     id: 'gpt-4-turbo-preview',
@@ -49,7 +49,7 @@ test('matchesFilterValue - should match by id', () => {
 
 test('matchesFilterValue - should match by provider', () => {
   const model: LanguageModel = {
-    capabilities: {},
+    capabilities: { tools: false, vision: false },
     deprecated: false,
     enabled: true,
     id: 'model-1',
@@ -64,7 +64,7 @@ test('matchesFilterValue - should match by provider', () => {
 
 test('matchesFilterValue - should be case-insensitive for name', () => {
   const model: LanguageModel = {
-    capabilities: {},
+    capabilities: { tools: false, vision: false },
     deprecated: false,
     enabled: true,
     id: 'model-1',
@@ -79,7 +79,7 @@ test('matchesFilterValue - should be case-insensitive for name', () => {
 
 test('matchesFilterValue - should be case-insensitive for id', () => {
   const model: LanguageModel = {
-    capabilities: {},
+    capabilities: { tools: false, vision: false },
     deprecated: false,
     enabled: true,
     id: 'GPT-4-TURBO',
@@ -94,7 +94,7 @@ test('matchesFilterValue - should be case-insensitive for id', () => {
 
 test('matchesFilterValue - should be case-insensitive for provider', () => {
   const model: LanguageModel = {
-    capabilities: {},
+    capabilities: { tools: false, vision: false },
     deprecated: false,
     enabled: true,
     id: 'model-1',
@@ -109,7 +109,7 @@ test('matchesFilterValue - should be case-insensitive for provider', () => {
 
 test('matchesFilterValue - should not match when filter is not in any field', () => {
   const model: LanguageModel = {
-    capabilities: {},
+    capabilities: { tools: false, vision: false },
     deprecated: false,
     enabled: true,
     id: 'gpt-4-turbo',
@@ -124,7 +124,7 @@ test('matchesFilterValue - should not match when filter is not in any field', ()
 
 test('matchesFilterValue - should handle empty filter string', () => {
   const model: LanguageModel = {
-    capabilities: {},
+    capabilities: { tools: false, vision: false },
     deprecated: false,
     enabled: true,
     id: 'model-1',
@@ -139,7 +139,7 @@ test('matchesFilterValue - should handle empty filter string', () => {
 
 test('matchesFilterValue - should work with lowercase filter value', () => {
   const model: LanguageModel = {
-    capabilities: {},
+    capabilities: { tools: false, vision: false },
     deprecated: false,
     enabled: true,
     id: 'model-1',
@@ -154,7 +154,7 @@ test('matchesFilterValue - should work with lowercase filter value', () => {
 
 test('matchesFilterValue - should match partial text in name', () => {
   const model: LanguageModel = {
-    capabilities: {},
+    capabilities: { tools: false, vision: false },
     deprecated: false,
     enabled: true,
     id: 'model-1',
@@ -169,7 +169,7 @@ test('matchesFilterValue - should match partial text in name', () => {
 
 test('matchesFilterValue - should match partial text in id', () => {
   const model: LanguageModel = {
-    capabilities: {},
+    capabilities: { tools: false, vision: false },
     deprecated: false,
     enabled: true,
     id: 'claude-3-opus-20240229',
@@ -184,7 +184,7 @@ test('matchesFilterValue - should match partial text in id', () => {
 
 test('matchesFilterValue - should match partial text in provider', () => {
   const model: LanguageModel = {
-    capabilities: {},
+    capabilities: { tools: false, vision: false },
     deprecated: false,
     enabled: true,
     id: 'model-1',

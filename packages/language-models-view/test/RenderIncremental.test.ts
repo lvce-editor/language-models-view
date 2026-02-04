@@ -1,7 +1,6 @@
 import { expect, test } from '@jest/globals'
 import { ViewletCommand } from '@lvce-editor/constants'
 import type { LanguageModel } from '../src/parts/LanguageModel/LanguageModel.ts'
-import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { renderIncremental } from '../src/parts/RenderIncremental/RenderIncremental.ts'
 
