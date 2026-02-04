@@ -29,9 +29,7 @@ test('renderEventListeners should include HandleBlur listener', () => {
 
 test('renderEventListeners should include HandleFilterInput listener with EventExpression.TargetValue', () => {
   const result = renderEventListeners()
-  const handleFilterInputListener = result.find(
-    (listener) => listener.name === DomEventListenerFunctions.HandleFilterInput,
-  )
+  const handleFilterInputListener = result.find((listener) => listener.name === DomEventListenerFunctions.HandleFilterInput)
   expect(handleFilterInputListener).toEqual({
     name: DomEventListenerFunctions.HandleFilterInput,
     params: ['handleFilterInput', EventExpression.TargetValue],
@@ -49,9 +47,7 @@ test('renderEventListeners should include HandleFocus listener', () => {
 
 test('renderEventListeners should include HandleAddModelsClick listener', () => {
   const result = renderEventListeners()
-  const handleAddModelsClickListener = result.find(
-    (listener) => listener.name === DomEventListenerFunctions.HandleAddModelsClick,
-  )
+  const handleAddModelsClickListener = result.find((listener) => listener.name === DomEventListenerFunctions.HandleAddModelsClick)
   expect(handleAddModelsClickListener).toEqual({
     name: DomEventListenerFunctions.HandleAddModelsClick,
     params: ['handleAddModelsClick'],
@@ -60,9 +56,7 @@ test('renderEventListeners should include HandleAddModelsClick listener', () => 
 
 test('renderEventListeners should include HandleClearClick listener', () => {
   const result = renderEventListeners()
-  const handleClearClickListener = result.find(
-    (listener) => listener.name === DomEventListenerFunctions.HandleClearClick,
-  )
+  const handleClearClickListener = result.find((listener) => listener.name === DomEventListenerFunctions.HandleClearClick)
   expect(handleClearClickListener).toEqual({
     name: DomEventListenerFunctions.HandleClearClick,
     params: ['handleClearClick'],
@@ -71,9 +65,7 @@ test('renderEventListeners should include HandleClearClick listener', () => {
 
 test('renderEventListeners should include HandleContextMenu listener with preventDefault', () => {
   const result = renderEventListeners()
-  const handleContextMenuListener = result.find(
-    (listener) => listener.name === DomEventListenerFunctions.HandleContextMenu,
-  )
+  const handleContextMenuListener = result.find((listener) => listener.name === DomEventListenerFunctions.HandleContextMenu)
   expect(handleContextMenuListener).toEqual({
     name: DomEventListenerFunctions.HandleContextMenu,
     params: ['handleContextMenu', EventExpression.Button, EventExpression.ClientX, EventExpression.ClientY],
@@ -83,9 +75,7 @@ test('renderEventListeners should include HandleContextMenu listener with preven
 
 test('renderEventListeners should include HandleMouseDown listener with preventDefault and stopPropagation', () => {
   const result = renderEventListeners()
-  const handleMouseDownListener = result.find(
-    (listener) => listener.name === DomEventListenerFunctions.HandleMouseDown,
-  )
+  const handleMouseDownListener = result.find((listener) => listener.name === DomEventListenerFunctions.HandleMouseDown)
   expect(handleMouseDownListener).toEqual({
     name: DomEventListenerFunctions.HandleMouseDown,
     params: ['handleTableRowClick', EventExpression.Button, EventExpression.ClientX, EventExpression.ClientY],

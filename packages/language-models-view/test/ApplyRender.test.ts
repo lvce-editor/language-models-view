@@ -1,8 +1,8 @@
 import { expect, test } from '@jest/globals'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
 import * as ApplyRender from '../src/parts/ApplyRender/ApplyRender.ts'
-import * as DiffType from '../src/parts/DiffType/DiffType.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import * as DiffType from '../src/parts/DiffType/DiffType.ts'
 
 const createMockState = (overrides: Partial<LanguageModelsState> = {}): LanguageModelsState => {
   return {
@@ -34,10 +34,7 @@ test('applyRender should process single diff type', () => {
 test('applyRender should process multiple diff types', () => {
   const oldState = createMockState()
   const newState = createMockState()
-  const diffResult: readonly number[] = [
-    DiffType.RenderInputValue,
-    DiffType.RenderItems,
-  ]
+  const diffResult: readonly number[] = [DiffType.RenderInputValue, DiffType.RenderItems]
 
   const result = ApplyRender.applyRender(oldState, newState, diffResult)
 
@@ -79,10 +76,7 @@ test('applyRender should handle RenderIncremental diff type', () => {
 test('applyRender should preserve order of commands from diffResult', () => {
   const oldState = createMockState({ filterValue: '' })
   const newState = createMockState({ filterValue: 'test' })
-  const diffResult: readonly number[] = [
-    DiffType.RenderFilterValue,
-    DiffType.RenderInputValue,
-  ]
+  const diffResult: readonly number[] = [DiffType.RenderFilterValue, DiffType.RenderInputValue]
 
   const result = ApplyRender.applyRender(oldState, newState, diffResult)
 
@@ -93,11 +87,7 @@ test('applyRender should preserve order of commands from diffResult', () => {
 test('applyRender should handle multiple items with mixed renderers', () => {
   const oldState = createMockState({ filterValue: '' })
   const newState = createMockState({ filterValue: 'search' })
-  const diffResult: readonly number[] = [
-    DiffType.RenderFilterValue,
-    DiffType.RenderInputValue,
-    DiffType.RenderItems,
-  ]
+  const diffResult: readonly number[] = [DiffType.RenderFilterValue, DiffType.RenderInputValue, DiffType.RenderItems]
 
   const result = ApplyRender.applyRender(oldState, newState, diffResult)
 

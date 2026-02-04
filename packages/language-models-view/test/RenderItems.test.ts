@@ -61,11 +61,7 @@ test('renderItems should return SetDom2 command with virtual DOM when initial is
 })
 
 test('renderItems should handle multiple models', () => {
-  const models = [
-    createMockLanguageModel({ id: 'model-1' }),
-    createMockLanguageModel({ id: 'model-2' }),
-    createMockLanguageModel({ id: 'model-3' }),
-  ]
+  const models = [createMockLanguageModel({ id: 'model-1' }), createMockLanguageModel({ id: 'model-2' }), createMockLanguageModel({ id: 'model-3' })]
   const oldState = createMockState()
   const newState = createMockState({
     filteredModels: models,
@@ -97,10 +93,7 @@ test('renderItems should return different DOM for different filteredModels', () 
     uid: 1,
   })
   const newState2 = createMockState({
-    filteredModels: [
-      createMockLanguageModel({ id: 'model-1' }),
-      createMockLanguageModel({ id: 'model-2' }),
-    ],
+    filteredModels: [createMockLanguageModel({ id: 'model-1' }), createMockLanguageModel({ id: 'model-2' })],
     initial: false,
     uid: 1,
   })

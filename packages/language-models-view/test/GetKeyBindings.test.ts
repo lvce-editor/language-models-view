@@ -13,7 +13,7 @@ test('getKeyBindings should return an empty array', () => {
 
 test('each KeyBinding should have required properties', () => {
   const keyBindings = getKeyBindings()
-  
+
   for (const keyBinding of keyBindings) {
     expect(keyBinding).toHaveProperty('command')
     expect(keyBinding).toHaveProperty('key')
@@ -23,7 +23,7 @@ test('each KeyBinding should have required properties', () => {
 
 test('each KeyBinding should have correct property types', () => {
   const keyBindings = getKeyBindings()
-  
+
   for (const keyBinding of keyBindings) {
     expect(typeof keyBinding.command).toBe('string')
     expect(typeof keyBinding.key).toBe('number')
@@ -34,6 +34,6 @@ test('each KeyBinding should have correct property types', () => {
 test('getKeyBindings should return consistent results', () => {
   const firstCall = getKeyBindings()
   const secondCall = getKeyBindings()
-  
+
   expect(firstCall).toEqual(secondCall)
 })
