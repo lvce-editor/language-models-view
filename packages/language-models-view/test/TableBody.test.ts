@@ -12,7 +12,9 @@ test('getTableBody returns tbody element with correct childCount for empty array
 })
 
 test('getTableBody returns tbody element with correct childCount for single model', () => {
-  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const models: readonly LanguageModel[] = [
+    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
   const result = getTableBody(models)
   expect(result).toEqual({
     childCount: 1,
@@ -44,7 +46,9 @@ test('getTableBodyVirtualDom returns empty array for empty models', () => {
 })
 
 test('getTableBodyVirtualDom returns correct structure for single model', () => {
-  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const models: readonly LanguageModel[] = [
+    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
   const result = getTableBodyVirtualDom(models)
   expect(result).toEqual([
     {
@@ -153,7 +157,9 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
 })
 
 test('getTableBodyVirtualDom returns consistent results on multiple calls with same models', () => {
-  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const models: readonly LanguageModel[] = [
+    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
   const result1 = getTableBodyVirtualDom(models)
   const result2 = getTableBodyVirtualDom(models)
   expect(result1).toEqual(result2)

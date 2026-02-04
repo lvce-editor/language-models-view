@@ -32,6 +32,10 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
       type: VirtualDomElements.Button,
     },
     {
+      text: 'Add Models',
+      type: VirtualDomElements.Text,
+    },
+    {
       childCount: 2,
       type: VirtualDomElements.Table,
     },
@@ -75,7 +79,9 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
 })
 
 test('getLanguageModelsVirtualDom returns correct structure for single model', () => {
-  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const models: readonly LanguageModel[] = [
+    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
   const result = getLanguageModelsVirtualDom(models)
   expect(result).toEqual([
     {
@@ -84,7 +90,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
       type: VirtualDomElements.Div,
     },
     {
-      childCount: 1,
+      childCount: 2,
       className: 'LanguageModelsHeader',
       type: VirtualDomElements.Div,
     },
@@ -98,6 +104,16 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
       type: VirtualDomElements.Input,
     },
     {
+      childCount: 1,
+      className: 'Button AddModelsButton',
+      onClick: 6,
+      type: VirtualDomElements.Button,
+    },
+    {
+      text: 'Add Models',
+      type: VirtualDomElements.Text,
+    },
+    {
       childCount: 2,
       type: VirtualDomElements.Table,
     },
@@ -106,7 +122,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
       type: VirtualDomElements.THead,
     },
     {
-      childCount: 2,
+      childCount: 3,
       type: VirtualDomElements.Tr,
     },
     {
@@ -127,10 +143,18 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 1,
+      type: VirtualDomElements.Th,
+    },
+    {
+      text: 'Provider',
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
       type: VirtualDomElements.TBody,
     },
     {
-      childCount: 2,
+      childCount: 3,
       type: VirtualDomElements.Tr,
     },
     {
@@ -147,6 +171,14 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       text: 'GPT-4',
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      type: VirtualDomElements.Td,
+    },
+    {
+      text: 'openai',
       type: VirtualDomElements.Text,
     },
   ])
@@ -165,7 +197,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.Div,
     },
     {
-      childCount: 1,
+      childCount: 2,
       className: 'LanguageModelsHeader',
       type: VirtualDomElements.Div,
     },
@@ -179,6 +211,16 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.Input,
     },
     {
+      childCount: 1,
+      className: 'Button AddModelsButton',
+      onClick: 6,
+      type: VirtualDomElements.Button,
+    },
+    {
+      text: 'Add Models',
+      type: VirtualDomElements.Text,
+    },
+    {
       childCount: 2,
       type: VirtualDomElements.Table,
     },
@@ -187,7 +229,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.THead,
     },
     {
-      childCount: 2,
+      childCount: 3,
       type: VirtualDomElements.Tr,
     },
     {
@@ -207,11 +249,19 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.Text,
     },
     {
+      childCount: 1,
+      type: VirtualDomElements.Th,
+    },
+    {
+      text: 'Provider',
+      type: VirtualDomElements.Text,
+    },
+    {
       childCount: 2,
       type: VirtualDomElements.TBody,
     },
     {
-      childCount: 2,
+      childCount: 3,
       type: VirtualDomElements.Tr,
     },
     {
@@ -231,7 +281,15 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.Text,
     },
     {
-      childCount: 2,
+      childCount: 1,
+      type: VirtualDomElements.Td,
+    },
+    {
+      text: 'openai',
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 3,
       type: VirtualDomElements.Tr,
     },
     {
@@ -250,18 +308,30 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       text: 'Claude',
       type: VirtualDomElements.Text,
     },
+    {
+      childCount: 1,
+      type: VirtualDomElements.Td,
+    },
+    {
+      text: 'anthropic',
+      type: VirtualDomElements.Text,
+    },
   ])
 })
 
 test('getLanguageModelsVirtualDom returns consistent results on multiple calls with same models', () => {
-  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const models: readonly LanguageModel[] = [
+    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
   const result1 = getLanguageModelsVirtualDom(models)
   const result2 = getLanguageModelsVirtualDom(models)
   expect(result1).toEqual(result2)
 })
 
 test('getLanguageModelsVirtualDom includes filter input', () => {
-  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const models: readonly LanguageModel[] = [
+    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
   const result = getLanguageModelsVirtualDom(models)
   const filterInput = result.find((node) => node.type === VirtualDomElements.Input)
   expect(filterInput).toBeDefined()
@@ -269,14 +339,18 @@ test('getLanguageModelsVirtualDom includes filter input', () => {
 })
 
 test('getLanguageModelsVirtualDom includes table header', () => {
-  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const models: readonly LanguageModel[] = [
+    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
   const result = getLanguageModelsVirtualDom(models)
   const thead = result.find((node) => node.type === VirtualDomElements.THead)
   expect(thead).toBeDefined()
 })
 
 test('getLanguageModelsVirtualDom includes table body', () => {
-  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const models: readonly LanguageModel[] = [
+    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
   const result = getLanguageModelsVirtualDom(models)
   const tbody = result.find((node) => node.type === VirtualDomElements.THead)
   expect(tbody).toBeDefined()

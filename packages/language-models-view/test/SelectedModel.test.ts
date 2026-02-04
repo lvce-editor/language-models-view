@@ -22,7 +22,9 @@ test('getTableBodyVirtualDom applies Selected class to selected model', () => {
 })
 
 test('getTableBodyVirtualDom does not apply Selected class when no model is selected', () => {
-  const models: readonly LanguageModel[] = [{ enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false }]
+  const models: readonly LanguageModel[] = [
+    { enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+  ]
   const result = getTableBodyVirtualDom(models)
 
   // Find the table row
