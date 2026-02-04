@@ -1,7 +1,7 @@
 import type { LanguageModel } from '../LanguageModel/LanguageModel.ts'
 import { matchesFilterValue } from '../MatchesFilterValue/MatchesFilterValue.ts'
 
-export const getFilteredModels = (models: LanguageModel[], value: string): LanguageModel[] => {
+export const getFilteredModels = (models: readonly LanguageModel[], value: string): LanguageModel[] => {
   if (value === '') {
     return models
   }

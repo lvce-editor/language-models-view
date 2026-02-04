@@ -52,8 +52,8 @@ test('matchesFilterValue - should be case-insensitive for provider', () => {
 
 test('matchesFilterValue - should not match when filter is not in any field', () => {
   const model = createMockModel({
-    name: 'GPT-4',
     id: 'gpt-4-turbo',
+    name: 'GPT-4',
     provider: 'openai',
   })
   expect(matchesFilterValue(model, 'anthropic')).toBe(false)

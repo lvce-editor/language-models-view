@@ -20,7 +20,7 @@ export const getDisabledModels = async (cacheName: string, cacheKey: string): Pr
   }
 }
 
-export const saveDisabledModels = async (disabledModelIds: string[], cacheName: string, cacheKey: string): Promise<void> => {
+export const saveDisabledModels = async (disabledModelIds: readonly string[], cacheName: string, cacheKey: string): Promise<void> => {
   try {
     const cache = await caches.open(cacheName)
     const response = Response.json(

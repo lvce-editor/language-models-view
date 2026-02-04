@@ -25,6 +25,7 @@ test('DiffFilterValue.diffFilterValue should return false when filterValue is di
     ...createDefaultState(),
     filterValue: 'test1',
     initial: true,
+    inputSource: 2,
     width: 100,
   }
 

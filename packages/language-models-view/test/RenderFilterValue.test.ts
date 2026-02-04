@@ -35,6 +35,7 @@ test('RenderFilterValue.renderFilterValue should use newState.filterValue in the
   const newState: LanguageModelsState = {
     ...oldState,
     filterValue: 'actual value',
+    uid: 123,
   }
 
   const result = RenderFilterValue.renderFilterValue(oldState, newState)

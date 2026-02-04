@@ -19,7 +19,7 @@ const createTestModel = (id: string, name: string, enabled = true): LanguageMode
 })
 
 // Helper function to create a test state
-const createTestState = (uid: number, models: LanguageModel[] = [], filteredModels?: LanguageModel[]): LanguageModelsState => ({
+const createTestState = (uid: number, models: readonly LanguageModel[] = [], filteredModels?: readonly LanguageModel[]): LanguageModelsState => ({
   ...createDefaultState(),
   filteredModels: filteredModels ?? models,
   models,
