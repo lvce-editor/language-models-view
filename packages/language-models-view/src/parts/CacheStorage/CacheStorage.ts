@@ -26,8 +26,8 @@ export const getDisabledModels = async (): Promise<string[]> => {
 export const saveDisabledModels = async (disabledModelIds: string[]): Promise<void> => {
   try {
     const cache = await caches.open(CACHE_NAME)
-    const response = Response.json(JSON.stringify({ disabledModelIds }), {
-      tent-Type': 'applicaion/json' },
+    const response = new Response(JSON.stringify({ disabledModelIds }), {
+      headers: { 'Content-Type': 'application/json' },
     })
     await cache.put(CACHE_KEY, response)
   } catch (error) {
