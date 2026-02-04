@@ -69,6 +69,7 @@ test('handleTableRowClick deselects a row when clicking on it again', () => {
     filteredModels: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -81,6 +82,7 @@ test('handleTableRowClick deselects a row when clicking on it again', () => {
     models: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -106,6 +108,7 @@ test('handleTableRowClick selects second row', () => {
     filteredModels: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -116,6 +119,7 @@ test('handleTableRowClick selects second row', () => {
       },
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'claude',
         inputContextSize: 200_000,
@@ -128,6 +132,7 @@ test('handleTableRowClick selects second row', () => {
     models: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -138,6 +143,7 @@ test('handleTableRowClick selects second row', () => {
       },
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'claude',
         inputContextSize: 200_000,
@@ -166,6 +172,7 @@ test('handleTableRowClick deselects previous selection when selecting new row', 
     filteredModels: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -176,6 +183,7 @@ test('handleTableRowClick deselects previous selection when selecting new row', 
       },
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'claude',
         inputContextSize: 200_000,
@@ -188,6 +196,7 @@ test('handleTableRowClick deselects previous selection when selecting new row', 
     models: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -198,6 +207,7 @@ test('handleTableRowClick deselects previous selection when selecting new row', 
       },
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'claude',
         inputContextSize: 200_000,
@@ -225,6 +235,7 @@ test('handleTableRowClick ignores clicks in header area', () => {
     filteredModels: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -237,6 +248,7 @@ test('handleTableRowClick ignores clicks in header area', () => {
     models: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -263,6 +275,7 @@ test('handleTableRowClick ignores right clicks', () => {
     filteredModels: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -275,6 +288,7 @@ test('handleTableRowClick ignores right clicks', () => {
     models: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -301,6 +315,7 @@ test('handleTableRowClick respects y offset', () => {
     filteredModels: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -313,6 +328,7 @@ test('handleTableRowClick respects y offset', () => {
     models: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -339,6 +355,7 @@ test('handleTableRowClick ignores clicks beyond last row', () => {
     filteredModels: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -351,6 +368,7 @@ test('handleTableRowClick ignores clicks beyond last row', () => {
     models: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -377,6 +395,7 @@ test('handleTableRowClick preserves other state properties', () => {
     filteredModels: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -390,6 +409,7 @@ test('handleTableRowClick preserves other state properties', () => {
     models: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
