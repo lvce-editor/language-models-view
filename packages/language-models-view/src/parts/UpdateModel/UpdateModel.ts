@@ -6,10 +6,11 @@ const isEnabled = (model: any) => model.enabled
 const getModelId = (model: any) => model.id
 
 export const updateModel = async (
-  { cacheKey, cacheName, models, ...rest }: LanguageModelsState,
+  state: LanguageModelsState,
   modelId: string,
   enabled: boolean,
 ): Promise<LanguageModelsState> => {
+  const { cacheKey, cacheName, models, ...rest } = state
   const updatedModels = models.map((model) => {
     if (model.id === modelId) {
       return { ...model, enabled }
