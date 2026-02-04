@@ -29,9 +29,9 @@ test('handleTableContextMenu returns state unchanged', async () => {
   const state: LanguageModelsState = {
     ...createDefaultState(),
     uid: 100,
+    width: 1024,
     x: 50,
     y: 150,
-    width: 1024,
   }
 
   const result = await handleTableContextMenu(state, 300, 400)

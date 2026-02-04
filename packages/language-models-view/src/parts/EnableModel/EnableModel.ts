@@ -3,7 +3,7 @@ import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsS
 export const enableModel = ({ models, ...state }: LanguageModelsState, modelId: string): LanguageModelsState => {
   const updatedModels = models.map(({ id, ...rest }) => {
     if (id === modelId) {
-      return { ...rest, id, enabled: true }
+      return { ...rest, enabled: true, id }
     }
     return { ...rest, id }
   })
