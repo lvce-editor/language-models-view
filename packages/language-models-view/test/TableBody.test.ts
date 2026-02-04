@@ -2,11 +2,13 @@ import { expect, test } from '@jest/globals'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import type { LanguageModel } from '../src/parts/LanguageModel/LanguageModel.ts'
 import { getTableBody, getTableBodyVirtualDom } from '../src/parts/TableBody/GetTableBodyVirtualDom.ts'
+import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
 
 test('getTableBody returns tbody element with correct childCount for empty array', () => {
   const result = getTableBody([])
   expect(result).toEqual({
     childCount: 0,
+    onMouseDown: DomEventListenerFunctions.HandleMouseDown,
     type: VirtualDomElements.TBody,
   })
 })
@@ -27,6 +29,7 @@ test('getTableBody returns tbody element with correct childCount for single mode
   const result = getTableBody(models)
   expect(result).toEqual({
     childCount: 1,
+    onMouseDown: DomEventListenerFunctions.HandleMouseDown,
     type: VirtualDomElements.TBody,
   })
 })
@@ -67,6 +70,7 @@ test('getTableBody returns tbody element with correct childCount for multiple mo
   const result = getTableBody(models)
   expect(result).toEqual({
     childCount: 3,
+    onMouseDown: DomEventListenerFunctions.HandleMouseDown,
     type: VirtualDomElements.TBody,
   })
 })
@@ -76,6 +80,7 @@ test('getTableBodyVirtualDom returns empty array for empty models', () => {
   expect(result).toEqual([
     {
       childCount: 0,
+      onMouseDown: DomEventListenerFunctions.HandleMouseDown,
       type: VirtualDomElements.TBody,
     },
   ])
@@ -98,6 +103,7 @@ test('getTableBodyVirtualDom returns correct structure for single model', () => 
   expect(result).toEqual([
     {
       childCount: 1,
+      onMouseDown: DomEventListenerFunctions.HandleMouseDown,
       type: VirtualDomElements.TBody,
     },
     {
@@ -166,6 +172,7 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
   expect(result).toEqual([
     {
       childCount: 2,
+      onMouseDown: DomEventListenerFunctions.HandleMouseDown,
       type: VirtualDomElements.TBody,
     },
     {

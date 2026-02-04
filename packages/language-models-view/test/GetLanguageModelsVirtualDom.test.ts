@@ -2,6 +2,7 @@ import { expect, test } from '@jest/globals'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import type { LanguageModel } from '../src/parts/LanguageModel/LanguageModel.ts'
 import { getLanguageModelsVirtualDom } from '../src/parts/GetLanguageModelsVirtualDom/GetLanguageModelsVirtualDom.ts'
+import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
 
 test('getLanguageModelsVirtualDom returns correct structure for empty models', () => {
   const result = getLanguageModelsVirtualDom([])
@@ -139,6 +140,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 1,
+      onMouseDown: DomEventListenerFunctions.HandleMouseDown,
       type: VirtualDomElements.TBody,
     },
     {
@@ -281,6 +283,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 2,
+      onMouseDown: DomEventListenerFunctions.HandleMouseDown,
       type: VirtualDomElements.TBody,
     },
     {
