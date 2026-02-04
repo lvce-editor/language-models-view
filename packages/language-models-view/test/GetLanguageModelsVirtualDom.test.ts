@@ -50,7 +50,16 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
 
 test('getLanguageModelsVirtualDom returns correct structure for single model', () => {
   const models: readonly LanguageModel[] = [
-    { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+    {
+      capabilities: { tools: false, vision: false },
+      enabled: true,
+      id: 'gpt-4',
+      inputContextSize: 8192,
+      name: 'GPT-4',
+      outputContextSize: 4096,
+      provider: 'openai',
+      selected: false,
+    },
   ]
   const result = getLanguageModelsVirtualDom(models)
   expect(result).toEqual([
@@ -173,8 +182,26 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
 
 test('getLanguageModelsVirtualDom returns correct structure for multiple models', () => {
   const models: readonly LanguageModel[] = [
-    { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
-    { capabilities: { tools: false, vision: false }, enabled: true, id: 'claude', inputContextSize: 200_000, name: 'Claude', outputContextSize: 4096, provider: 'anthropic', selected: false },
+    {
+      capabilities: { tools: false, vision: false },
+      enabled: true,
+      id: 'gpt-4',
+      inputContextSize: 8192,
+      name: 'GPT-4',
+      outputContextSize: 4096,
+      provider: 'openai',
+      selected: false,
+    },
+    {
+      capabilities: { tools: false, vision: false },
+      enabled: true,
+      id: 'claude',
+      inputContextSize: 200_000,
+      name: 'Claude',
+      outputContextSize: 4096,
+      provider: 'anthropic',
+      selected: false,
+    },
   ]
   const result = getLanguageModelsVirtualDom(models)
   expect(result).toEqual([
@@ -333,7 +360,16 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
 
 test('getLanguageModelsVirtualDom returns consistent results on multiple calls with same models', () => {
   const models: readonly LanguageModel[] = [
-    { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+    {
+      capabilities: { tools: false, vision: false },
+      enabled: true,
+      id: 'gpt-4',
+      inputContextSize: 8192,
+      name: 'GPT-4',
+      outputContextSize: 4096,
+      provider: 'openai',
+      selected: false,
+    },
   ]
   const result1 = getLanguageModelsVirtualDom(models)
   const result2 = getLanguageModelsVirtualDom(models)
@@ -342,7 +378,16 @@ test('getLanguageModelsVirtualDom returns consistent results on multiple calls w
 
 test('getLanguageModelsVirtualDom includes filter input', () => {
   const models: readonly LanguageModel[] = [
-    { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+    {
+      capabilities: { tools: false, vision: false },
+      enabled: true,
+      id: 'gpt-4',
+      inputContextSize: 8192,
+      name: 'GPT-4',
+      outputContextSize: 4096,
+      provider: 'openai',
+      selected: false,
+    },
   ]
   const result = getLanguageModelsVirtualDom(models)
   const filterInput = result.find((node) => node.type === VirtualDomElements.Input)
@@ -352,7 +397,16 @@ test('getLanguageModelsVirtualDom includes filter input', () => {
 
 test('getLanguageModelsVirtualDom includes table header', () => {
   const models: readonly LanguageModel[] = [
-    { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+    {
+      capabilities: { tools: false, vision: false },
+      enabled: true,
+      id: 'gpt-4',
+      inputContextSize: 8192,
+      name: 'GPT-4',
+      outputContextSize: 4096,
+      provider: 'openai',
+      selected: false,
+    },
   ]
   const result = getLanguageModelsVirtualDom(models)
   const thead = result.find((node) => node.type === VirtualDomElements.THead)
@@ -361,7 +415,16 @@ test('getLanguageModelsVirtualDom includes table header', () => {
 
 test('getLanguageModelsVirtualDom includes table body', () => {
   const models: readonly LanguageModel[] = [
-    { capabilities: { tools: false, vision: false }, enabled: true, id: 'gpt-4', inputContextSize: 8192, name: 'GPT-4', outputContextSize: 4096, provider: 'openai', selected: false },
+    {
+      capabilities: { tools: false, vision: false },
+      enabled: true,
+      id: 'gpt-4',
+      inputContextSize: 8192,
+      name: 'GPT-4',
+      outputContextSize: 4096,
+      provider: 'openai',
+      selected: false,
+    },
   ]
   const result = getLanguageModelsVirtualDom(models)
   const tbody = result.find((node) => node.type === VirtualDomElements.THead)
