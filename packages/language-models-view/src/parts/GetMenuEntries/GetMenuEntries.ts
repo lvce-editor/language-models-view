@@ -4,11 +4,11 @@ import type { MenuEntry } from '../MenuEntry/MenuEntry.ts'
 
 export const getMenuEntries = (state: LanguageModelsState, options: ContextMenuProps): readonly MenuEntry[] => {
   const { filteredModels } = state
-  
+
   // For now, use the selected model if available
   // In a more complete implementation, you could compute the row from context menu position
   const selectedModel = filteredModels.find((model) => model.selected)
-  
+
   if (!selectedModel) {
     return []
   }
