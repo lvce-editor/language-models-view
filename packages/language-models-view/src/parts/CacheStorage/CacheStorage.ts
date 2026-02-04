@@ -10,7 +10,7 @@ export const getDisabledModels = async (cacheName: string, cacheKey: string): Pr
     const data = await response.json()
 
     if (Array.isArray(data.disabledModelIds)) {
-      return data.disabledModelIds.filter((id): id is string => typeof id === 'string')
+      return data.disabledModelIds.filter((id: any): id is string => typeof id === 'string')
     }
 
     return []
