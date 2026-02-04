@@ -31,7 +31,7 @@ test('handleAddModelsClick adds a dummy model', () => {
 })
 
 test('handleAddModelsClick preserves all state properties and adds a model', () => {
-  const state = {
+  const state: LanguageModelsState = {
     ...createDefaultState(),
     filterValue: 'test filter',
     models: [
@@ -80,7 +80,7 @@ test('handleAddModelsClick preserves all state properties and adds a model', () 
 })
 
 test('handleAddModelsClick does not mutate input state', () => {
-  const state = {
+  const state: LanguageModelsState = {
     ...createDefaultState(),
     models: [
       {
@@ -107,7 +107,7 @@ test('handleAddModelsClick does not mutate input state', () => {
 })
 
 test('handleAddModelsClick works with empty models', () => {
-  const state = {
+  const state: LanguageModelsState = {
     ...createDefaultState(),
     models: [],
   }
@@ -119,7 +119,7 @@ test('handleAddModelsClick works with empty models', () => {
 })
 
 test('handleAddModelsClick works with filtered models', () => {
-  const state = {
+  const state: LanguageModelsState = {
     ...createDefaultState(),
     filteredModels: [
       {
