@@ -4,7 +4,7 @@ import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
 import { getTableRowClass } from '../src/parts/TableBody/ModelRowVirtualDom/GetTableRowClass/GetTableRowClass.ts'
 
 const createMockLanguageModel = (overrides: Partial<LanguageModel> = {}): LanguageModel => ({
-  capabilities: {},
+  capabilities: { tools: false, vision: false },
   deprecated: false,
   enabled: true,
   id: 'test-id',
@@ -35,7 +35,7 @@ test('getTableRowClass should include Disabled class when model is disabled', ()
 })
 
 test('getTableRowClass should include both Selected and Disabled classes when model is both selected and disabled', () => {
-  const model = createMockLanguageModel({ selected: true, enabled: false })
+  const model = createMockLanguageModel({ enabled: false, selected: true })
   const result = getTableRowClass(model)
   expect(result).toBe(`${ClassNames.Selected} ${ClassNames.Disabled} ${ClassNames.TableRow}`)
 })
