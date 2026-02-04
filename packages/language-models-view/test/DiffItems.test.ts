@@ -6,7 +6,7 @@ test('isEqual returns true when models and filteredModels are the same', () => {
   const models = [
     {
       capabilities: { tools: false, vision: false },
-        deprecated: false,
+      deprecated: false,
       enabled: true,
       id: 'model1',
       inputContextSize: 8192,
@@ -17,7 +17,7 @@ test('isEqual returns true when models and filteredModels are the same', () => {
     },
     {
       capabilities: { tools: false, vision: false },
-        deprecated: false,
+      deprecated: false,
       enabled: true,
       id: 'model2',
       inputContextSize: 8192,
@@ -66,7 +66,7 @@ test('isEqual returns false when models are different', () => {
   const models1 = [
     {
       capabilities: { tools: false, vision: false },
-        deprecated: false,
+      deprecated: false,
       enabled: true,
       id: 'model1',
       inputContextSize: 8192,
@@ -80,7 +80,7 @@ test('isEqual returns false when models are different', () => {
   const models2 = [
     {
       capabilities: { tools: false, vision: false },
-        deprecated: false,
+      deprecated: false,
       enabled: true,
       id: 'model2',
       inputContextSize: 8192,
@@ -129,7 +129,7 @@ test('isEqual returns false when filteredModels are different', () => {
   const models = [
     {
       capabilities: { tools: false, vision: false },
-        deprecated: false,
+      deprecated: false,
       enabled: true,
       id: 'model1',
       inputContextSize: 8192,
@@ -143,7 +143,7 @@ test('isEqual returns false when filteredModels are different', () => {
   const filteredModels = [
     {
       capabilities: { tools: false, vision: false },
-        deprecated: false,
+      deprecated: false,
       enabled: true,
       id: 'model2',
       inputContextSize: 8192,
@@ -192,7 +192,7 @@ test('isEqual returns false when both models and filteredModels are different', 
   const models1 = [
     {
       capabilities: { tools: false, vision: false },
-        deprecated: false,
+      deprecated: false,
       enabled: true,
       id: 'model1',
       inputContextSize: 8192,
@@ -206,7 +206,7 @@ test('isEqual returns false when both models and filteredModels are different', 
   const models2 = [
     {
       capabilities: { tools: false, vision: false },
-        deprecated: false,
+      deprecated: false,
       enabled: true,
       id: 'model2',
       inputContextSize: 8192,
@@ -220,7 +220,7 @@ test('isEqual returns false when both models and filteredModels are different', 
   const filteredModels1 = [
     {
       capabilities: { tools: false, vision: false },
-        deprecated: false,
+      deprecated: false,
       enabled: true,
       id: 'model3',
       inputContextSize: 8192,
@@ -234,7 +234,7 @@ test('isEqual returns false when both models and filteredModels are different', 
   const filteredModels2 = [
     {
       capabilities: { tools: false, vision: false },
-        deprecated: false,
+      deprecated: false,
       enabled: true,
       id: 'model4',
       inputContextSize: 8192,
@@ -320,7 +320,7 @@ test('isEqual ignores other state properties like filterValue', () => {
   const models = [
     {
       capabilities: { tools: false, vision: false },
-        deprecated: false,
+      deprecated: false,
       enabled: true,
       id: 'model1',
       inputContextSize: 8192,

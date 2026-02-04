@@ -7,7 +7,7 @@ test('getTableBodyVirtualDom applies Selected class to selected model', () => {
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
-        deprecated: false,
+      deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -18,7 +18,7 @@ test('getTableBodyVirtualDom applies Selected class to selected model', () => {
     },
     {
       capabilities: { tools: false, vision: false },
-        deprecated: false,
+      deprecated: false,
       enabled: true,
       id: 'claude',
       inputContextSize: 200_000,
@@ -45,7 +45,7 @@ test('getTableBodyVirtualDom does not apply Selected class when no model is sele
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
-        deprecated: false,
+      deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -67,7 +67,7 @@ test('getTableBodyVirtualDom applies Selected class to multiple selected models'
   const models: readonly LanguageModel[] = [
     {
       capabilities: { tools: false, vision: false },
-        deprecated: false,
+      deprecated: false,
       enabled: true,
       id: 'gpt-4',
       inputContextSize: 8192,
@@ -78,7 +78,7 @@ test('getTableBodyVirtualDom applies Selected class to multiple selected models'
     },
     {
       capabilities: { tools: false, vision: false },
-        deprecated: false,
+      deprecated: false,
       enabled: true,
       id: 'claude',
       inputContextSize: 200_000,
