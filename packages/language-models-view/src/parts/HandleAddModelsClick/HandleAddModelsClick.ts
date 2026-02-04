@@ -5,6 +5,7 @@ export const handleAddModelsClick = (state: LanguageModelsState): LanguageModels
   // Create a dummy model
   const dummyModel: LanguageModel = {
     capabilities: { tools: false, vision: false },
+    deprecated: false,
     enabled: true,
     id: `dummy-model-${Date.now()}`,
     inputContextSize: 4096,

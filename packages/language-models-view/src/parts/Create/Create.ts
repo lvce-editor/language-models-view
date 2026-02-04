@@ -16,9 +16,11 @@ export const create = (
   const state: LanguageModelsState = {
     filteredModels: [],
     filterValue: '',
+    headerHeight: 25,
     initial: true,
     models: [],
     platform,
+    rowHeight: 20,
     scrollBarHeight: 0,
     uid: id,
     width,

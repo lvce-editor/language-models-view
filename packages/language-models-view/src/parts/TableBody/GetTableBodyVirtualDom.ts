@@ -2,6 +2,7 @@ import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import type { LanguageModel } from '../LanguageModel/LanguageModel.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
+import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 
 const getTableRow = (model: LanguageModel): VirtualDomNode => {
   const node: VirtualDomNode = {
@@ -27,6 +28,7 @@ const getTableCell = (text: string): VirtualDomNode => {
 export const getTableBody = (models: readonly LanguageModel[]): VirtualDomNode => {
   return {
     childCount: models.length,
+    onMouseDown: DomEventListenerFunctions.HandleMouseDown,
     type: VirtualDomElements.TBody,
   }
 }
