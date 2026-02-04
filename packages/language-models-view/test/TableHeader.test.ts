@@ -20,10 +20,12 @@ test('getTableHeaderVirtualDom returns array with all header elements', () => {
     },
     {
       childCount: 4,
+      className: 'TableRow',
       type: VirtualDomElements.Tr,
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Th,
     },
     {
@@ -32,6 +34,7 @@ test('getTableHeaderVirtualDom returns array with all header elements', () => {
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Th,
     },
     {
@@ -40,6 +43,7 @@ test('getTableHeaderVirtualDom returns array with all header elements', () => {
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Th,
     },
     {
@@ -48,6 +52,7 @@ test('getTableHeaderVirtualDom returns array with all header elements', () => {
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Th,
     },
     {
