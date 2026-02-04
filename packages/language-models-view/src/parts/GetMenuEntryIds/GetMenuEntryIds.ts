@@ -1,3 +1,3 @@
 export const getMenuEntryIds = (): readonly number[] => {
-  return []
+  return [96]
 }

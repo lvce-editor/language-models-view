@@ -1,11 +1,9 @@
-import type { MenuEntryId } from '@lvce-editor/constants'
-
 export interface ContextMenuPropsBase {
   readonly menuId: number
 }
 
 export interface ContextMenuPropsTableRow extends ContextMenuPropsBase {
-  readonly menuId: typeof MenuEntryId.ActivityBarAdditionalViews
+  readonly menuId: 96
 }
 
 export type ContextMenuProps = ContextMenuPropsTableRow

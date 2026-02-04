@@ -18,6 +18,7 @@ export const create = (
     filterValue: '',
     headerHeight: 25,
     initial: true,
+    inputSource: 1,
     models: [],
     platform,
     rowHeight: 20,

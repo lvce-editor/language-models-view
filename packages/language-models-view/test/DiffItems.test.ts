@@ -1,5 +1,6 @@
 import { expect, test } from '@jest/globals'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DiffItems from '../src/parts/DiffItems/DiffItems.ts'
 
 test('isEqual returns true when models and filteredModels are the same', () => {
@@ -33,6 +34,7 @@ test('isEqual returns true when models and filteredModels are the same', () => {
     filterValue: '',
     headerHeight: 25,
     initial: false,
+    inputSource: 0,
     models: models,
     platform: 1,
     rowHeight: 20,
@@ -44,18 +46,9 @@ test('isEqual returns true when models and filteredModels are the same', () => {
   }
 
   const state2: LanguageModelsState = {
+    ...createDefaultState(),
     filteredModels: models,
-    filterValue: '',
-    headerHeight: 25,
-    initial: false,
     models: models,
-    platform: 1,
-    rowHeight: 20,
-    scrollBarHeight: 0,
-    uid: 1,
-    width: 800,
-    x: 0,
-    y: 0,
   }
 
   const result = DiffItems.isEqual(state1, state2)
@@ -96,6 +89,7 @@ test('isEqual returns false when models are different', () => {
     filterValue: '',
     headerHeight: 25,
     initial: false,
+    inputSource: 0,
     models: models1,
     platform: 1,
     rowHeight: 20,
@@ -111,6 +105,7 @@ test('isEqual returns false when models are different', () => {
     filterValue: '',
     headerHeight: 25,
     initial: false,
+    inputSource: 0,
     models: models2,
     platform: 1,
     rowHeight: 20,
@@ -159,6 +154,7 @@ test('isEqual returns false when filteredModels are different', () => {
     filterValue: '',
     headerHeight: 25,
     initial: false,
+    inputSource: 0,
     models: models,
     platform: 1,
     rowHeight: 20,
@@ -174,6 +170,7 @@ test('isEqual returns false when filteredModels are different', () => {
     filterValue: '',
     headerHeight: 25,
     initial: false,
+    inputSource: 0,
     models: models,
     platform: 1,
     rowHeight: 20,
@@ -250,6 +247,7 @@ test('isEqual returns false when both models and filteredModels are different', 
     filterValue: '',
     headerHeight: 25,
     initial: false,
+    inputSource: 0,
     models: models1,
     platform: 1,
     rowHeight: 20,
@@ -265,6 +263,7 @@ test('isEqual returns false when both models and filteredModels are different', 
     filterValue: '',
     headerHeight: 25,
     initial: false,
+    inputSource: 0,
     models: models2,
     platform: 1,
     rowHeight: 20,
@@ -287,6 +286,7 @@ test('isEqual returns true with empty models arrays', () => {
     filterValue: '',
     headerHeight: 25,
     initial: false,
+    inputSource: 0,
     models: models,
     platform: 1,
     rowHeight: 20,
@@ -298,18 +298,9 @@ test('isEqual returns true with empty models arrays', () => {
   }
 
   const state2: LanguageModelsState = {
+    ...createDefaultState(),
     filteredModels: models,
-    filterValue: '',
-    headerHeight: 25,
-    initial: false,
     models: models,
-    platform: 1,
-    rowHeight: 20,
-    scrollBarHeight: 0,
-    uid: 1,
-    width: 800,
-    x: 0,
-    y: 0,
   }
 
   const result = DiffItems.isEqual(state1, state2)
@@ -336,6 +327,7 @@ test('isEqual ignores other state properties like filterValue', () => {
     filterValue: 'search1',
     headerHeight: 25,
     initial: false,
+    inputSource: 0,
     models: models,
     platform: 1,
     rowHeight: 20,
@@ -351,6 +343,7 @@ test('isEqual ignores other state properties like filterValue', () => {
     filterValue: 'search2',
     headerHeight: 25,
     initial: true,
+    inputSource: 0,
     models: models,
     platform: 2,
     rowHeight: 20,
