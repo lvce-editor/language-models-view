@@ -380,3 +380,77 @@ test('handleFilterInput - whitespace handling', () => {
   expect(result.filteredModels).toHaveLength(1)
   expect(result.filteredModels[0].name).toBe('GPT-4 Turbo')
 })
+test('handleFilterInput - filters by provider', () => {
+  const models: readonly LanguageModel[] = [
+    {
+      capabilities: { tools: false, vision: false },
+      deprecated: false,
+      enabled: true,
+      id: 'gpt-4',
+      inputContextSize: 8192,
+      name: 'GPT-4',
+      outputContextSize: 4096,
+      provider: 'OpenAI',
+      selected: false,
+    },
+    {
+      capabilities: { tools: false, vision: false },
+      deprecated: false,
+      enabled: true,
+      id: 'claude',
+      inputContextSize: 10_000,
+      name: 'Claude',
+      outputContextSize: 5000,
+      provider: 'Anthropic',
+      selected: false,
+    },
+  ]
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
+  const result = handleFilterInput(state, 'openai')
+
+  expect(result.filteredModels).toHaveLength(1)
+  expect(result.filteredModels[0].provider).toBe('OpenAI')
+})
+
+test('handleFilterInput - case-insensitive filtering by provider', () => {
+  const models: readonly LanguageModel[] = [
+    {
+      capabilities: { tools: false, vision: false },
+      deprecated: false,
+      enabled: true,
+      id: 'gpt-4',
+      inputContextSize: 8192,
+      name: 'GPT-4',
+      outputContextSize: 4096,
+      provider: 'OpenAI',
+      selected: false,
+    },
+    {
+      capabilities: { tools: false, vision: false },
+      deprecated: false,
+      enabled: true,
+      id: 'gpt-3.5',
+      inputContextSize: 4096,
+      name: 'GPT-3.5',
+      outputContextSize: 2048,
+      provider: 'OpenAI',
+      selected: false,
+    },
+    {
+      capabilities: { tools: false, vision: false },
+      deprecated: false,
+      enabled: true,
+      id: 'claude',
+      inputContextSize: 10_000,
+      name: 'Claude',
+      outputContextSize: 5000,
+      provider: 'Anthropic',
+      selected: false,
+    },
+  ]
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
+  const result = handleFilterInput(state, 'ANTHROPIC')
+
+  expect(result.filteredModels).toHaveLength(1)
+  expect(result.filteredModels[0].id).toBe('claude')
+})
