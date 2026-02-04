@@ -6,6 +6,8 @@ const isEnabled = (model: LanguageModel): boolean => model.enabled
 
 const getModelId = (model: LanguageModel): string => model.id
 
+const getDisabledModelIds = (models: LanguageModel[]): string[] => models.filter((model) => !isEnabled(model)).map(getModelId)
+
 export const updateModel = async (state: LanguageModelsState, modelId: string, enabled: boolean): Promise<LanguageModelsState> => {
   const { cacheKey, cacheName, models } = state
   const updatedModels = models.map((model) => {
@@ -16,7 +18,7 @@ export const updateModel = async (state: LanguageModelsState, modelId: string, e
   })
 
   // Get all disabled models
-  const disabledModels = updatedModels.filter((model) => !isEnabled(model)).map(getModelId)
+  const disabledModels = getDisabledModelIds(updatedModels)
 
   // Save to cache
   await CacheStorage.saveDisabledModels(disabledModels, cacheName, cacheKey)
