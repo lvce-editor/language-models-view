@@ -1,6 +1,5 @@
-
 export interface LanguageModelsState {
-  readonly models:readonly any[]
+  readonly models: readonly any[]
   readonly platform: number
   readonly scrollBarHeight: any
   readonly uid: number

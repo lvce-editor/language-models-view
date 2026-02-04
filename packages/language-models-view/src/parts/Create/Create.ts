@@ -14,13 +14,13 @@ export const create = (
   platform: number = 0,
 ): any => {
   const state: LanguageModelsState = {
-    models:[],
+    models: [],
     platform,
     scrollBarHeight: 0,
     uid: id,
     width,
     x,
-    y
+    y,
   }
   ExplorerStates.set(id, state, state)
   return state

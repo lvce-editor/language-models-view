@@ -1,7 +1,7 @@
 import { WebWorkerRpcClient } from '@lvce-editor/rpc'
 import { RendererWorker } from '@lvce-editor/rpc-registry'
-import { registerCommands } from '../LanguageModelsViewStates/LanguageModelsViewStates.ts'
 import * as CommandMap from '../CommandMap/CommandMap.ts'
+import { registerCommands } from '../LanguageModelsViewStates/LanguageModelsViewStates.ts'
 
 export const listen = async (): Promise<void> => {
   registerCommands(CommandMap.commandMap)
