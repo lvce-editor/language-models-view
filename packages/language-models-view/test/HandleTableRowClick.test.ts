@@ -9,6 +9,7 @@ test('handleTableRowClick selects a row when clicking on it', () => {
     filteredModels: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -19,6 +20,7 @@ test('handleTableRowClick selects a row when clicking on it', () => {
       },
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'claude',
         inputContextSize: 200_000,
@@ -31,6 +33,7 @@ test('handleTableRowClick selects a row when clicking on it', () => {
     models: [
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'gpt-4',
         inputContextSize: 8192,
@@ -41,6 +44,7 @@ test('handleTableRowClick selects a row when clicking on it', () => {
       },
       {
         capabilities: { tools: false, vision: false },
+        deprecated: false,
         enabled: true,
         id: 'claude',
         inputContextSize: 200_000,
