@@ -1,9 +1,9 @@
 import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 
-export const getTableHead = (): VirtualDomNode => {
+export const getTableHeaderRow = (): VirtualDomNode => {
   return {
-    childCount: 1,
-    type: VirtualDomElements.THead,
+    childCount: 2,
+    type: VirtualDomElements.Tr,
   }
 }

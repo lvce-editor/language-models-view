@@ -1,12 +1,13 @@
 import { expect, test } from '@jest/globals'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
-import { getTableHead, getTableHeaderVirtualDom } from '../src/parts/TableHeader/GetTableHeaderVirtualDom.ts'
+import { getTableHead } from '../src/parts/TableHeader/GetTableHead/GetTableHead.ts'
+import { getTableHeaderVirtualDom } from '../src/parts/TableHeader/GetTableHeaderVirtualDom.ts'
 
 test('getTableHead returns thead element', () => {
   const result = getTableHead()
   expect(result).toEqual({
     childCount: 1,
-    type: VirtualDomElements.Thead,
+    type: VirtualDomElements.THead,
   })
 })
 
@@ -15,7 +16,7 @@ test('getTableHeaderVirtualDom returns array with all header elements', () => {
   expect(result).toEqual([
     {
       childCount: 1,
-      type: VirtualDomElements.Thead,
+      type: VirtualDomElements.THead,
     },
     {
       childCount: 2,
