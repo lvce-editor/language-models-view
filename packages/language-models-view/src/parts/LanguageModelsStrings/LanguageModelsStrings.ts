@@ -28,3 +28,7 @@ export const provider = (): string => {
 export const contextSize = (): string => {
   return I18nString.i18nString(UiStrings.ContextSize)
 }
+
+export const noMatchingModels = (): string => {
+  return I18nString.i18nString(UiStrings.NoMatchingModels)
+}
