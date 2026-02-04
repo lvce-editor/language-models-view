@@ -6,5 +6,5 @@ export const handleFilterInput = (state: LanguageModelsState, value: string): La
   const filteredModels =
     value === '' ? models : models.filter(({ id, name }) => name.toLowerCase().includes(lowerValue) || id.toLowerCase().includes(lowerValue))
 
-  return { id, ...state, filteredModels, filterValue: value }
+  return { ...state, filteredModels, filterValue: value }
 }
