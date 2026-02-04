@@ -1,27 +1,33 @@
 import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import type { LanguageModel } from '../LanguageModel/LanguageModel.ts'
-import { getFilterInput } from '../FilterInput/GetFilterInputVirtualDom.ts'
-import { getTableBodyVirtualDom } from '../TableBody/GetTableBodyVirtualDom.ts'
-import { getTableHeaderVirtualDom } from '../TableHeader/GetTableHeaderVirtualDom.ts'
+import { getLanguageModelsHeaderVirtualDom } from '../LanguageModelsHeader/GetLanguageModelsHeaderVirtualDom.ts'
+import * as LanguageModelsStrings from '../LanguageModelsStrings/LanguageModelsStrings.ts'
+import { getTableVirtualDom } from '../Table/GetTableVirtualDom.ts'
 
-const getTable = (models: readonly LanguageModel[]): VirtualDomNode => {
-  return {
-    childCount: 2,
-    type: VirtualDomElements.Table,
-  }
+const getNoMatchingModelsMessage = (): readonly VirtualDomNode[] => {
+  return [
+    {
+      childCount: 1,
+      className: 'NoMatchingModels',
+      type: VirtualDomElements.P,
+    },
+    {
+      text: LanguageModelsStrings.noMatchingModels(),
+      type: VirtualDomElements.Text,
+    },
+  ]
 }
 
 export const getLanguageModelsVirtualDom = (models: readonly LanguageModel[]): readonly VirtualDomNode[] => {
+  const content = models.length === 0 ? getNoMatchingModelsMessage() : getTableVirtualDom(models)
   return [
     {
       childCount: 2,
       className: 'LanguageModels',
       type: VirtualDomElements.Div,
     },
-    getFilterInput(),
-    getTable(models),
-    ...getTableHeaderVirtualDom(),
-    ...getTableBodyVirtualDom(models),
+    ...getLanguageModelsHeaderVirtualDom(),
+    ...content,
   ]
 }

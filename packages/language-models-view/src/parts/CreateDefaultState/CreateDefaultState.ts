@@ -1,6 +1,8 @@
 import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsState.ts'
 
 export const createDefaultState = (): LanguageModelsState => ({
+  filteredModels: [],
+  filterValue: '',
   initial: false,
   models: [],
   platform: 0,

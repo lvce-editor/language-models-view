@@ -9,8 +9,16 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       params: ['handleBlur'],
     },
     {
+      name: DomEventListenerFunctions.HandleFilterInput,
+      params: ['handleFilterInput', EventExpression.TargetValue],
+    },
+    {
       name: DomEventListenerFunctions.HandleFocus,
       params: ['handleFocus'],
+    },
+    {
+      name: DomEventListenerFunctions.HandleAddModelsClick,
+      params: ['handleAddModelsClick'],
     },
     {
       name: DomEventListenerFunctions.HandleContextMenu,

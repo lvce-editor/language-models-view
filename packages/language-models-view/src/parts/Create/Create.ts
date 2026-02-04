@@ -14,6 +14,8 @@ export const create = (
   platform: number = 0,
 ): any => {
   const state: LanguageModelsState = {
+    filteredModels: [],
+    filterValue: '',
     initial: true,
     models: [],
     platform,

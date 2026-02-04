@@ -1,12 +1,20 @@
 import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import type { LanguageModel } from '../LanguageModel/LanguageModel.ts'
+import * as ClassNames from '../ClassNames/ClassNames.ts'
 
 const getTableRow = (model: LanguageModel): VirtualDomNode => {
-  return {
-    childCount: 2,
+  const node: VirtualDomNode = {
+    childCount: 4,
     type: VirtualDomElements.Tr,
   }
+  if (model.selected) {
+    return {
+      ...node,
+      className: ClassNames.Selected,
+    }
+  }
+  return node
 }
 
 const getTableCell = (text: string): VirtualDomNode => {
@@ -36,6 +44,16 @@ export const getTableBodyVirtualDom = (models: readonly LanguageModel[]): readon
       getTableCell(model.name),
       {
         text: model.name,
+        type: VirtualDomElements.Text,
+      },
+      getTableCell(model.provider),
+      {
+        text: model.provider,
+        type: VirtualDomElements.Text,
+      },
+      getTableCell(`in: ${model.inputContextSize}, out: ${model.outputContextSize}`),
+      {
+        text: `in: ${model.inputContextSize}, out: ${model.outputContextSize}`,
         type: VirtualDomElements.Text,
       },
     ]),

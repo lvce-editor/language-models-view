@@ -1,6 +1,8 @@
 import type { LanguageModel } from '../LanguageModel/LanguageModel.ts'
 
 export interface LanguageModelsState {
+  readonly filteredModels: readonly LanguageModel[]
+  readonly filterValue: string
   readonly initial: boolean
   readonly models: readonly LanguageModel[]
   readonly platform: number
