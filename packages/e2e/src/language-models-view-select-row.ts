@@ -2,15 +2,14 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'language-models-view-select-row'
 
-export const skip = 1
-
 export const test: Test = async ({ Command, expect, Locator, Main }) => {
+  // arrange
   await Main.openUri('language-models:///1')
 
-  // Test that a row can be selected using the command
+  // act
   await Command.execute('LanguageModels.selectTableRow', 0)
 
-  // Test that the row is now selected (has aria-selected attribute)
-  const firstTableRow = Locator('tbody tr').nth(0)
+  // assert
+  const firstTableRow = Locator('.TableBody .TableRow').first()
   await expect(firstTableRow).toHaveClass('Selected')
 }
