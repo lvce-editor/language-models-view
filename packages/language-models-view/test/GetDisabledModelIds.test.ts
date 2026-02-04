@@ -1,6 +1,6 @@
 import { expect, test } from '@jest/globals'
-import { getDisabledModelIds } from '../src/parts/GetDisabledModelIds/GetDisabledModelIds.ts'
 import type { LanguageModel } from '../src/parts/LanguageModel/LanguageModel.ts'
+import { getDisabledModelIds } from '../src/parts/GetDisabledModelIds/GetDisabledModelIds.ts'
 
 test('getDisabledModelIds returns empty array when all models are enabled', () => {
   const models: LanguageModel[] = [
