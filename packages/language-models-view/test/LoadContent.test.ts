@@ -1,6 +1,7 @@
 import { expect, test } from '@jest/globals'
 import type { LanguageModel } from '../src/parts/LanguageModel/LanguageModel.ts'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { loadContent } from '../src/parts/LoadContent/LoadContent.ts'
 
 const createMockLanguageModel = (overrides: Partial<LanguageModel> = {}): LanguageModel => ({
@@ -17,19 +18,9 @@ const createMockLanguageModel = (overrides: Partial<LanguageModel> = {}): Langua
 })
 
 const createMockState = (overrides: Partial<LanguageModelsState> = {}): LanguageModelsState => ({
-  filteredModels: [],
-  filterValue: '',
-  headerHeight: 25,
-  initial: true,
-  inputSource: 0,
-  models: [],
-  platform: 0,
-  rowHeight: 20,
+  ...createDefaultState(),
   scrollBarHeight: 10,
-  uid: 0,
   width: 300,
-  x: 0,
-  y: 0,
   ...overrides,
 })
 

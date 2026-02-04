@@ -1,22 +1,7 @@
 import { expect, test } from '@jest/globals'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as RestoreState from '../src/parts/RestoreState/RestoreState.ts'
-
-const createDefaultState = (): LanguageModelsState => ({
-  filteredModels: [],
-  filterValue: '',
-  headerHeight: 25,
-  initial: true,
-  inputSource: 0,
-  models: [],
-  platform: 0,
-  rowHeight: 20,
-  scrollBarHeight: 10,
-  uid: 0,
-  width: 300,
-  x: 0,
-  y: 0,
-})
 
 test('restoreState - should return original state when savedState is null', () => {
   const state = createDefaultState()

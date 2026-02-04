@@ -2,6 +2,7 @@ import { expect, test } from '@jest/globals'
 import { ViewletCommand } from '@lvce-editor/constants'
 import type { LanguageModel } from '../src/parts/LanguageModel/LanguageModel.ts'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { renderIncremental } from '../src/parts/RenderIncremental/RenderIncremental.ts'
 
 // Helper function to create a test model
@@ -19,19 +20,12 @@ const createTestModel = (id: string, name: string, enabled = true): LanguageMode
 
 // Helper function to create a test state
 const createTestState = (uid: number, models: LanguageModel[] = [], filteredModels?: LanguageModel[]): LanguageModelsState => ({
+  ...createDefaultState(),
   filteredModels: filteredModels ?? models,
-  filterValue: '',
-  headerHeight: 25,
-  initial: false,
-  inputSource: 0,
   models,
   platform: 1,
-  rowHeight: 20,
-  scrollBarHeight: 0,
   uid,
   width: 800,
-  x: 0,
-  y: 0,
 })
 
 test('renderIncremental returns a command array with three elements', () => {
