@@ -1,8 +1,8 @@
 import { expect, test } from '@jest/globals'
 import type { LanguageModel } from '../src/parts/LanguageModel/LanguageModel.ts'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
-import { handleFilterInput } from '../src/parts/HandleFilterInput/HandleFilterInput.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import { handleFilterInput } from '../src/parts/HandleFilterInput/HandleFilterInput.ts'
 
 test('handleFilterInput - empty filter returns all models', () => {
   const models: readonly LanguageModel[] = [
@@ -29,7 +29,7 @@ test('handleFilterInput - empty filter returns all models', () => {
       selected: false,
     },
   ]
-  const state: LanguageModelsState = { ...createDefaultState(), models, filteredModels: models }
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, '')
 
   expect(result.filteredModels).toHaveLength(2)
@@ -62,7 +62,7 @@ test('handleFilterInput - filters by model name (exact match)', () => {
       selected: false,
     },
   ]
-  const state: LanguageModelsState = { ...createDefaultState(), models, filteredModels: models }
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'GPT-4')
 
   expect(result.filteredModels).toHaveLength(1)
@@ -95,7 +95,7 @@ test('handleFilterInput - filters by model name (partial match)', () => {
       selected: false,
     },
   ]
-  const state: LanguageModelsState = { ...createDefaultState(), models, filteredModels: models }
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'GPT')
 
   expect(result.filteredModels).toHaveLength(2)
@@ -127,7 +127,7 @@ test('handleFilterInput - filters by model id', () => {
       selected: false,
     },
   ]
-  const state: LanguageModelsState = { ...createDefaultState(), models, filteredModels: models }
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'gpt-4')
 
   expect(result.filteredModels).toHaveLength(1)
@@ -160,7 +160,7 @@ test('handleFilterInput - case-insensitive filtering for name', () => {
       selected: false,
     },
   ]
-  const state: LanguageModelsState = { ...createDefaultState(), models, filteredModels: models }
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'gpt')
 
   expect(result.filteredModels).toHaveLength(1)
@@ -192,7 +192,7 @@ test('handleFilterInput - case-insensitive filtering for id', () => {
       selected: false,
     },
   ]
-  const state: LanguageModelsState = { ...createDefaultState(), models, filteredModels: models }
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'GPT-4')
 
   expect(result.filteredModels).toHaveLength(1)
@@ -224,7 +224,7 @@ test('handleFilterInput - no matches returns empty array', () => {
       selected: false,
     },
   ]
-  const state: LanguageModelsState = { ...createDefaultState(), models, filteredModels: models }
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'nonexistent')
 
   expect(result.filteredModels).toHaveLength(0)
@@ -267,7 +267,7 @@ test('handleFilterInput - multiple matches', () => {
       selected: false,
     },
   ]
-  const state: LanguageModelsState = { ...createDefaultState(), models, filteredModels: models }
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, '3')
 
   expect(result.filteredModels).toHaveLength(2)
@@ -288,7 +288,7 @@ test('handleFilterInput - preserves state immutability', () => {
       selected: false,
     },
   ]
-  const state: LanguageModelsState = { ...createDefaultState(), models, filteredModels: models }
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const originalState = { ...state }
   const result = handleFilterInput(state, 'gpt')
 
@@ -311,7 +311,7 @@ test('handleFilterInput - updates filterValue correctly', () => {
       selected: false,
     },
   ]
-  const state: LanguageModelsState = { ...createDefaultState(), models, filteredModels: models }
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'search-term')
 
   expect(result.filterValue).toBe('search-term')
@@ -331,7 +331,7 @@ test('handleFilterInput - preserves other state properties', () => {
       selected: false,
     },
   ]
-  const state: LanguageModelsState = { ...createDefaultState(), models, filteredModels: models }
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'gpt')
 
   expect(result.headerHeight).toBe(state.headerHeight)
@@ -374,7 +374,7 @@ test('handleFilterInput - whitespace handling', () => {
       selected: false,
     },
   ]
-  const state: LanguageModelsState = { ...createDefaultState(), models, filteredModels: models }
+  const state: LanguageModelsState = { ...createDefaultState(), filteredModels: models, models }
   const result = handleFilterInput(state, 'Turbo')
 
   expect(result.filteredModels).toHaveLength(1)
