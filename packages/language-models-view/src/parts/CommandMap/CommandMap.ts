@@ -22,6 +22,6 @@ export const commandMap = {
   'LanguageModels.loadContent': WrapCommand.wrapCommand(loadContent),
   'LanguageModels.render2': Render2.render2,
   'LanguageModels.renderEventListeners': RenderEventListeners.renderEventListeners,
-  'LanguageModels.saveState': WrapCommand.wrapCommand(saveState),
+  'LanguageModels.saveState': WrapCommand.wrapGetter(saveState),
   'LanguageModels.terminate': terminate,
 }

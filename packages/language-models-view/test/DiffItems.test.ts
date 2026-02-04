@@ -1,0 +1,232 @@
+import { expect, test } from '@jest/globals'
+import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
+import * as DiffItems from '../src/parts/DiffItems/DiffItems.ts'
+
+test('isEqual returns true when models and filteredModels are the same', () => {
+  const models = [
+    { enabled: true, id: 'model1', name: 'Model 1', selected: false },
+    { enabled: true, id: 'model2', name: 'Model 2', selected: false },
+  ]
+
+  const state1: LanguageModelsState = {
+    filteredModels: models,
+    filterValue: '',
+    initial: false,
+    models: models,
+    platform: 1,
+    scrollBarHeight: 0,
+    uid: 1,
+    width: 800,
+    x: 0,
+    y: 0,
+  }
+
+  const state2: LanguageModelsState = {
+    filteredModels: models,
+    filterValue: '',
+    initial: false,
+    models: models,
+    platform: 1,
+    scrollBarHeight: 0,
+    uid: 1,
+    width: 800,
+    x: 0,
+    y: 0,
+  }
+
+  const result = DiffItems.isEqual(state1, state2)
+  expect(result).toBe(true)
+})
+
+test('isEqual returns false when models are different', () => {
+  const models1 = [
+    { enabled: true, id: 'model1', name: 'Model 1', selected: false },
+  ]
+
+  const models2 = [
+    { enabled: true, id: 'model2', name: 'Model 2', selected: false },
+  ]
+
+  const state1: LanguageModelsState = {
+    filteredModels: models1,
+    filterValue: '',
+    initial: false,
+    models: models1,
+    platform: 1,
+    scrollBarHeight: 0,
+    uid: 1,
+    width: 800,
+    x: 0,
+    y: 0,
+  }
+
+  const state2: LanguageModelsState = {
+    filteredModels: models1,
+    filterValue: '',
+    initial: false,
+    models: models2,
+    platform: 1,
+    scrollBarHeight: 0,
+    uid: 1,
+    width: 800,
+    x: 0,
+    y: 0,
+  }
+
+  const result = DiffItems.isEqual(state1, state2)
+  expect(result).toBe(false)
+})
+
+test('isEqual returns false when filteredModels are different', () => {
+  const models = [
+    { enabled: true, id: 'model1', name: 'Model 1', selected: false },
+  ]
+
+  const filteredModels = [
+    { enabled: true, id: 'model2', name: 'Model 2', selected: false },
+  ]
+
+  const state1: LanguageModelsState = {
+    filteredModels: models,
+    filterValue: '',
+    initial: false,
+    models: models,
+    platform: 1,
+    scrollBarHeight: 0,
+    uid: 1,
+    width: 800,
+    x: 0,
+    y: 0,
+  }
+
+  const state2: LanguageModelsState = {
+    filteredModels: filteredModels,
+    filterValue: '',
+    initial: false,
+    models: models,
+    platform: 1,
+    scrollBarHeight: 0,
+    uid: 1,
+    width: 800,
+    x: 0,
+    y: 0,
+  }
+
+  const result = DiffItems.isEqual(state1, state2)
+  expect(result).toBe(false)
+})
+
+test('isEqual returns false when both models and filteredModels are different', () => {
+  const models1 = [
+    { enabled: true, id: 'model1', name: 'Model 1', selected: false },
+  ]
+
+  const models2 = [
+    { enabled: true, id: 'model2', name: 'Model 2', selected: false },
+  ]
+
+  const filteredModels1 = [
+    { enabled: true, id: 'model3', name: 'Model 3', selected: false },
+  ]
+
+  const filteredModels2 = [
+    { enabled: true, id: 'model4', name: 'Model 4', selected: false },
+  ]
+
+  const state1: LanguageModelsState = {
+    filteredModels: filteredModels1,
+    filterValue: '',
+    initial: false,
+    models: models1,
+    platform: 1,
+    scrollBarHeight: 0,
+    uid: 1,
+    width: 800,
+    x: 0,
+    y: 0,
+  }
+
+  const state2: LanguageModelsState = {
+    filteredModels: filteredModels2,
+    filterValue: '',
+    initial: false,
+    models: models2,
+    platform: 1,
+    scrollBarHeight: 0,
+    uid: 1,
+    width: 800,
+    x: 0,
+    y: 0,
+  }
+
+  const result = DiffItems.isEqual(state1, state2)
+  expect(result).toBe(false)
+})
+
+test('isEqual returns true with empty models arrays', () => {
+  const models: any[] = []
+
+  const state1: LanguageModelsState = {
+    filteredModels: models,
+    filterValue: '',
+    initial: false,
+    models: models,
+    platform: 1,
+    scrollBarHeight: 0,
+    uid: 1,
+    width: 800,
+    x: 0,
+    y: 0,
+  }
+
+  const state2: LanguageModelsState = {
+    filteredModels: models,
+    filterValue: '',
+    initial: false,
+    models: models,
+    platform: 1,
+    scrollBarHeight: 0,
+    uid: 1,
+    width: 800,
+    x: 0,
+    y: 0,
+  }
+
+  const result = DiffItems.isEqual(state1, state2)
+  expect(result).toBe(true)
+})
+
+test('isEqual ignores other state properties like filterValue', () => {
+  const models = [
+    { enabled: true, id: 'model1', name: 'Model 1', selected: false },
+  ]
+
+  const state1: LanguageModelsState = {
+    filteredModels: models,
+    filterValue: 'search1',
+    initial: false,
+    models: models,
+    platform: 1,
+    scrollBarHeight: 0,
+    uid: 1,
+    width: 800,
+    x: 0,
+    y: 0,
+  }
+
+  const state2: LanguageModelsState = {
+    filteredModels: models,
+    filterValue: 'search2',
+    initial: true,
+    models: models,
+    platform: 2,
+    scrollBarHeight: 100,
+    uid: 2,
+    width: 1000,
+    x: 10,
+    y: 20,
+  }
+
+  const result = DiffItems.isEqual(state1, state2)
+  expect(result).toBe(true)
+})
