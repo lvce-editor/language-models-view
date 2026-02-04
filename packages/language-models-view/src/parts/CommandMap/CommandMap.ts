@@ -9,13 +9,13 @@ import * as Render2 from '../Render2/Render2.ts'
 import * as RenderEventListeners from '../RenderEventListeners/RenderEventListeners.ts'
 
 export const commandMap = {
-  'ActivityBar.create': Create.create,
-  'ActivityBar.diff2': diff2,
-  'ActivityBar.getCommandIds': WrapCommand.getCommandIds,
-  'ActivityBar.getKeyBindings': getKeyBindings,
-  'ActivityBar.getMenuEntries': WrapCommand.wrapGetter(getMenuEntries),
-  'ActivityBar.getMenuEntryIds': getMenuEntryIds,
-  'ActivityBar.loadContent': WrapCommand.wrapCommand(loadContent),
-  'ActivityBar.render2': Render2.render2,
-  'ActivityBar.renderEventListeners': RenderEventListeners.renderEventListeners,
+  'LanguageModels.create': Create.create,
+  'LanguageModels.diff2': diff2,
+  'LanguageModels.getCommandIds': WrapCommand.getCommandIds,
+  'LanguageModels.getKeyBindings': getKeyBindings,
+  'LanguageModels.getMenuEntries': WrapCommand.wrapGetter(getMenuEntries),
+  'LanguageModels.getMenuEntryIds': getMenuEntryIds,
+  'LanguageModels.loadContent': WrapCommand.wrapCommand(loadContent),
+  'LanguageModels.render2': Render2.render2,
+  'LanguageModels.renderEventListeners': RenderEventListeners.renderEventListeners,
 }
