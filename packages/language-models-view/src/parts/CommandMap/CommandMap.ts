@@ -9,6 +9,7 @@ import * as WrapCommand from '../LanguageModelsViewStates/LanguageModelsViewStat
 import { loadContent } from '../LoadContent/LoadContent.ts'
 import * as Render2 from '../Render2/Render2.ts'
 import * as RenderEventListeners from '../RenderEventListeners/RenderEventListeners.ts'
+import { saveState } from '../SaveState/SaveState.ts'
 
 export const commandMap = {
   'LanguageModels.create': Create.create,
@@ -21,5 +22,6 @@ export const commandMap = {
   'LanguageModels.loadContent': WrapCommand.wrapCommand(loadContent),
   'LanguageModels.render2': Render2.render2,
   'LanguageModels.renderEventListeners': RenderEventListeners.renderEventListeners,
+  'LanguageModels.saveState': WrapCommand.wrapCommand(saveState),
   'LanguageModels.terminate': terminate,
 }
