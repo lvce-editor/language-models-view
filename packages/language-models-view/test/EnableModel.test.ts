@@ -1,9 +1,10 @@
 import { expect, test } from '@jest/globals'
+import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { enableModel } from '../src/parts/EnableModel/EnableModel.ts'
 
 test('enableModel enables a model by id', () => {
-  const state = {
+  const state: LanguageModelsState = {
     ...createDefaultState(),
     models: [
       {
@@ -36,7 +37,7 @@ test('enableModel enables a model by id', () => {
 })
 
 test('enableModel returns unchanged state if model id not found', () => {
-  const state = {
+  const state: LanguageModelsState = {
     ...createDefaultState(),
     models: [
       {
@@ -58,7 +59,7 @@ test('enableModel returns unchanged state if model id not found', () => {
 })
 
 test('enableModel does not modify other model properties', () => {
-  const state = {
+  const state: LanguageModelsState = {
     ...createDefaultState(),
     models: [
       {
@@ -81,7 +82,7 @@ test('enableModel does not modify other model properties', () => {
 })
 
 test('enableModel preserves other state properties', () => {
-  const state = {
+  const state: LanguageModelsState = {
     ...createDefaultState(),
     filterValue: 'test',
     models: [
