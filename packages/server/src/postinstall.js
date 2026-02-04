@@ -29,10 +29,11 @@ const rendererWorkerMainPath = join(serverStaticPath, commitHash, 'packages', 'r
 const content = await readFile(rendererWorkerMainPath, 'utf-8')
 
 const remoteUrl = getRemoteUrl(workerPath)
-if (!content.includes('// const languagesModelViewWorkerUrl = ')) {
-  const occurrence = `const languagesModelViewWorkerUrl = \`\${assetDir}/packages/language-models-view/dist/languageModelsViewMain.js\``
-  const replacement = `// const languagesModelViewWorkerUrl = \`\${assetDir}/packages/language-models-view/dist/languageModelsViewMain.js\`
-const languagesModelViewWorkerUrl = \`${remoteUrl}\``
+if (!content.includes('// const languageModelsViewWorkerUrl = ')) {
+  const occurrence = `const languageModelsViewWorkerUrl = \`\${assetDir}/packages/language-models-view/dist/languageModelsViewMain.js\``
+
+  const replacement = `// const languageModelsViewWorkerUrl = \`\${assetDir}/packages/language-models-view/dist/languageModelsViewMain.js\`
+const languageModelsViewWorkerUrl = \`${remoteUrl}\``
 
   const newContent = content.replace(occurrence, replacement)
   await writeFile(rendererWorkerMainPath, newContent)
