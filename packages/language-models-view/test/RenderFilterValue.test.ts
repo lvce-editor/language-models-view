@@ -1,23 +1,16 @@
 import { expect, test } from '@jest/globals'
 import { ViewletCommand } from '@lvce-editor/constants'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as RenderFilterValue from '../src/parts/RenderFilterValue/RenderFilterValue.ts'
 
 test('RenderFilterValue.renderFilterValue should return the correct command array', () => {
   const oldState: LanguageModelsState = {
-    filteredModels: [],
+    ...createDefaultState(),
     filterValue: 'old',
-    headerHeight: 25,
     initial: true,
-    inputSource: 0,
-    models: [],
-    platform: 0,
-    rowHeight: 20,
-    scrollBarHeight: 0,
     uid: 42,
     width: 100,
-    x: 0,
-    y: 0,
   }
 
   const newState: LanguageModelsState = {
@@ -32,19 +25,11 @@ test('RenderFilterValue.renderFilterValue should return the correct command arra
 
 test('RenderFilterValue.renderFilterValue should use newState.filterValue in the command', () => {
   const oldState: LanguageModelsState = {
-    filteredModels: [],
+    ...createDefaultState(),
     filterValue: 'ignored',
-    headerHeight: 25,
     initial: true,
-    inputSource: 0,
-    models: [],
-    platform: 0,
-    rowHeight: 20,
-    scrollBarHeight: 0,
-    uid: 123,
-    width: 200,
-    x: 10,
-    y: 20,
+    uid: 42,
+    width: 100,
   }
 
   const newState: LanguageModelsState = {
