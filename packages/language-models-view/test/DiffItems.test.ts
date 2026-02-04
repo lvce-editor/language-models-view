@@ -1,5 +1,6 @@
 import { expect, test } from '@jest/globals'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DiffItems from '../src/parts/DiffItems/DiffItems.ts'
 
 test('isEqual returns true when models and filteredModels are the same', () => {
@@ -45,18 +46,9 @@ test('isEqual returns true when models and filteredModels are the same', () => {
   }
 
   const state2: LanguageModelsState = {
+    ...createDefaultState(),
     filteredModels: models,
-    filterValue: '',
-    headerHeight: 25,
-    initial: false,
     models: models,
-    platform: 1,
-    rowHeight: 20,
-    scrollBarHeight: 0,
-    uid: 1,
-    width: 800,
-    x: 0,
-    y: 0,
   }
 
   const result = DiffItems.isEqual(state1, state2)
@@ -306,18 +298,9 @@ test('isEqual returns true with empty models arrays', () => {
   }
 
   const state2: LanguageModelsState = {
+    ...createDefaultState(),
     filteredModels: models,
-    filterValue: '',
-    headerHeight: 25,
-    initial: false,
     models: models,
-    platform: 1,
-    rowHeight: 20,
-    scrollBarHeight: 0,
-    uid: 1,
-    width: 800,
-    x: 0,
-    y: 0,
   }
 
   const result = DiffItems.isEqual(state1, state2)
