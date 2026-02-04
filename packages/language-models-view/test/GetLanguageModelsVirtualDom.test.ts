@@ -127,10 +127,12 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 4,
+      className: 'TableRow',
       type: VirtualDomElements.Tr,
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Th,
     },
     {
@@ -139,6 +141,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Th,
     },
     {
@@ -147,6 +150,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Th,
     },
     {
@@ -155,6 +159,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Th,
     },
     {
@@ -168,10 +173,12 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 4,
+      className: 'TableRow',
       type: VirtualDomElements.Tr,
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Td,
     },
     {
@@ -180,6 +187,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Td,
     },
     {
@@ -188,6 +196,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Td,
     },
     {
@@ -196,6 +205,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Td,
     },
     {
@@ -283,10 +293,12 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 4,
+      className: 'TableRow',
       type: VirtualDomElements.Tr,
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Th,
     },
     {
@@ -295,6 +307,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Th,
     },
     {
@@ -303,6 +316,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Th,
     },
     {
@@ -311,6 +325,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Th,
     },
     {
@@ -324,10 +339,12 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 4,
+      className: 'TableRow',
       type: VirtualDomElements.Tr,
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Td,
     },
     {
@@ -336,6 +353,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Td,
     },
     {
@@ -344,6 +362,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Td,
     },
     {
@@ -352,6 +371,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Td,
     },
     {
@@ -360,10 +380,12 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 4,
+      className: 'TableRow',
       type: VirtualDomElements.Tr,
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Td,
     },
     {
@@ -372,6 +394,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Td,
     },
     {
@@ -380,6 +403,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Td,
     },
     {
@@ -388,6 +412,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 1,
+      className: 'TableCell',
       type: VirtualDomElements.Td,
     },
     {
