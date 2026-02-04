@@ -4,4 +4,4 @@ import * as DiffType from '../DiffType/DiffType.ts'
 
 export const modules = [DiffItems.isEqual, diffFilterValue]
 
-export const numbers = [DiffType.RenderIncremental]
+export const numbers = [DiffType.RenderIncremental, DiffType.RenderFilterValue]
