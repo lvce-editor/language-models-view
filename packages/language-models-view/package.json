@@ -1,7 +1,7 @@
 {
   "name": "@lvce-editor/language-models-view",
   "version": "0.0.0-dev",
-  "description": "Explorer Worker",
+  "description": "Language Models View",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lvce-editor/language-models-view.git"
