@@ -17,7 +17,7 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
       type: VirtualDomElements.Div,
     },
     {
-      className: 'LanguageModelsFilter',
+      className: 'InputBox LanguageModelsFilter',
       inputType: 'search',
       name: 'LanguageModelsFilter',
       placeholder: 'Filter language models...',
@@ -73,7 +73,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
       type: VirtualDomElements.Div,
     },
     {
-      className: 'LanguageModelsFilter',
+      className: 'InputBox LanguageModelsFilter',
       inputType: 'search',
       name: 'LanguageModelsFilter',
       placeholder: 'Filter language models...',
@@ -152,7 +152,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.Div,
     },
     {
-      className: 'LanguageModelsFilter',
+      className: 'InputBox LanguageModelsFilter',
       inputType: 'search',
       name: 'LanguageModelsFilter',
       placeholder: 'Filter language models...',
@@ -245,7 +245,7 @@ test('getLanguageModelsVirtualDom includes filter input', () => {
   const result = getLanguageModelsVirtualDom(models)
   const filterInput = result.find((node) => node.type === VirtualDomElements.Input)
   expect(filterInput).toBeDefined()
-  expect(filterInput?.className).toEqual('LanguageModelsFilter')
+  expect(filterInput?.className).toEqual('InputBox LanguageModelsFilter')
 })
 
 test('getLanguageModelsVirtualDom includes table header', () => {

@@ -1,22 +1,14 @@
 import { expect, test } from '@jest/globals'
-import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { disableModel } from '../src/parts/DisableModel/DisableModel.ts'
 
 test('disableModel disables a model by id', () => {
-  const state: LanguageModelsState = {
-    filteredModels: [],
-    filterValue: '',
-    initial: false,
+  const state = {
+    ...createDefaultState(),
     models: [
       { enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false },
       { enabled: true, id: 'claude', name: 'Claude', selected: false },
     ],
-    platform: 0,
-    scrollBarHeight: 0,
-    uid: 1,
-    width: 0,
-    x: 0,
-    y: 0,
   }
 
   const result = disableModel(state, 'gpt-4')
@@ -26,17 +18,9 @@ test('disableModel disables a model by id', () => {
 })
 
 test('disableModel returns unchanged state if model id not found', () => {
-  const state: LanguageModelsState = {
-    filteredModels: [],
-    filterValue: '',
-    initial: false,
+  const state = {
+    ...createDefaultState(),
     models: [{ enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false }],
-    platform: 0,
-    scrollBarHeight: 0,
-    uid: 1,
-    width: 0,
-    x: 0,
-    y: 0,
   }
 
   const result = disableModel(state, 'nonexistent')
@@ -45,17 +29,9 @@ test('disableModel returns unchanged state if model id not found', () => {
 })
 
 test('disableModel does not modify other model properties', () => {
-  const state: LanguageModelsState = {
-    filteredModels: [],
-    filterValue: '',
-    initial: false,
+  const state = {
+    ...createDefaultState(),
     models: [{ enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false }],
-    platform: 0,
-    scrollBarHeight: 0,
-    uid: 1,
-    width: 0,
-    x: 0,
-    y: 0,
   }
 
   const result = disableModel(state, 'gpt-4')
@@ -65,10 +41,9 @@ test('disableModel does not modify other model properties', () => {
 })
 
 test('disableModel preserves other state properties', () => {
-  const state: LanguageModelsState = {
-    filteredModels: [],
+  const state = {
+    ...createDefaultState(),
     filterValue: 'test',
-    initial: false,
     models: [{ enabled: true, id: 'gpt-4', name: 'GPT-4', selected: false }],
     platform: 1,
     scrollBarHeight: 10,

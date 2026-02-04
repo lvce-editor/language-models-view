@@ -1,22 +1,14 @@
 import { expect, test } from '@jest/globals'
-import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { enableModel } from '../src/parts/EnableModel/EnableModel.ts'
 
 test('enableModel enables a model by id', () => {
-  const state: LanguageModelsState = {
-    filteredModels: [],
-    filterValue: '',
-    initial: false,
+  const state = {
+    ...createDefaultState(),
     models: [
       { enabled: false, id: 'gpt-4', name: 'GPT-4', selected: false },
       { enabled: false, id: 'claude', name: 'Claude', selected: false },
     ],
-    platform: 0,
-    scrollBarHeight: 0,
-    uid: 1,
-    width: 0,
-    x: 0,
-    y: 0,
   }
 
   const result = enableModel(state, 'gpt-4')
@@ -26,17 +18,9 @@ test('enableModel enables a model by id', () => {
 })
 
 test('enableModel returns unchanged state if model id not found', () => {
-  const state: LanguageModelsState = {
-    filteredModels: [],
-    filterValue: '',
-    initial: false,
+  const state = {
+    ...createDefaultState(),
     models: [{ enabled: false, id: 'gpt-4', name: 'GPT-4', selected: false }],
-    platform: 0,
-    scrollBarHeight: 0,
-    uid: 1,
-    width: 0,
-    x: 0,
-    y: 0,
   }
 
   const result = enableModel(state, 'nonexistent')
@@ -45,17 +29,9 @@ test('enableModel returns unchanged state if model id not found', () => {
 })
 
 test('enableModel does not modify other model properties', () => {
-  const state: LanguageModelsState = {
-    filteredModels: [],
-    filterValue: '',
-    initial: false,
+  const state = {
+    ...createDefaultState(),
     models: [{ enabled: false, id: 'gpt-4', name: 'GPT-4', selected: false }],
-    platform: 0,
-    scrollBarHeight: 0,
-    uid: 1,
-    width: 0,
-    x: 0,
-    y: 0,
   }
 
   const result = enableModel(state, 'gpt-4')
@@ -65,10 +41,9 @@ test('enableModel does not modify other model properties', () => {
 })
 
 test('enableModel preserves other state properties', () => {
-  const state: LanguageModelsState = {
-    filteredModels: [],
+  const state = {
+    ...createDefaultState(),
     filterValue: 'test',
-    initial: false,
     models: [{ enabled: false, id: 'gpt-4', name: 'GPT-4', selected: false }],
     platform: 1,
     scrollBarHeight: 10,

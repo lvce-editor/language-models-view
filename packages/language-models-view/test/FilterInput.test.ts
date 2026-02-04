@@ -5,7 +5,7 @@ import { getFilterInput } from '../src/parts/FilterInput/GetFilterInputVirtualDo
 test('getFilterInput returns input element with correct properties', () => {
   const result = getFilterInput()
   expect(result).toEqual({
-    className: 'LanguageModelsFilter',
+    className: 'InputBox LanguageModelsFilter',
     inputType: 'search',
     name: 'LanguageModelsFilter',
     placeholder: 'Filter language models...',

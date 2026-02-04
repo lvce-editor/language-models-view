@@ -4,3 +4,7 @@ import * as UiStrings from '../UiStrings/UiStrings.ts'
 export const account = (): string => {
   return I18nString.i18nString(UiStrings.Account)
 }
+
+export const filterLanguageModels = (): string => {
+  return I18nString.i18nString(UiStrings.FilterLanguageModels)
+}
