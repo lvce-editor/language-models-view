@@ -1,0 +1,8 @@
+export const Account = 'Account'
+export const DebugAlt2 = 'DebugAlt2'
+export const Extensions = 'Extensions'
+export const Files = 'Files'
+export const Search = 'Search'
+export const SettingsGear = 'SettingsGear'
+export const SourceControl = 'SourceControl'
+export const Ellipsis = 'Ellipsis'

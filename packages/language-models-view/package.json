@@ -1,0 +1,58 @@
+{
+  "name": "@lvce-editor/language-models-view",
+  "version": "0.0.0-dev",
+  "description": "Language Models View",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lvce-editor/language-models-view.git"
+  },
+  "license": "MIT",
+  "author": "Lvce Editor",
+  "type": "module",
+  "main": "src/languageModelsViewMain.ts",
+  "scripts": {
+    "build:watch": "cd ../../ && npm run build:watch",
+    "dev": "cd ../../ && npm run dev",
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --detectOpenHandles --forceExit",
+    "test:watch": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --watch"
+  },
+  "jest": {
+    "injectGlobals": false,
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    },
+    "transform": {
+      "^.+\\.tsx?$": [
+        "ts-jest",
+        {
+          "useESM": true
+        }
+      ]
+    },
+    "testMatch": [
+      "**/test/**"
+    ],
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 0,
+        "functions": 0,
+        "lines": 0
+      }
+    }
+  },
+  "devDependencies": {
+    "@jest/globals": "^30.2.0",
+    "@lvce-editor/constants": "^3.1.0",
+    "@lvce-editor/i18n": "^2.1.0",
+    "@lvce-editor/rpc": "^5.5.0",
+    "@lvce-editor/rpc-registry": "^8.6.0",
+    "@lvce-editor/viewlet-registry": "^3.0.0",
+    "@lvce-editor/virtual-dom-worker": "^6.11.0",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.6"
+  }
+}
