@@ -1,4 +1,4 @@
-import { cp, readFile, writeFile } from 'node:fs/promises'
+import { cp } from 'node:fs/promises'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { root } from './root.ts'
@@ -16,6 +16,7 @@ const { commitHash } = await sharedProcess.exportStatic({
   testPath: 'packages/e2e',
 })
 
+// @ts-ignore
 const rendererWorkerPath = join(root, 'dist', commitHash, 'packages', 'renderer-worker', 'dist', 'rendererWorkerMain.js')
 
 export const getRemoteUrl = (path: string): string => {
@@ -23,17 +24,17 @@ export const getRemoteUrl = (path: string): string => {
   return `/remote/${url}`
 }
 
-const content = await readFile(rendererWorkerPath, 'utf8')
-const workerPath = join(root, '.tmp/dist/dist/languageModelsViewMain.js')
-const remoteUrl = getRemoteUrl(workerPath)
+// const content = await readFile(rendererWorkerPath, 'utf8')
+// const workerPath = join(root, '.tmp/dist/dist/languageModelsViewMain.js')
+// const remoteUrl = getRemoteUrl(workerPath)
 
-const occurrence = `// const activityBarWorkerUrl = \`\${assetDir}/packages/language-models-view/dist/languageModelsViewMain.js\`
-const activityBarWorkerUrl = \`${remoteUrl}\``
-const replacement = `const activityBarWorkerUrl = \`\${assetDir}/packages/language-models-view/dist/languageModelsViewMain.js\``
-if (!content.includes(occurrence)) {
-  throw new Error('occurrence not found')
-}
-const newContent = content.replace(occurrence, replacement)
-await writeFile(rendererWorkerPath, newContent)
+// const occurrence = `// const activityBarWorkerUrl = \`\${assetDir}/packages/language-models-view/dist/languageModelsViewMain.js\`
+// const activityBarWorkerUrl = \`${remoteUrl}\``
+// const replacement = `const activityBarWorkerUrl = \`\${assetDir}/packages/language-models-view/dist/languageModelsViewMain.js\``
+// if (!content.includes(occurrence)) {
+//   throw new Error('occurrence not found')
+// }
+// const newContent = content.replace(occurrence, replacement)
+// await writeFile(rendererWorkerPath, newContent)
 
 await cp(join(root, 'dist'), join(root, '.tmp', 'static'), { recursive: true })
