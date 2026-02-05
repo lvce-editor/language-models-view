@@ -5,6 +5,7 @@ export interface LanguageModelsState {
   readonly cacheName: string
   readonly filteredModels: readonly LanguageModel[]
   readonly filterValue: string
+  readonly focused: 'none' | 'input' | 'table'
   readonly headerHeight: number
   readonly initial: boolean
   readonly inputSource: number
