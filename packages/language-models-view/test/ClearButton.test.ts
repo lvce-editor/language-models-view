@@ -43,4 +43,3 @@ test('getClearButton returns consistent results on multiple calls', () => {
   const result2 = getClearButton('test')
   expect(result1).toEqual(result2)
 })
-
