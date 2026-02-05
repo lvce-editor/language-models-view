@@ -126,7 +126,7 @@ test('loadContent should filter models when restoring filter value', async () =>
     const matchesFilter =
       model.name.toLowerCase().includes('gpt') || model.id.toLowerCase().includes('gpt') || model.provider.toLowerCase().includes('gpt')
     expect(matchesFilter).toBe(true)
-  })
+  }
 })
 
 test('loadContent should spread existing state before fetching models', async () => {
