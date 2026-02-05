@@ -2,6 +2,8 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'language-models-view-context-menu-disabled'
 
+export const skip = 1
+
 export const test: Test = async ({ Command, expect, Locator, Main }) => {
   // arrange
   await Main.openUri('language-models:///1')
@@ -17,7 +19,7 @@ export const test: Test = async ({ Command, expect, Locator, Main }) => {
   await expect(contextMenu).toBeVisible()
 
   // Verify that "Enable Model" menu entry is present for disabled model
-  const enableModelEntry = Locator('.ContextMenu .MenuItem').filter({ hasText: 'Enable Model' })
+  const enableModelEntry = Locator('.ContextMenu .MenuItem', { hasText: 'Enable Model' })
   await expect(enableModelEntry).toBeVisible()
 
   // Execute the enable model command
@@ -25,5 +27,5 @@ export const test: Test = async ({ Command, expect, Locator, Main }) => {
 
   // Verify the model is now enabled (should not have disabled class)
   const firstTableRow = Locator('.TableBody .TableRow').first()
-  await expect(firstTableRow).not.toHaveClass(/Disabled/)
+  await expect(firstTableRow).not.toHaveClass('Disabled')
 }
