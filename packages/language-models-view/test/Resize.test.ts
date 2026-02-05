@@ -109,11 +109,11 @@ test('resize should handle zero dimensions', () => {
 
 test('resize should handle large dimensions', () => {
   const state = createMockState()
-  const dimensions = createMockDimensions({ width: 10000, x: 5000, y: 8000 })
+  const dimensions = createMockDimensions({ width: 10_000, x: 5000, y: 8000 })
 
   const result = resize(state, dimensions)
 
-  expect(result.width).toBe(10000)
+  expect(result.width).toBe(10_000)
   expect(result.x).toBe(5000)
   expect(result.y).toBe(8000)
 })
