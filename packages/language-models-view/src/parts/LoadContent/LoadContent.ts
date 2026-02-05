@@ -1,5 +1,6 @@
 import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsState.ts'
 import * as CacheStorage from '../CacheStorage/CacheStorage.ts'
+import { getFilteredModels } from '../GetFilteredModels/GetFilteredModels.ts'
 import { getModels } from '../GetModels/GetModels.ts'
 import { restoreState } from '../RestoreState/RestoreState.ts'
 
@@ -24,6 +25,13 @@ export const loadContent = async (state: LanguageModelsState, savedState?: unkno
 
   if (savedState) {
     newState = restoreState(newState, savedState)
+    // If a filter value was restored, apply filtering to the models
+    if (newState.filterValue) {
+      newState = {
+        ...newState,
+        filteredModels: getFilteredModels(newState.models, newState.filterValue),
+      }
+    }
   }
 
   return newState

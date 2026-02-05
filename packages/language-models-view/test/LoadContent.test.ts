@@ -112,6 +112,23 @@ test('loadContent should restore state when savedState is provided', async () =>
   expect(result.filterValue).toBe('saved filter')
 })
 
+test('loadContent should filter models when restoring filter value', async () => {
+  const state = createMockState()
+  // Use a filter that will match some models (e.g., 'gpt' or 'claude')
+  const savedState = { filterValue: 'gpt' }
+  const result = await loadContent(state, savedState)
+
+  expect(result.filterValue).toBe('gpt')
+  // filteredModels should only contain models matching the filter
+  expect(result.filteredModels.length).toBeLessThanOrEqual(result.models.length)
+  // Each filtered model should match the filter value
+  for (const model of result.filteredModels) {
+    const matchesFilter =
+      model.name.toLowerCase().includes('gpt') || model.id.toLowerCase().includes('gpt') || model.provider.toLowerCase().includes('gpt')
+    expect(matchesFilter).toBe(true)
+  }
+})
+
 test('loadContent should spread existing state before fetching models', async () => {
   const originalState = createMockState({
     filterValue: 'original filter',
