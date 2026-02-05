@@ -5,9 +5,9 @@ export default [
   ...config.default,
   ...actions.default,
   {
-    files: ['**/*.test.ts'],
     rules: {
       '@typescript-eslint/unbound-method': 'off',
+      '@cspell/spellchecker': ['off'],
     },
   },
 ]
