@@ -1,14 +1,8 @@
 import { expect, test } from '@jest/globals'
-import type { ContextMenuProps } from '../src/parts/ContextMenuProps/ContextMenuProps.ts'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { getMenuEntries } from '../src/parts/GetMenuEntries/GetMenuEntries.ts'
 import * as LanguageModelsStrings from '../src/parts/LanguageModelsStrings/LanguageModelsStrings.ts'
-
-const defaultMenuProps: ContextMenuProps = {
-  menuId: 96,
-  modelId: 'gpt-4',
-}
 
 test('getMenuEntries returns empty array when modelId does not exist', () => {
   const models = [
@@ -82,7 +76,7 @@ test('getMenuEntries returns disable entry when specified model is enabled', () 
 
   expect(entries).toHaveLength(1)
   expect(entries[0].command).toBe('LanguageModels.disableModel')
-  expect(entries[0].args).toBe('gpt-4')
+  expect(entries[0].args).toEqual(['gpt-4'])
   expect(entries[0].id).toBe('disable-model')
   expect(entries[0].label).toBe(LanguageModelsStrings.disableModel())
   expect(entries[0].flags).toBe(0)
@@ -123,7 +117,7 @@ test('getMenuEntries returns enable entry when specified model is disabled', () 
 
   expect(entries).toHaveLength(1)
   expect(entries[0].command).toBe('LanguageModels.enableModel')
-  expect(entries[0].args).toBe('claude')
+  expect(entries[0].args).toEqual(['claude'])
   expect(entries[0].id).toBe('enable-model')
   expect(entries[0].label).toBe(LanguageModelsStrings.enableModel())
   expect(entries[0].flags).toBe(0)
@@ -199,7 +193,7 @@ test('getMenuEntries with multiple enabled models returns correct entry for spec
   const entries = getMenuEntries(state, { menuId: 96, modelId: 'gpt-4-turbo' })
 
   expect(entries).toHaveLength(1)
-  expect(entries[0].args).toBe('gpt-4-turbo')
+  expect(entries[0].args).toEqual(['gpt-4-turbo'])
   expect(entries[0].command).toBe('LanguageModels.disableModel')
 })
 
@@ -248,7 +242,7 @@ test('getMenuEntries with multiple disabled models returns correct entry for spe
   const entries = getMenuEntries(state, { menuId: 96, modelId: 'gpt-4-turbo' })
 
   expect(entries).toHaveLength(1)
-  expect(entries[0].args).toBe('gpt-4-turbo')
+  expect(entries[0].args).toEqual(['gpt-4-turbo'])
   expect(entries[0].command).toBe('LanguageModels.enableModel')
 })
 
@@ -308,7 +302,7 @@ test('getMenuEntries with filtered models works correctly', () => {
   const entries = getMenuEntries(state, { menuId: 96, modelId: 'claude' })
 
   expect(entries).toHaveLength(1)
-  expect(entries[0].args).toBe('claude')
+  expect(entries[0].args).toEqual(['claude'])
   expect(entries[0].command).toBe('LanguageModels.enableModel')
 })
 
@@ -340,5 +334,5 @@ test('getMenuEntries returns entries with correct MenuEntry structure', () => {
   expect(typeof entry.label).toBe('string')
   expect(typeof entry.command).toBe('string')
   expect(typeof entry.flags).toBe('number')
-  expect(typeof entry.args).toBe('string')
+  expect(Array.isArray(entry.args)).toBe(true)
 })
