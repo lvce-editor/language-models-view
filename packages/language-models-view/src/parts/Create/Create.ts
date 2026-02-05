@@ -18,6 +18,7 @@ export const create = (
     cacheName: 'language-models-cache',
     filteredModels: [],
     filterValue: '',
+    focused: 'none',
     headerHeight: 25,
     initial: true,
     inputSource: 1,
