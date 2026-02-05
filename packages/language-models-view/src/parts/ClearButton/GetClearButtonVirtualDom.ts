@@ -4,7 +4,7 @@ import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEven
 import * as LanguageModelsStrings from '../LanguageModelsStrings/LanguageModelsStrings.ts'
 
 const getClassName = (isDisabled: boolean): string => {
-  return 'IconButton' + (isDisabled ? ' SearchFieldButtonDisabled' : '')
+  return 'SearchFieldButton' + (isDisabled ? ' SearchFieldButtonDisabled' : '')
 }
 
 export const getClearButton = (filterValue: string): readonly VirtualDomNode[] => {
