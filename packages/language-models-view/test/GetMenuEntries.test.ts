@@ -1,15 +1,10 @@
 import { expect, test } from '@jest/globals'
-import type { ContextMenuProps } from '../src/parts/ContextMenuProps/ContextMenuProps.ts'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { getMenuEntries } from '../src/parts/GetMenuEntries/GetMenuEntries.ts'
 import * as LanguageModelsStrings from '../src/parts/LanguageModelsStrings/LanguageModelsStrings.ts'
 
-const defaultMenuProps: ContextMenuProps = {
-  menuId: 96,
-}
-
-test('getMenuEntries returns empty array when no model is selected', () => {
+test('getMenuEntries returns empty array when modelId does not exist', () => {
   const models = [
     {
       capabilities: { tools: false, vision: false },
@@ -40,13 +35,13 @@ test('getMenuEntries returns empty array when no model is selected', () => {
     models,
   }
 
-  const entries = getMenuEntries(state, defaultMenuProps)
+  const entries = getMenuEntries(state, { menuId: 96, modelId: 'non-existent-model' })
 
   expect(Array.isArray(entries)).toBe(true)
   expect(entries).toHaveLength(0)
 })
 
-test('getMenuEntries returns disable entry when selected model is enabled', () => {
+test('getMenuEntries returns disable entry when specified model is enabled', () => {
   const models = [
     {
       capabilities: { tools: false, vision: false },
@@ -57,7 +52,7 @@ test('getMenuEntries returns disable entry when selected model is enabled', () =
       name: 'GPT-4',
       outputContextSize: 4096,
       provider: 'openai',
-      selected: true,
+      selected: false,
     },
     {
       capabilities: { tools: false, vision: false },
@@ -77,17 +72,17 @@ test('getMenuEntries returns disable entry when selected model is enabled', () =
     models,
   }
 
-  const entries = getMenuEntries(state, defaultMenuProps)
+  const entries = getMenuEntries(state, { menuId: 96, modelId: 'gpt-4' })
 
   expect(entries).toHaveLength(1)
   expect(entries[0].command).toBe('LanguageModels.disableModel')
-  expect(entries[0].args).toBe('gpt-4')
+  expect(entries[0].args).toEqual(['gpt-4'])
   expect(entries[0].id).toBe('disable-model')
   expect(entries[0].label).toBe(LanguageModelsStrings.disableModel())
   expect(entries[0].flags).toBe(0)
 })
 
-test('getMenuEntries returns enable entry when selected model is disabled', () => {
+test('getMenuEntries returns enable entry when specified model is disabled', () => {
   const models = [
     {
       capabilities: { tools: false, vision: false },
@@ -109,7 +104,7 @@ test('getMenuEntries returns enable entry when selected model is disabled', () =
       name: 'Claude',
       outputContextSize: 4096,
       provider: 'anthropic',
-      selected: true,
+      selected: false,
     },
   ]
   const state: LanguageModelsState = {
@@ -118,11 +113,11 @@ test('getMenuEntries returns enable entry when selected model is disabled', () =
     models,
   }
 
-  const entries = getMenuEntries(state, defaultMenuProps)
+  const entries = getMenuEntries(state, { menuId: 96, modelId: 'claude' })
 
   expect(entries).toHaveLength(1)
   expect(entries[0].command).toBe('LanguageModels.enableModel')
-  expect(entries[0].args).toBe('claude')
+  expect(entries[0].args).toEqual(['claude'])
   expect(entries[0].id).toBe('enable-model')
   expect(entries[0].label).toBe(LanguageModelsStrings.enableModel())
   expect(entries[0].flags).toBe(0)
@@ -139,7 +134,7 @@ test('getMenuEntries returns readonly array', () => {
       name: 'GPT-4',
       outputContextSize: 4096,
       provider: 'openai',
-      selected: true,
+      selected: false,
     },
   ]
   const state: LanguageModelsState = {
@@ -148,12 +143,12 @@ test('getMenuEntries returns readonly array', () => {
     models,
   }
 
-  const entries = getMenuEntries(state, defaultMenuProps)
+  const entries = getMenuEntries(state, { menuId: 96, modelId: 'gpt-4' })
 
   expect(Object.isFrozen(entries) || Array.isArray(entries)).toBe(true)
 })
 
-test('getMenuEntries with multiple enabled models returns correct entry for selected model', () => {
+test('getMenuEntries with multiple enabled models returns correct entry for specified model', () => {
   const models = [
     {
       capabilities: { tools: false, vision: false },
@@ -175,7 +170,7 @@ test('getMenuEntries with multiple enabled models returns correct entry for sele
       name: 'GPT-4 Turbo',
       outputContextSize: 4096,
       provider: 'openai',
-      selected: true,
+      selected: false,
     },
     {
       capabilities: { tools: false, vision: false },
@@ -195,14 +190,14 @@ test('getMenuEntries with multiple enabled models returns correct entry for sele
     models,
   }
 
-  const entries = getMenuEntries(state, defaultMenuProps)
+  const entries = getMenuEntries(state, { menuId: 96, modelId: 'gpt-4-turbo' })
 
   expect(entries).toHaveLength(1)
-  expect(entries[0].args).toBe('gpt-4-turbo')
+  expect(entries[0].args).toEqual(['gpt-4-turbo'])
   expect(entries[0].command).toBe('LanguageModels.disableModel')
 })
 
-test('getMenuEntries with multiple disabled models returns correct entry for selected model', () => {
+test('getMenuEntries with multiple disabled models returns correct entry for specified model', () => {
   const models = [
     {
       capabilities: { tools: false, vision: false },
@@ -224,7 +219,7 @@ test('getMenuEntries with multiple disabled models returns correct entry for sel
       name: 'GPT-4 Turbo',
       outputContextSize: 4096,
       provider: 'openai',
-      selected: true,
+      selected: false,
     },
     {
       capabilities: { tools: false, vision: false },
@@ -244,14 +239,14 @@ test('getMenuEntries with multiple disabled models returns correct entry for sel
     models,
   }
 
-  const entries = getMenuEntries(state, defaultMenuProps)
+  const entries = getMenuEntries(state, { menuId: 96, modelId: 'gpt-4-turbo' })
 
   expect(entries).toHaveLength(1)
-  expect(entries[0].args).toBe('gpt-4-turbo')
+  expect(entries[0].args).toEqual(['gpt-4-turbo'])
   expect(entries[0].command).toBe('LanguageModels.enableModel')
 })
 
-test('getMenuEntries with filtered models respects selection state', () => {
+test('getMenuEntries with filtered models works correctly', () => {
   const state: LanguageModelsState = {
     ...createDefaultState(),
     filteredModels: [
@@ -275,7 +270,7 @@ test('getMenuEntries with filtered models respects selection state', () => {
         name: 'Claude',
         outputContextSize: 4096,
         provider: 'anthropic',
-        selected: true,
+        selected: false,
       },
     ],
     models: [
@@ -299,15 +294,15 @@ test('getMenuEntries with filtered models respects selection state', () => {
         name: 'Claude',
         outputContextSize: 4096,
         provider: 'anthropic',
-        selected: true,
+        selected: false,
       },
     ],
   }
 
-  const entries = getMenuEntries(state, defaultMenuProps)
+  const entries = getMenuEntries(state, { menuId: 96, modelId: 'claude' })
 
   expect(entries).toHaveLength(1)
-  expect(entries[0].args).toBe('claude')
+  expect(entries[0].args).toEqual(['claude'])
   expect(entries[0].command).toBe('LanguageModels.enableModel')
 })
 
@@ -322,7 +317,7 @@ test('getMenuEntries returns entries with correct MenuEntry structure', () => {
       name: 'GPT-4',
       outputContextSize: 4096,
       provider: 'openai',
-      selected: true,
+      selected: false,
     },
   ]
   const state: LanguageModelsState = {
@@ -331,7 +326,7 @@ test('getMenuEntries returns entries with correct MenuEntry structure', () => {
     models,
   }
 
-  const entries = getMenuEntries(state, defaultMenuProps)
+  const entries = getMenuEntries(state, { menuId: 96, modelId: 'gpt-4' })
 
   expect(entries).toHaveLength(1)
   const entry = entries[0]
@@ -339,5 +334,5 @@ test('getMenuEntries returns entries with correct MenuEntry structure', () => {
   expect(typeof entry.label).toBe('string')
   expect(typeof entry.command).toBe('string')
   expect(typeof entry.flags).toBe('number')
-  expect(typeof entry.args).toBe('string')
+  expect(Array.isArray(entry.args)).toBe(true)
 })
