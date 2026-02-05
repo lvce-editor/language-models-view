@@ -20,7 +20,7 @@ const getNoMatchingModelsMessage = (): readonly VirtualDomNode[] => {
 }
 
 export const getLanguageModelsVirtualDom = (models: readonly LanguageModel[], filterValue: string): readonly VirtualDomNode[] => {
-  const content = models.length === 0 ? getNoMatchingModelsMessage() : getTableVirtualDom(models)
+  const content = models.length === 0 ? getNoMatchingModelsMessage() : getTableVirtualDom(models, filterValue)
   return [
     {
       childCount: 2,

@@ -12,16 +12,25 @@ test('getTableHead returns thead element', () => {
 })
 
 test('getTableHeaderVirtualDom returns array with all header elements', () => {
-  const result = getTableHeaderVirtualDom()
+  const result = getTableHeaderVirtualDom('')
   expect(result).toEqual([
     {
       childCount: 1,
       type: VirtualDomElements.THead,
     },
     {
-      childCount: 4,
+      childCount: 5,
       className: 'TableRow',
       type: VirtualDomElements.Tr,
+    },
+    {
+      childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Th,
+    },
+    {
+      text: '',
+      type: VirtualDomElements.Text,
     },
     {
       childCount: 1,
@@ -63,12 +72,12 @@ test('getTableHeaderVirtualDom returns array with all header elements', () => {
 })
 
 test('getTableHeaderVirtualDom returns array with 10 elements', () => {
-  const result = getTableHeaderVirtualDom()
-  expect(result.length).toEqual(10)
+  const result = getTableHeaderVirtualDom('')
+  expect(result.length).toEqual(12)
 })
 
 test('getTableHeaderVirtualDom returns consistent results on multiple calls', () => {
-  const result1 = getTableHeaderVirtualDom()
-  const result2 = getTableHeaderVirtualDom()
+  const result1 = getTableHeaderVirtualDom('')
+  const result2 = getTableHeaderVirtualDom('')
   expect(result1).toEqual(result2)
 })

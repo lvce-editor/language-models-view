@@ -4,7 +4,7 @@ import * as ClassNames from '../../ClassNames/ClassNames.ts'
 
 export const getTableHeaderRow = (): VirtualDomNode => {
   return {
-    childCount: 4,
+    childCount: 5,
     className: ClassNames.TableRow,
     type: VirtualDomElements.Tr,
   }

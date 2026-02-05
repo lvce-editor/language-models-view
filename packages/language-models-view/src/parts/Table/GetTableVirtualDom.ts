@@ -4,13 +4,13 @@ import type { LanguageModel } from '../LanguageModel/LanguageModel.ts'
 import { getTableBodyVirtualDom } from '../TableBody/GetTableBodyVirtualDom.ts'
 import { getTableHeaderVirtualDom } from '../TableHeader/GetTableHeaderVirtualDom.ts'
 
-export const getTableVirtualDom = (models: readonly LanguageModel[]): readonly VirtualDomNode[] => {
+export const getTableVirtualDom = (models: readonly LanguageModel[], filterValue: string): readonly VirtualDomNode[] => {
   return [
     {
       childCount: 2,
       type: VirtualDomElements.Table,
     },
-    ...getTableHeaderVirtualDom(),
+    ...getTableHeaderVirtualDom(filterValue),
     ...getTableBodyVirtualDom(models),
   ]
 }

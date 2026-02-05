@@ -161,7 +161,7 @@ test('getTableBodyVirtualDom handles mix of enabled and disabled models', () => 
 
   // First row: selected and enabled
   const firstRow = result[1]
-  expect(firstRow.className).toEqual('Selected TableRow')
+  expect(firstRow.className).toEqual('TableRowSelected TableRow')
 
   // Second row: disabled and not selected - now at index 10
   const secondRow = result[10]

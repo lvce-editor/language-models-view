@@ -13,9 +13,9 @@ test('renderEventListeners should return a readonly array', () => {
   expect(Object.isFrozen(result) || !Array.isArray(result.concat)).toBe(true)
 })
 
-test('renderEventListeners should return 7 event listeners', () => {
+test('renderEventListeners should return 8 event listeners', () => {
   const result = renderEventListeners()
-  expect(result).toHaveLength(7)
+  expect(result).toHaveLength(8)
 })
 
 test('renderEventListeners should include HandleBlur listener', () => {
@@ -84,6 +84,16 @@ test('renderEventListeners should include HandleMouseDown listener with preventD
   })
 })
 
+test('renderEventListeners should include HandleCheckboxChange listener with stopPropagation', () => {
+  const result = renderEventListeners()
+  const handleCheckboxChangeListener = result.find((listener) => listener.name === DomEventListenerFunctions.HandleCheckboxChange)
+  expect(handleCheckboxChangeListener).toEqual({
+    name: DomEventListenerFunctions.HandleCheckboxChange,
+    params: ['handleCheckboxChange', EventExpression.Button, EventExpression.ClientX, EventExpression.ClientY],
+    stopPropagation: true,
+  })
+})
+
 test('renderEventListeners should return consistent results on multiple calls', () => {
   const result1 = renderEventListeners()
   const result2 = renderEventListeners()
@@ -111,6 +121,7 @@ test('renderEventListeners should have listeners in expected order', () => {
     DomEventListenerFunctions.HandleClearClick,
     DomEventListenerFunctions.HandleContextMenu,
     DomEventListenerFunctions.HandleMouseDown,
+    DomEventListenerFunctions.HandleCheckboxChange,
   ])
 })
 
@@ -122,11 +133,12 @@ test('renderEventListeners should only have preventDefault set for specific list
   expect(listenersWithPreventDefault[1].name).toBe(DomEventListenerFunctions.HandleMouseDown)
 })
 
-test('renderEventListeners should only have stopPropagation set for HandleMouseDown', () => {
+test('renderEventListeners should have stopPropagation set for HandleMouseDown and HandleCheckboxChange', () => {
   const result = renderEventListeners()
   const listenersWithStopPropagation = result.filter((listener) => listener.stopPropagation === true)
-  expect(listenersWithStopPropagation).toHaveLength(1)
+  expect(listenersWithStopPropagation).toHaveLength(2)
   expect(listenersWithStopPropagation[0].name).toBe(DomEventListenerFunctions.HandleMouseDown)
+  expect(listenersWithStopPropagation[1].name).toBe(DomEventListenerFunctions.HandleCheckboxChange)
 })
 
 test('renderEventListeners all params should be strings', () => {

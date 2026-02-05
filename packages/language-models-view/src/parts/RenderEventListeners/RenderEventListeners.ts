@@ -35,5 +35,10 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       preventDefault: true,
       stopPropagation: true,
     },
+    {
+      name: DomEventListenerFunctions.HandleCheckboxChange,
+      params: ['handleCheckboxChange', EventExpression.Button, EventExpression.ClientX, EventExpression.ClientY],
+      stopPropagation: true,
+    },
   ]
 }
