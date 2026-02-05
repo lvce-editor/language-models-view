@@ -36,6 +36,7 @@ export const handleCheckboxChange = async (
   // The checkbox is in the first cell of the row
   // If the clicked element is a checkbox input, use its checked state
   // Otherwise, toggle the enabled state
+  // eslint-disable-next-line unicorn/prefer-logical-operator-over-ternary
   const newEnabled = targetChecked ? targetChecked : !model.enabled
 
   // Update the model with the new enabled state
