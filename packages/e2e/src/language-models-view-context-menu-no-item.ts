@@ -16,6 +16,7 @@ export const test: Test = async ({ Command, expect, Locator, Main }) => {
   const contextMenu = Locator('.ContextMenu')
 
   // Check if context menu is hidden or has no menu items
+  // @ts-ignore
   const isHidden = await contextMenu.isHidden()
   if (!isHidden) {
     const menuItems = Locator('.ContextMenu .MenuItem')
