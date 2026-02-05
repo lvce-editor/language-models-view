@@ -129,6 +129,7 @@ test('getTableBodyVirtualDom returns correct structure for single model', () => 
     {
       checked: true,
       inputType: 'checkbox',
+      name: 'gpt-4',
       onChange: DomEventListenerFunctions.HandleCheckboxChange,
       type: VirtualDomElements.Input,
     },

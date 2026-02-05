@@ -89,7 +89,7 @@ test('renderEventListeners should include HandleCheckboxChange listener with sto
   const handleCheckboxChangeListener = result.find((listener) => listener.name === DomEventListenerFunctions.HandleCheckboxChange)
   expect(handleCheckboxChangeListener).toEqual({
     name: DomEventListenerFunctions.HandleCheckboxChange,
-    params: ['handleCheckboxChange', EventExpression.Button, EventExpression.ClientX, EventExpression.ClientY],
+    params: ['handleCheckboxChange', EventExpression.TargetName, EventExpression.TargetValue],
     stopPropagation: true,
   })
 })
