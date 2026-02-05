@@ -58,8 +58,8 @@ test('handleTableContextMenu calls ContextMenu.show2 with correct parameters', a
 
   const state: LanguageModelsState = {
     ...createDefaultState(),
-    filteredModels: models,
     uid: 42,
+    filteredModels: models,
   }
 
   const result = await handleTableContextMenu(state, 100, 200)
@@ -88,11 +88,11 @@ test('handleTableContextMenu returns state unchanged', async () => {
 
   const state: LanguageModelsState = {
     ...createDefaultState(),
-    filteredModels: models,
     uid: 100,
     width: 1024,
     x: 50,
     y: 150,
+    filteredModels: models,
   }
 
   const result = await handleTableContextMenu(state, 300, 400)
