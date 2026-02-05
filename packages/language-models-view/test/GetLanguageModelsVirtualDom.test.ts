@@ -308,7 +308,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 1,
-      className: 'IconButton SearchFieldButtonDisabled',
+      className: 'SearchFieldButton SearchFieldButtonDisabled',
       disabled: true,
       name: 'ClearButton',
       onClick: 8,
