@@ -6,6 +6,6 @@ export const renderItems = (oldState: LanguageModelsState, newState: LanguageMod
   if (newState.initial) {
     return [ViewletCommand.SetDom2, newState.uid, []]
   }
-  const dom = getLanguageModelsVirtualDom(newState.filteredModels)
+  const dom = getLanguageModelsVirtualDom(newState.filteredModels, newState.filterValue)
   return [ViewletCommand.SetDom2, newState.uid, dom]
 }

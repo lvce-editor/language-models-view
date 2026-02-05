@@ -5,7 +5,7 @@ import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctio
 import { getLanguageModelsVirtualDom } from '../src/parts/GetLanguageModelsVirtualDom/GetLanguageModelsVirtualDom.ts'
 
 test('getLanguageModelsVirtualDom returns correct structure for empty models', () => {
-  const result = getLanguageModelsVirtualDom([])
+  const result = getLanguageModelsVirtualDom([], '')
   expect(result).toEqual([
     {
       childCount: 2,
@@ -74,7 +74,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
       selected: false,
     },
   ]
-  const result = getLanguageModelsVirtualDom(models)
+  const result = getLanguageModelsVirtualDom(models, '')
   expect(result).toEqual([
     {
       childCount: 2,
@@ -241,7 +241,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       selected: false,
     },
   ]
-  const result = getLanguageModelsVirtualDom(models)
+  const result = getLanguageModelsVirtualDom(models, '')
   expect(result).toEqual([
     {
       childCount: 2,
@@ -438,8 +438,8 @@ test('getLanguageModelsVirtualDom returns consistent results on multiple calls w
       selected: false,
     },
   ]
-  const result1 = getLanguageModelsVirtualDom(models)
-  const result2 = getLanguageModelsVirtualDom(models)
+  const result1 = getLanguageModelsVirtualDom(models, '')
+  const result2 = getLanguageModelsVirtualDom(models, '')
   expect(result1).toEqual(result2)
 })
 
@@ -457,7 +457,7 @@ test('getLanguageModelsVirtualDom includes filter input', () => {
       selected: false,
     },
   ]
-  const result = getLanguageModelsVirtualDom(models)
+  const result = getLanguageModelsVirtualDom(models, '')
   const filterInput = result.find((node) => node.type === VirtualDomElements.Input)
   expect(filterInput).toBeDefined()
   expect(filterInput?.className).toEqual('InputBox LanguageModelsFilter')
@@ -477,7 +477,7 @@ test('getLanguageModelsVirtualDom includes table header', () => {
       selected: false,
     },
   ]
-  const result = getLanguageModelsVirtualDom(models)
+  const result = getLanguageModelsVirtualDom(models, '')
   const thead = result.find((node) => node.type === VirtualDomElements.THead)
   expect(thead).toBeDefined()
 })
@@ -496,7 +496,7 @@ test('getLanguageModelsVirtualDom includes table body', () => {
       selected: false,
     },
   ]
-  const result = getLanguageModelsVirtualDom(models)
+  const result = getLanguageModelsVirtualDom(models, '')
   const tbody = result.find((node) => node.type === VirtualDomElements.THead)
   expect(tbody).toBeDefined()
 })
