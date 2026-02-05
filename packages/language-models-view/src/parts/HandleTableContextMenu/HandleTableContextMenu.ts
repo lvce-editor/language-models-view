@@ -1,9 +1,9 @@
 import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsState.ts'
-import * as ContextMenu from '../ContextMenu/ContextMenu.ts'
 import * as ComputeRowIndex from '../ComputeRowIndex/ComputeRowIndex.ts'
+import * as ContextMenu from '../ContextMenu/ContextMenu.ts'
 
 export const handleTableContextMenu = async (state: LanguageModelsState, x: number, y: number): Promise<LanguageModelsState> => {
-  const { headerHeight, rowHeight, y: stateY, filteredModels } = state
+  const { filteredModels, headerHeight, rowHeight, y: stateY } = state
 
   // Calculate relative Y position from the top of the table
   const relativeY = y - stateY
@@ -13,7 +13,7 @@ export const handleTableContextMenu = async (state: LanguageModelsState, x: numb
 
   // Get the model at the computed row index
   const model = filteredModels[rowIndex]
-  
+
   if (!model) {
     return state
   }
