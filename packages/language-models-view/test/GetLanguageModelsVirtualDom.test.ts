@@ -99,6 +99,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     {
       childCount: 1,
       className: 'Button ClearButton',
+      disabled: true,
       name: 'ClearButton',
       onClick: 8,
       type: VirtualDomElements.Button,
@@ -266,6 +267,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     {
       childCount: 1,
       className: 'Button ClearButton',
+      disabled: true,
       name: 'ClearButton',
       onClick: 8,
       type: VirtualDomElements.Button,
