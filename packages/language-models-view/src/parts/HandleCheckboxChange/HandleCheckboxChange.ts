@@ -14,7 +14,7 @@ export const handleCheckboxChange = async (
     return state
   }
 
-  const { headerHeight, rowHeight, y: stateY, models } = state
+  const { headerHeight, models, rowHeight, y: stateY } = state
 
   // Calculate relative Y position from the top of the table
   const relativeY = y - stateY
