@@ -62,10 +62,10 @@ test('handleTableContextMenu calls ContextMenu.show2 with correct parameters', a
     uid: 42,
   }
 
-  const result = await handleTableContextMenu(state, 100, 200)
+  const result = await handleTableContextMenu(state, 100, 85)
 
   expect(mockRpc.invocations).toHaveLength(1)
-  expect(mockRpc.invocations[0]).toEqual(['ContextMenu.show2', 42, 96, 100, 200, { menuId: 96, modelId: 'model-3' }])
+  expect(mockRpc.invocations[0]).toEqual(['ContextMenu.show2', 42, 96, 100, 85, { menuId: 96, modelId: 'model-3' }])
   expect(result).toBe(state)
 })
 
