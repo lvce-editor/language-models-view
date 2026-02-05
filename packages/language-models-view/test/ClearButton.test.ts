@@ -7,15 +7,16 @@ test('getClearButton returns button with correct properties when filterValue is 
   expect(result).toEqual([
     {
       childCount: 1,
-      className: 'Button ClearButton',
+      className: 'IconButton SearchFieldButtonDisabled',
       disabled: true,
       name: 'ClearButton',
       onClick: 8,
+      title: 'Clear',
       type: VirtualDomElements.Button,
     },
     {
-      text: 'Clear',
-      type: VirtualDomElements.Text,
+      className: 'MaskIcon MaskIconClearAll',
+      type: VirtualDomElements.Div,
     },
   ])
 })
@@ -25,15 +26,16 @@ test('getClearButton returns button with correct properties when filterValue is 
   expect(result).toEqual([
     {
       childCount: 1,
-      className: 'Button ClearButton',
+      className: 'IconButton',
       disabled: false,
       name: 'ClearButton',
       onClick: 8,
+      title: 'Clear',
       type: VirtualDomElements.Button,
     },
     {
-      text: 'Clear',
-      type: VirtualDomElements.Text,
+      className: 'MaskIcon MaskIconClearAll',
+      type: VirtualDomElements.Div,
     },
   ])
 })
