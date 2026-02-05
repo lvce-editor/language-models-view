@@ -40,5 +40,10 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       params: ['handleCheckboxChange', EventExpression.TargetName, EventExpression.TargetValue],
       stopPropagation: true,
     },
+    {
+      name: DomEventListenerFunctions.HandleHeaderContextMenu,
+      params: ['handleHeaderContextMenu'],
+      preventDefault: true,
+    },
   ]
 }

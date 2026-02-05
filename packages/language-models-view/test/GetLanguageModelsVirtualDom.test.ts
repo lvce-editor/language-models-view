@@ -15,6 +15,7 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
     {
       childCount: 3,
       className: 'LanguageModelsHeader',
+      onContextMenu: DomEventListenerFunctions.HandleHeaderContextMenu,
       type: VirtualDomElements.Div,
     },
     {
@@ -85,6 +86,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     {
       childCount: 3,
       className: 'LanguageModelsHeader',
+      onContextMenu: DomEventListenerFunctions.HandleHeaderContextMenu,
       type: VirtualDomElements.Div,
     },
     {
@@ -275,6 +277,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     {
       childCount: 3,
       className: 'LanguageModelsHeader',
+      onContextMenu: DomEventListenerFunctions.HandleHeaderContextMenu,
       type: VirtualDomElements.Div,
     },
     {
