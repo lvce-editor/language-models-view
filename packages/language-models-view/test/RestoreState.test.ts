@@ -54,8 +54,6 @@ test('restoreState - should not restore filterValue when it is null', () => {
   expect(result.filterValue).toBe('')
 })
 
-
-
 test('restoreState - should restore filterValue and ignore other properties', () => {
   const state = createDefaultState()
   const savedState = {
@@ -107,15 +105,11 @@ test('restoreState - should restore filterValue with empty string', () => {
   expect(result.filterValue).toBe('')
 })
 
-
-
 test('restoreState - should handle savedState that is an array', () => {
   const state = createDefaultState()
   const result = RestoreState.restoreState(state, [])
   expect(result).toEqual(state)
 })
-
-
 
 test('restoreState - should restore filterValue with special characters', () => {
   const state = createDefaultState()
