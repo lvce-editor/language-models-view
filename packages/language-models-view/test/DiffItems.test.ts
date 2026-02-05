@@ -88,41 +88,15 @@ test('isEqual returns false when models are different', () => {
   ]
 
   const state1: LanguageModelsState = {
-    cacheKey: 'disabled-models',
-    cacheName: 'language-models-cache',
+    ...createDefaultState(),
     filteredModels: models1,
-    filterValue: '',
-    focused: 'none',
-    headerHeight: 25,
-    initial: false,
-    inputSource: 0,
     models: models1,
-    platform: 1,
-    rowHeight: 20,
-    scrollBarHeight: 0,
-    uid: 1,
-    width: 800,
-    x: 0,
-    y: 0,
   }
 
   const state2: LanguageModelsState = {
-    cacheKey: 'disabled-models',
-    cacheName: 'language-models-cache',
+    ...createDefaultState(),
     filteredModels: models1,
-    filterValue: '',
-    focused: 'none',
-    headerHeight: 25,
-    initial: false,
-    inputSource: 0,
     models: models2,
-    platform: 1,
-    rowHeight: 20,
-    scrollBarHeight: 0,
-    uid: 1,
-    width: 800,
-    x: 0,
-    y: 0,
   }
 
   const result = DiffItems.isEqual(state1, state2)
@@ -159,41 +133,15 @@ test('isEqual returns false when filteredModels are different', () => {
   ]
 
   const state1: LanguageModelsState = {
-    cacheKey: 'disabled-models',
-    cacheName: 'language-models-cache',
+    ...createDefaultState(),
     filteredModels: models,
-    filterValue: '',
-    focused: 'none',
-    headerHeight: 25,
-    initial: false,
-    inputSource: 0,
     models: models,
-    platform: 1,
-    rowHeight: 20,
-    scrollBarHeight: 0,
-    uid: 1,
-    width: 800,
-    x: 0,
-    y: 0,
   }
 
   const state2: LanguageModelsState = {
-    cacheKey: 'disabled-models',
-    cacheName: 'language-models-cache',
+    ...createDefaultState(),
     filteredModels: filteredModels,
-    filterValue: '',
-    focused: 'none',
-    headerHeight: 25,
-    initial: false,
-    inputSource: 0,
     models: models,
-    platform: 1,
-    rowHeight: 20,
-    scrollBarHeight: 0,
-    uid: 1,
-    width: 800,
-    x: 0,
-    y: 0,
   }
 
   const result = DiffItems.isEqual(state1, state2)

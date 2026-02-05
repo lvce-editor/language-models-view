@@ -12,7 +12,7 @@ export const create = (
   args: any,
   parentUid: any,
   platform: number = 0,
-): any => {
+): void => {
   const state: LanguageModelsState = {
     cacheKey: 'disabled-models',
     cacheName: 'language-models-cache',
@@ -32,5 +32,4 @@ export const create = (
     y,
   }
   ExplorerStates.set(id, state, state)
-  return state
 }
