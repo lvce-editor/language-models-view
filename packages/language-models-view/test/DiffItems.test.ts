@@ -277,9 +277,9 @@ test('isEqual ignores other state properties like filterValue', () => {
   const state2: LanguageModelsState = {
     ...createDefaultState(),
     filteredModels: models,
-    models: models,
     filterValue: 'search2',
     initial: true,
+    models: models,
     platform: 2,
     scrollBarHeight: 100,
     uid: 2,
