@@ -1,6 +1,7 @@
 import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import { getAddModelsButton } from '../AddModelsButton/GetAddModelsButtonVirtualDom.ts'
+import * as ClassNames from '../ClassNames/ClassNames.ts'
 import { getClearButton } from '../ClearButton/GetClearButtonVirtualDom.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import { getFilterInput } from '../FilterInput/GetFilterInputVirtualDom.ts'
@@ -9,13 +10,13 @@ export const getLanguageModelsHeaderVirtualDom = (filterValue: string): readonly
   return [
     {
       childCount: 2,
-      className: 'LanguageModelsHeader',
+      className: ClassNames.LanguageModelsHeader,
       onContextMenu: DomEventListenerFunctions.HandleHeaderContextMenu,
       type: VirtualDomElements.Div,
     },
     {
       childCount: 2,
-      className: 'SearchField',
+      className: ClassNames.SearchField,
       type: VirtualDomElements.Div,
     },
     getFilterInput(),
