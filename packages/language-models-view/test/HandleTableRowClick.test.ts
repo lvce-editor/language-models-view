@@ -58,8 +58,8 @@ test('handleTableRowClick selects a row when clicking on it', () => {
     y: 0,
   }
 
-  // Click on first row (header is 25px, first row is at 25-45px, so y=35 is in the first row)
-  const result = handleTableRowClick(state, 0, 0, 35)
+  // Click on first row (header is 50px, first row is at 50-70px, so y=60 is in the first row)
+  const result = handleTableRowClick(state, 0, 0, 60)
 
   expect(result.models[0].selected).toBe(true)
   expect(result.models[1].selected).toBe(false)
@@ -100,7 +100,7 @@ test('handleTableRowClick deselects a row when clicking on it again', () => {
     y: 0,
   }
 
-  const result = handleTableRowClick(state, 0, 0, 35)
+  const result = handleTableRowClick(state, 0, 0, 60)
 
   expect(result.models[0].selected).toBe(false)
   expect(result.filteredModels[0].selected).toBe(false)
@@ -161,8 +161,8 @@ test('handleTableRowClick selects second row', () => {
     y: 0,
   }
 
-  // Click on second row (header is 25px, first row is 25-45px, second row is 45-65px, so y=55 is in the second row)
-  const result = handleTableRowClick(state, 0, 0, 55)
+  // Click on second row (header is 50px, first row is 50-70px, second row is 70-90px, so y=80 is in the second row)
+  const result = handleTableRowClick(state, 0, 0, 80)
 
   expect(result.models[0].selected).toBe(false)
   expect(result.models[1].selected).toBe(true)
@@ -225,7 +225,7 @@ test('handleTableRowClick deselects previous selection when selecting new row', 
     y: 0,
   }
 
-  const result = handleTableRowClick(state, 0, 0, 55)
+  const result = handleTableRowClick(state, 0, 0, 80)
 
   expect(result.models[0].selected).toBe(false)
   expect(result.models[1].selected).toBe(true)
@@ -266,7 +266,7 @@ test('handleTableRowClick ignores clicks in header area', () => {
     y: 0,
   }
 
-  // Click in header (y=10, which is less than 25px header height)
+  // Click in header (y=10, which is less than 50px header height)
   const result = handleTableRowClick(state, 0, 0, 10)
 
   expect(result.models[0].selected).toBe(false)
@@ -346,8 +346,8 @@ test('handleTableRowClick respects y offset', () => {
     y: 100, // View starts at y=100
   }
 
-  // Click at y=135 (100 offset + 25 header + 10 in first row)
-  const result = handleTableRowClick(state, 0, 0, 135)
+  // Click at y=160 (100 offset + 50 header + 10 in first row)
+  const result = handleTableRowClick(state, 0, 0, 160)
 
   expect(result.models[0].selected).toBe(true)
   expect(result.filteredModels[0].selected).toBe(true)
