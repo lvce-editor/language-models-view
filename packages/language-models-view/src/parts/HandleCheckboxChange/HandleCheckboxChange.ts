@@ -13,9 +13,8 @@ export const handleCheckboxChange = async (
   // Find the model by matching checkbox name to model id
   const rowIndex = models.findIndex((model) => model.id === targetName)
 
-  console.log({ rowIndex, targetName })
   // Invalid row index
-  if (rowIndex < 0 || rowIndex >= models.length) {
+  if (rowIndex === -1 || rowIndex >= models.length) {
     return state
   }
 
