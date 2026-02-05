@@ -15,6 +15,7 @@ import * as WrapCommand from '../LanguageModelsViewStates/LanguageModelsViewStat
 import { loadContent } from '../LoadContent/LoadContent.ts'
 import * as Render2 from '../Render2/Render2.ts'
 import * as RenderEventListeners from '../RenderEventListeners/RenderEventListeners.ts'
+import { resize } from '../Resize/Resize.ts'
 import { saveState } from '../SaveState/SaveState.ts'
 import { selectTableRow } from '../SelectTableRow/SelectTableRow.ts'
 
@@ -35,6 +36,7 @@ export const commandMap = {
   'LanguageModels.loadContent': WrapCommand.wrapCommand(loadContent),
   'LanguageModels.render2': Render2.render2,
   'LanguageModels.renderEventListeners': RenderEventListeners.renderEventListeners,
+  'LanguageModels.resize': WrapCommand.wrapCommand(resize),
   'LanguageModels.saveState': WrapCommand.wrapGetter(saveState),
   'LanguageModels.selectTableRow': WrapCommand.wrapCommand(selectTableRow),
   'LanguageModels.terminate': terminate,
