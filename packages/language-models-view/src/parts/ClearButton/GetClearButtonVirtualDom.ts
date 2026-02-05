@@ -8,15 +8,16 @@ export const getClearButton = (filterValue: string): readonly VirtualDomNode[] =
   return [
     {
       childCount: 1,
-      className: 'Button ClearButton',
+      className: 'IconButton' + (isDisabled ? ' SearchFieldButtonDisabled' : ''),
       disabled: isDisabled,
       name: 'ClearButton',
       onClick: DomEventListenerFunctions.HandleClearClick,
+      title: LanguageModelsStrings.clear(),
       type: VirtualDomElements.Button,
     },
     {
-      text: LanguageModelsStrings.clear(),
-      type: VirtualDomElements.Text,
+      className: 'MaskIcon MaskIconClearAll',
+      type: VirtualDomElements.Div,
     },
   ]
 }
