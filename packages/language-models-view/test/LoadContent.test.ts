@@ -1,8 +1,12 @@
-import { expect, test } from '@jest/globals'
+import { beforeEach, expect, test } from '@jest/globals'
 import type { LanguageModel } from '../src/parts/LanguageModel/LanguageModel.ts'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { loadContent } from '../src/parts/LoadContent/LoadContent.ts'
+
+beforeEach(() => {
+  jest.spyOn(console, 'error').mockImplementation(() => {})
+})
 
 const createMockLanguageModel = (overrides: Partial<LanguageModel> = {}): LanguageModel => ({
   capabilities: { tools: false, vision: false },
