@@ -19,7 +19,7 @@ export const create = (
     filteredModels: [],
     filterValue: '',
     focused: 'none',
-    headerHeight: 25,
+    headerHeight: 50,
     initial: true,
     inputSource: 1,
     models: [],

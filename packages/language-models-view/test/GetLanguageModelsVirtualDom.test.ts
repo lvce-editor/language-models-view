@@ -134,7 +134,13 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
       type: VirtualDomElements.Text,
     },
     {
+      childCount: 1,
+      className: 'TableWrapper',
+      type: VirtualDomElements.Div,
+    },
+    {
       childCount: 2,
+      className: 'Table',
       onContextMenu: DomEventListenerFunctions.HandleContextMenu,
       type: VirtualDomElements.Table,
     },
@@ -331,7 +337,13 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.Text,
     },
     {
+      childCount: 1,
+      className: 'TableWrapper',
+      type: VirtualDomElements.Div,
+    },
+    {
       childCount: 2,
+      className: 'Table',
       onContextMenu: DomEventListenerFunctions.HandleContextMenu,
       type: VirtualDomElements.Table,
     },

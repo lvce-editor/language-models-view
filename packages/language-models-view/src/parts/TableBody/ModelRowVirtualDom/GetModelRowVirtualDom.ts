@@ -13,42 +13,32 @@ const getTableRow = (model: LanguageModel): VirtualDomNode => {
   }
 }
 
-const getTableCell = (): VirtualDomNode => {
-  return {
-    childCount: 1,
-    className: ClassNames.TableCell,
-    type: VirtualDomElements.Td,
-  }
-}
-
-const getCheckboxCell = (): VirtualDomNode => {
-  return {
-    childCount: 1,
-    className: ClassNames.TableCell,
-    type: VirtualDomElements.Td,
-  }
+const td: VirtualDomNode = {
+  childCount: 1,
+  className: ClassNames.TableCell,
+  type: VirtualDomElements.Td,
 }
 
 export const getModelRowVirtualDom = (model: LanguageModel): readonly VirtualDomNode[] => [
   getTableRow(model),
-  getCheckboxCell(),
+  td,
   getCheckboxInput(model),
-  getTableCell(),
+  td,
   {
     text: model.id,
     type: VirtualDomElements.Text,
   },
-  getTableCell(),
+  td,
   {
     text: model.name,
     type: VirtualDomElements.Text,
   },
-  getTableCell(),
+  td,
   {
     text: model.provider,
     type: VirtualDomElements.Text,
   },
-  getTableCell(),
+  td,
   {
     text: `in: ${model.inputContextSize}, out: ${model.outputContextSize}`,
     type: VirtualDomElements.Text,
