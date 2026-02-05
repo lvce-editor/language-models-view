@@ -41,7 +41,7 @@ test('getMenuEntries returns empty array when modelId does not exist', () => {
     models,
   }
 
-  const entries = getMenuEntries(state, defaultMenuProps)
+  const entries = getMenuEntries(state, { menuId: 96, modelId: 'non-existent-model' })
 
   expect(Array.isArray(entries)).toBe(true)
   expect(entries).toHaveLength(0)
