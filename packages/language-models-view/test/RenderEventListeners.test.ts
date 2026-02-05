@@ -13,9 +13,9 @@ test('renderEventListeners should return a readonly array', () => {
   expect(Object.isFrozen(result) || !Array.isArray(result.concat)).toBe(true)
 })
 
-test('renderEventListeners should return 8 event listeners', () => {
+test('renderEventListeners should return 9 event listeners', () => {
   const result = renderEventListeners()
-  expect(result).toHaveLength(8)
+  expect(result).toHaveLength(9)
 })
 
 test('renderEventListeners should include HandleBlur listener', () => {
@@ -94,6 +94,16 @@ test('renderEventListeners should include HandleCheckboxChange listener with sto
   })
 })
 
+test('renderEventListeners should include HandleHeaderContextMenu listener with preventDefault', () => {
+  const result = renderEventListeners()
+  const handleHeaderContextMenuListener = result.find((listener) => listener.name === DomEventListenerFunctions.HandleHeaderContextMenu)
+  expect(handleHeaderContextMenuListener).toEqual({
+    name: DomEventListenerFunctions.HandleHeaderContextMenu,
+    params: ['handleHeaderContextMenu'],
+    preventDefault: true,
+  })
+})
+
 test('renderEventListeners should return consistent results on multiple calls', () => {
   const result1 = renderEventListeners()
   const result2 = renderEventListeners()
@@ -122,15 +132,17 @@ test('renderEventListeners should have listeners in expected order', () => {
     DomEventListenerFunctions.HandleContextMenu,
     DomEventListenerFunctions.HandleMouseDown,
     DomEventListenerFunctions.HandleCheckboxChange,
+    DomEventListenerFunctions.HandleHeaderContextMenu,
   ])
 })
 
 test('renderEventListeners should only have preventDefault set for specific listeners', () => {
   const result = renderEventListeners()
   const listenersWithPreventDefault = result.filter((listener) => listener.preventDefault === true)
-  expect(listenersWithPreventDefault).toHaveLength(2)
+  expect(listenersWithPreventDefault).toHaveLength(3)
   expect(listenersWithPreventDefault[0].name).toBe(DomEventListenerFunctions.HandleContextMenu)
   expect(listenersWithPreventDefault[1].name).toBe(DomEventListenerFunctions.HandleMouseDown)
+  expect(listenersWithPreventDefault[2].name).toBe(DomEventListenerFunctions.HandleHeaderContextMenu)
 })
 
 test('renderEventListeners should have stopPropagation set for HandleMouseDown and HandleCheckboxChange', () => {
