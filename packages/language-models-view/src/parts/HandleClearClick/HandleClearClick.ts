@@ -6,6 +6,7 @@ export const handleClearClick = (state: LanguageModelsState): LanguageModelsStat
     ...state,
     filteredModels: state.models,
     filterValue: '',
+    focused: 'input',
     inputSource: InputSource.Script,
   }
 }

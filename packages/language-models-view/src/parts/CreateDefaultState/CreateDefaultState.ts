@@ -5,6 +5,7 @@ export const createDefaultState = (): LanguageModelsState => ({
   cacheName: 'language-models-cache',
   filteredModels: [],
   filterValue: '',
+  focused: 'none',
   headerHeight: 25,
   initial: false,
   inputSource: 1,
