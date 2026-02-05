@@ -1,26 +1,7 @@
 import { expect, test } from '@jest/globals'
 import type { Dimensions } from '../src/parts/Dimensions/Dimensions.ts'
-import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { resize } from '../src/parts/Resize/Resize.ts'
-
-const createMockState = (overrides?: Partial<LanguageModelsState>): LanguageModelsState => ({
-  cacheKey: 'disabled-models',
-  cacheName: 'language-models-cache',
-  filteredModels: [],
-  filterValue: '',
-  headerHeight: 25,
-  initial: false,
-  inputSource: 0,
-  models: [],
-  platform: 1,
-  rowHeight: 20,
-  scrollBarHeight: 0,
-  uid: 1,
-  width: 800,
-  x: 0,
-  y: 0,
-  ...overrides,
-})
 
 const createMockDimensions = (overrides?: Partial<Dimensions>): Dimensions => ({
   height: 600,
@@ -31,7 +12,7 @@ const createMockDimensions = (overrides?: Partial<Dimensions>): Dimensions => ({
 })
 
 test('resize should update width from dimensions', () => {
-  const state = createMockState()
+  const state = createDefaultState()
   const dimensions = createMockDimensions({ width: 1200 })
 
   const result = resize(state, dimensions)
@@ -40,7 +21,7 @@ test('resize should update width from dimensions', () => {
 })
 
 test('resize should update x from dimensions', () => {
-  const state = createMockState()
+  const state = createDefaultState()
   const dimensions = createMockDimensions({ x: 50 })
 
   const result = resize(state, dimensions)
@@ -49,7 +30,7 @@ test('resize should update x from dimensions', () => {
 })
 
 test('resize should update y from dimensions', () => {
-  const state = createMockState()
+  const state = createDefaultState()
   const dimensions = createMockDimensions({ y: 100 })
 
   const result = resize(state, dimensions)
@@ -58,7 +39,7 @@ test('resize should update y from dimensions', () => {
 })
 
 test('resize should update all position and size properties', () => {
-  const state = createMockState()
+  const state = createDefaultState()
   const dimensions = createMockDimensions({ width: 1500, x: 30, y: 40 })
 
   const result = resize(state, dimensions)
@@ -69,13 +50,14 @@ test('resize should update all position and size properties', () => {
 })
 
 test('resize should preserve all other state properties', () => {
-  const state = createMockState({
+  const state = {
+    ...createDefaultState(),
     cacheKey: 'custom-cache',
     filterValue: 'test',
     headerHeight: 30,
     rowHeight: 25,
     scrollBarHeight: 15,
-  })
+  }
   const dimensions = createMockDimensions({ width: 900, x: 5, y: 15 })
 
   const result = resize(state, dimensions)
@@ -88,7 +70,7 @@ test('resize should preserve all other state properties', () => {
 })
 
 test('resize should return a new state object', () => {
-  const state = createMockState()
+  const state = createDefaultState()
   const dimensions = createMockDimensions()
 
   const result = resize(state, dimensions)
@@ -97,7 +79,7 @@ test('resize should return a new state object', () => {
 })
 
 test('resize should handle zero dimensions', () => {
-  const state = createMockState()
+  const state = createDefaultState()
   const dimensions = createMockDimensions({ width: 0, x: 0, y: 0 })
 
   const result = resize(state, dimensions)
@@ -108,7 +90,7 @@ test('resize should handle zero dimensions', () => {
 })
 
 test('resize should handle large dimensions', () => {
-  const state = createMockState()
+  const state = createDefaultState()
   const dimensions = createMockDimensions({ width: 10_000, x: 5000, y: 8000 })
 
   const result = resize(state, dimensions)
@@ -119,7 +101,7 @@ test('resize should handle large dimensions', () => {
 })
 
 test('resize should handle floating point dimensions', () => {
-  const state = createMockState()
+  const state = createDefaultState()
   const dimensions: Dimensions = {
     height: 600.5,
     width: 1024.75,
