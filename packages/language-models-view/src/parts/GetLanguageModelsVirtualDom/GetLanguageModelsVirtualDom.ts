@@ -19,7 +19,7 @@ const getNoMatchingModelsMessage = (): readonly VirtualDomNode[] => {
   ]
 }
 
-export const getLanguageModelsVirtualDom = (models: readonly LanguageModel[]): readonly VirtualDomNode[] => {
+export const getLanguageModelsVirtualDom = (models: readonly LanguageModel[], filterValue: string): readonly VirtualDomNode[] => {
   const content = models.length === 0 ? getNoMatchingModelsMessage() : getTableVirtualDom(models)
   return [
     {
@@ -27,7 +27,7 @@ export const getLanguageModelsVirtualDom = (models: readonly LanguageModel[]): r
       className: 'LanguageModels',
       type: VirtualDomElements.Div,
     },
-    ...getLanguageModelsHeaderVirtualDom(),
+    ...getLanguageModelsHeaderVirtualDom(filterValue),
     ...content,
   ]
 }

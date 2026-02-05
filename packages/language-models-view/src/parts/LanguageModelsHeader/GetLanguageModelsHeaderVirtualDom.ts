@@ -4,7 +4,7 @@ import { getAddModelsButton } from '../AddModelsButton/GetAddModelsButtonVirtual
 import { getClearButton } from '../ClearButton/GetClearButtonVirtualDom.ts'
 import { getFilterInput } from '../FilterInput/GetFilterInputVirtualDom.ts'
 
-export const getLanguageModelsHeaderVirtualDom = (): readonly VirtualDomNode[] => {
+export const getLanguageModelsHeaderVirtualDom = (filterValue: string): readonly VirtualDomNode[] => {
   return [
     {
       childCount: 3,
@@ -12,7 +12,7 @@ export const getLanguageModelsHeaderVirtualDom = (): readonly VirtualDomNode[] =
       type: VirtualDomElements.Div,
     },
     getFilterInput(),
-    ...getClearButton(),
+    ...getClearButton(filterValue),
     ...getAddModelsButton(),
   ]
 }
