@@ -34,7 +34,7 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
     },
     {
       childCount: 1,
-      className: 'IconButton SearchFieldButtonDisabled',
+      className: 'SearchFieldButton SearchFieldButtonDisabled',
       disabled: true,
       name: 'ClearButton',
       onClick: 8,
@@ -111,7 +111,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 1,
-      className: 'IconButton SearchFieldButtonDisabled',
+      className: 'SearchFieldButton SearchFieldButtonDisabled',
       disabled: true,
       name: 'ClearButton',
       onClick: 8,

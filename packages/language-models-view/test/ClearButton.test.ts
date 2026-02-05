@@ -7,7 +7,7 @@ test('getClearButton returns button with correct properties when filterValue is 
   expect(result).toEqual([
     {
       childCount: 1,
-      className: 'IconButton SearchFieldButtonDisabled',
+      className: 'SearchFieldButton SearchFieldButtonDisabled',
       disabled: true,
       name: 'ClearButton',
       onClick: 8,
@@ -26,7 +26,7 @@ test('getClearButton returns button with correct properties when filterValue is 
   expect(result).toEqual([
     {
       childCount: 1,
-      className: 'IconButton',
+      className: 'SearchFieldButton',
       disabled: false,
       name: 'ClearButton',
       onClick: 8,
