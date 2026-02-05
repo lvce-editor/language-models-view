@@ -58,8 +58,8 @@ test('handleTableContextMenu calls ContextMenu.show2 with correct parameters', a
 
   const state: LanguageModelsState = {
     ...createDefaultState(),
-    uid: 42,
     filteredModels: models,
+    uid: 42,
   }
 
   const result = await handleTableContextMenu(state, 100, 200)
@@ -88,11 +88,11 @@ test('handleTableContextMenu returns state unchanged', async () => {
 
   const state: LanguageModelsState = {
     ...createDefaultState(),
+    filteredModels: models,
     uid: 100,
     width: 1024,
     x: 50,
     y: 150,
-    filteredModels: models,
   }
 
   const result = await handleTableContextMenu(state, 300, 400)
@@ -125,8 +125,8 @@ test('handleTableContextMenu handles header click by not showing context menu', 
 
   const state: LanguageModelsState = {
     ...createDefaultState(),
-    uid: 55,
     filteredModels: models,
+    uid: 55,
   }
 
   const result = await handleTableContextMenu(state, 0, 0)
@@ -154,8 +154,8 @@ test('handleTableContextMenu handles large coordinates', async () => {
 
   const state: LanguageModelsState = {
     ...createDefaultState(),
-    uid: 77,
     filteredModels: models,
+    uid: 77,
   }
 
   await handleTableContextMenu(state, 1920, 1080)
@@ -182,8 +182,8 @@ test('handleTableContextMenu uses correct menu ID', async () => {
 
   const state: LanguageModelsState = {
     ...createDefaultState(),
-    uid: 123,
     filteredModels: models,
+    uid: 123,
   }
 
   await handleTableContextMenu(state, 250, 350)
