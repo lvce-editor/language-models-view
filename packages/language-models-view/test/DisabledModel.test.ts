@@ -33,7 +33,7 @@ test('getTableBodyVirtualDom applies Disabled class to disabled model', () => {
   // Find the first table row (for disabled model)
   const firstRow = result[1]
   expect(firstRow.type).toEqual(VirtualDomElements.Tr)
-  expect(firstRow.className).toEqual('Disabled TableRow')
+  expect(firstRow.className).toEqual('TableRowDisabled TableRow')
 
   // Find the second table row (for enabled model) - now at index 12 due to 5 cells per row (including checkbox)
   const secondRow = result[12]
@@ -92,11 +92,11 @@ test('getTableBodyVirtualDom applies Disabled class to multiple disabled models'
 
   // Find the first table row
   const firstRow = result[1]
-  expect(firstRow.className).toEqual('Disabled TableRow')
+  expect(firstRow.className).toEqual('TableRowDisabled TableRow')
 
   // Find the second table row - now at index 12 due to 5 cells per row
   const secondRow = result[12]
-  expect(secondRow.className).toEqual('Disabled TableRow')
+  expect(secondRow.className).toEqual('TableRowDisabled TableRow')
 })
 
 test('getTableBodyVirtualDom applies both Selected and Disabled classes when model is both selected and disabled', () => {
@@ -118,7 +118,7 @@ test('getTableBodyVirtualDom applies both Selected and Disabled classes when mod
   // Find the table row
   const row = result[1]
   expect(row.type).toEqual(VirtualDomElements.Tr)
-  expect(row.className).toEqual('TableRowSelected Disabled TableRow')
+  expect(row.className).toEqual('TableRowSelected TableRowDisabled TableRow')
 })
 
 test('getTableBodyVirtualDom handles mix of enabled and disabled models', () => {
@@ -165,7 +165,7 @@ test('getTableBodyVirtualDom handles mix of enabled and disabled models', () => 
 
   // Second row: disabled and not selected - now at index 12
   const secondRow = result[12]
-  expect(secondRow.className).toEqual('Disabled TableRow')
+  expect(secondRow.className).toEqual('TableRowDisabled TableRow')
 
   // Third row: enabled and not selected - now at index 23
   const thirdRow = result[23]

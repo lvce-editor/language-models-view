@@ -7,7 +7,7 @@ export const getTableRowClass = (model: LanguageModel): string => {
     classes.push(ClassNames.TableRowSelected)
   }
   if (!model.enabled) {
-    classes.push(ClassNames.Disabled)
+    classes.push(ClassNames.TableRowDisabled)
   }
   if (classes.length > 0) {
     return `${classes.join(' ')} ${ClassNames.TableRow}`

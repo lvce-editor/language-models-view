@@ -2,7 +2,7 @@ import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import type { LanguageModel } from '../../LanguageModel/LanguageModel.ts'
 import * as ClassNames from '../../ClassNames/ClassNames.ts'
-import * as DomEventListenerFunctions from '../../DomEventListenerFunctions/DomEventListenerFunctions.ts'
+import { getCheckboxInput } from './GetCheckboxInput/GetCheckboxInput.ts'
 import { getTableRowClass } from './GetTableRowClass/GetTableRowClass.ts'
 
 const getTableRow = (model: LanguageModel): VirtualDomNode => {
@@ -26,16 +26,6 @@ const getCheckboxCell = (): VirtualDomNode => {
     childCount: 1,
     className: ClassNames.TableCell,
     type: VirtualDomElements.Td,
-  }
-}
-
-const getCheckboxInput = (model: LanguageModel): VirtualDomNode => {
-  return {
-    checked: model.enabled,
-    inputType: 'checkbox',
-    name: model.id,
-    onChange: DomEventListenerFunctions.HandleCheckboxChange,
-    type: VirtualDomElements.Input,
   }
 }
 
