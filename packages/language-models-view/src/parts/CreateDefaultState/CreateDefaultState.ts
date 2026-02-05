@@ -6,7 +6,7 @@ export const createDefaultState = (): LanguageModelsState => ({
   filteredModels: [],
   filterValue: '',
   focused: 'none',
-  headerHeight: 25,
+  headerHeight: 50,
   initial: false,
   inputSource: 1,
   models: [],
