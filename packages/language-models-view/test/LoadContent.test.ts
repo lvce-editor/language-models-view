@@ -122,11 +122,9 @@ test('loadContent should filter models when restoring filter value', async () =>
   // filteredModels should only contain models matching the filter
   expect(result.filteredModels.length).toBeLessThanOrEqual(result.models.length)
   // Each filtered model should match the filter value
-  result.filteredModels.forEach((model) => {
+  for (const model of result.filteredModels) {
     const matchesFilter =
-      model.name.toLowerCase().includes('gpt') ||
-      model.id.toLowerCase().includes('gpt') ||
-      model.provider.toLowerCase().includes('gpt')
+      model.name.toLowerCase().includes('gpt') || model.id.toLowerCase().includes('gpt') || model.provider.toLowerCase().includes('gpt')
     expect(matchesFilter).toBe(true)
   })
 })
