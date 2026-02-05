@@ -121,3 +121,43 @@ test('enableModel preserves other state properties', async () => {
   expect(result.platform).toBe(1)
   expect(result.uid).toBe(123)
 })
+
+test('enableModel updates both models and filteredModels', async () => {
+  const models = [
+    {
+      capabilities: { tools: false, vision: false },
+      deprecated: false,
+      enabled: false,
+      id: 'gpt-4',
+      inputContextSize: 8192,
+      name: 'GPT-4',
+      outputContextSize: 4096,
+      provider: 'openai',
+      selected: false,
+    },
+    {
+      capabilities: { tools: false, vision: false },
+      deprecated: false,
+      enabled: false,
+      id: 'claude',
+      inputContextSize: 200_000,
+      name: 'Claude',
+      outputContextSize: 4096,
+      provider: 'anthropic',
+      selected: false,
+    },
+  ]
+
+  const state: LanguageModelsState = {
+    ...createDefaultState(),
+    filteredModels: models,
+    models,
+  }
+
+  const result = await enableModel(state, 'gpt-4')
+
+  expect(result.models[0].enabled).toBe(true)
+  expect(result.models[1].enabled).toBe(false)
+  expect(result.filteredModels[0].enabled).toBe(true)
+  expect(result.filteredModels[1].enabled).toBe(false)
+})
