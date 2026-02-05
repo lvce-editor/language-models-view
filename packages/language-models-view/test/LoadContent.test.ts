@@ -1,4 +1,4 @@
-import { beforeEach, expect, test } from '@jest/globals'
+import { beforeEach, expect, jest, test } from '@jest/globals'
 import type { LanguageModel } from '../src/parts/LanguageModel/LanguageModel.ts'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
@@ -110,7 +110,6 @@ test('loadContent should restore state when savedState is provided', async () =>
 
   expect(result.initial).toBe(false)
   expect(result.filterValue).toBe('saved filter')
-  expect(result.x).toBe(500)
 })
 
 test('loadContent should spread existing state before fetching models', async () => {

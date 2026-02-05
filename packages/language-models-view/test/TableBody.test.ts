@@ -217,6 +217,7 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
     {
       checked: true,
       inputType: 'checkbox',
+      name: 'gpt-4',
       onChange: DomEventListenerFunctions.HandleCheckboxChange,
       type: VirtualDomElements.Input,
     },
@@ -269,6 +270,7 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
     {
       checked: true,
       inputType: 'checkbox',
+      name: 'claude',
       onChange: DomEventListenerFunctions.HandleCheckboxChange,
       type: VirtualDomElements.Input,
     },
