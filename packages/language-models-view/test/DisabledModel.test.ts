@@ -35,8 +35,8 @@ test('getTableBodyVirtualDom applies Disabled class to disabled model', () => {
   expect(firstRow.type).toEqual(VirtualDomElements.Tr)
   expect(firstRow.className).toEqual('Disabled TableRow')
 
-  // Find the second table row (for enabled model) - now at index 10 due to 4 cells per row
-  const secondRow = result[10]
+  // Find the second table row (for enabled model) - now at index 12 due to 5 cells per row (including checkbox)
+  const secondRow = result[12]
   expect(secondRow.type).toEqual(VirtualDomElements.Tr)
   expect(secondRow.className).toEqual('TableRow')
 })
@@ -94,8 +94,8 @@ test('getTableBodyVirtualDom applies Disabled class to multiple disabled models'
   const firstRow = result[1]
   expect(firstRow.className).toEqual('Disabled TableRow')
 
-  // Find the second table row - now at index 10 due to 4 cells per row
-  const secondRow = result[10]
+  // Find the second table row - now at index 12 due to 5 cells per row
+  const secondRow = result[12]
   expect(secondRow.className).toEqual('Disabled TableRow')
 })
 
@@ -118,7 +118,7 @@ test('getTableBodyVirtualDom applies both Selected and Disabled classes when mod
   // Find the table row
   const row = result[1]
   expect(row.type).toEqual(VirtualDomElements.Tr)
-  expect(row.className).toEqual('Selected Disabled TableRow')
+  expect(row.className).toEqual('TableRowSelected Disabled TableRow')
 })
 
 test('getTableBodyVirtualDom handles mix of enabled and disabled models', () => {
@@ -163,11 +163,11 @@ test('getTableBodyVirtualDom handles mix of enabled and disabled models', () => 
   const firstRow = result[1]
   expect(firstRow.className).toEqual('TableRowSelected TableRow')
 
-  // Second row: disabled and not selected - now at index 10
-  const secondRow = result[10]
+  // Second row: disabled and not selected - now at index 12
+  const secondRow = result[12]
   expect(secondRow.className).toEqual('Disabled TableRow')
 
-  // Third row: enabled and not selected - now at index 19
-  const thirdRow = result[19]
+  // Third row: enabled and not selected - now at index 23
+  const thirdRow = result[23]
   expect(thirdRow.className).toEqual('TableRow')
 })

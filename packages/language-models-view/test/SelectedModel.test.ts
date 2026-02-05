@@ -35,8 +35,8 @@ test('getTableBodyVirtualDom applies Selected class to selected model', () => {
   expect(firstRow.type).toEqual(VirtualDomElements.Tr)
   expect(firstRow.className).toEqual('TableRowSelected TableRow')
 
-  // Find the second table row (for non-selected model) - now at index 10 due to 4 cells per row
-  const secondRow = result[10]
+  // Find the second table row (for non-selected model) - now at index 12 due to 5 cells per row
+  const secondRow = result[12]
   expect(secondRow.type).toEqual(VirtualDomElements.Tr)
   expect(secondRow.className).toEqual('TableRow')
 })
@@ -94,7 +94,7 @@ test('getTableBodyVirtualDom applies Selected class to multiple selected models'
   const firstRow = result[1]
   expect(firstRow.className).toEqual('TableRowSelected TableRow')
 
-  // Find the second table row - now at index 10 due to 4 cells per row
-  const secondRow = result[10]
+  // Find the second table row - now at index 12 due to 5 cells per row
+  const secondRow = result[12]
   expect(secondRow.className).toEqual('TableRowSelected TableRow')
 })

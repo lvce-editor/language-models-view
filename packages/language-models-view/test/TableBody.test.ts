@@ -129,7 +129,7 @@ test('getTableBodyVirtualDom returns correct structure for single model', () => 
     {
       checked: true,
       inputType: 'checkbox',
-      onMouseDown: DomEventListenerFunctions.HandleCheckboxChange,
+      onChange: DomEventListenerFunctions.HandleCheckboxChange,
       type: VirtualDomElements.Input,
     },
     {
@@ -217,7 +217,7 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
     {
       checked: true,
       inputType: 'checkbox',
-      onMouseDown: DomEventListenerFunctions.HandleCheckboxChange,
+      onChange: DomEventListenerFunctions.HandleCheckboxChange,
       type: VirtualDomElements.Input,
     },
     {
@@ -269,7 +269,7 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
     {
       checked: true,
       inputType: 'checkbox',
-      onMouseDown: DomEventListenerFunctions.HandleCheckboxChange,
+      onChange: DomEventListenerFunctions.HandleCheckboxChange,
       type: VirtualDomElements.Input,
     },
     {

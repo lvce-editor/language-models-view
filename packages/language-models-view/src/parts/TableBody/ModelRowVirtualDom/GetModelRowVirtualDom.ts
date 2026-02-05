@@ -33,7 +33,7 @@ const getCheckboxInput = (model: LanguageModel): VirtualDomNode => {
   return {
     checked: model.enabled,
     inputType: 'checkbox',
-    onMouseDown: DomEventListenerFunctions.HandleCheckboxChange,
+    onChange: DomEventListenerFunctions.HandleCheckboxChange,
     type: VirtualDomElements.Input,
   }
 }
