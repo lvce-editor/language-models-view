@@ -13,9 +13,14 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
       type: VirtualDomElements.Div,
     },
     {
-      childCount: 3,
+      childCount: 2,
       className: 'LanguageModelsHeader',
       onContextMenu: DomEventListenerFunctions.HandleHeaderContextMenu,
+      type: VirtualDomElements.Div,
+    },
+    {
+      childCount: 2,
+      className: 'SearchField',
       type: VirtualDomElements.Div,
     },
     {
@@ -29,19 +34,20 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
     },
     {
       childCount: 1,
-      className: 'Button ClearButton',
+      className: 'SearchFieldButton SearchFieldButtonDisabled',
       disabled: true,
       name: 'ClearButton',
       onClick: 8,
+      title: 'Clear',
       type: VirtualDomElements.Button,
     },
     {
-      text: 'Clear',
-      type: VirtualDomElements.Text,
+      className: 'MaskIcon MaskIconClearAll',
+      type: VirtualDomElements.Div,
     },
     {
       childCount: 1,
-      className: 'Button AddModelsButton',
+      className: 'Button ButtonPrimary',
       name: 'AddModelsButton',
       onClick: 6,
       type: VirtualDomElements.Button,
@@ -84,9 +90,14 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
       type: VirtualDomElements.Div,
     },
     {
-      childCount: 3,
+      childCount: 2,
       className: 'LanguageModelsHeader',
       onContextMenu: DomEventListenerFunctions.HandleHeaderContextMenu,
+      type: VirtualDomElements.Div,
+    },
+    {
+      childCount: 2,
+      className: 'SearchField',
       type: VirtualDomElements.Div,
     },
     {
@@ -100,19 +111,20 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 1,
-      className: 'Button ClearButton',
+      className: 'SearchFieldButton SearchFieldButtonDisabled',
       disabled: true,
       name: 'ClearButton',
       onClick: 8,
+      title: 'Clear',
       type: VirtualDomElements.Button,
     },
     {
-      text: 'Clear',
-      type: VirtualDomElements.Text,
+      className: 'MaskIcon MaskIconClearAll',
+      type: VirtualDomElements.Div,
     },
     {
       childCount: 1,
-      className: 'Button AddModelsButton',
+      className: 'Button ButtonPrimary',
       name: 'AddModelsButton',
       onClick: 6,
       type: VirtualDomElements.Button,
@@ -275,9 +287,14 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.Div,
     },
     {
-      childCount: 3,
+      childCount: 2,
       className: 'LanguageModelsHeader',
       onContextMenu: DomEventListenerFunctions.HandleHeaderContextMenu,
+      type: VirtualDomElements.Div,
+    },
+    {
+      childCount: 2,
+      className: 'SearchField',
       type: VirtualDomElements.Div,
     },
     {
@@ -291,19 +308,20 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 1,
-      className: 'Button ClearButton',
+      className: 'SearchFieldButton SearchFieldButtonDisabled',
       disabled: true,
       name: 'ClearButton',
       onClick: 8,
+      title: 'Clear',
       type: VirtualDomElements.Button,
     },
     {
-      text: 'Clear',
-      type: VirtualDomElements.Text,
+      className: 'MaskIcon MaskIconClearAll',
+      type: VirtualDomElements.Div,
     },
     {
       childCount: 1,
-      className: 'Button AddModelsButton',
+      className: 'Button ButtonPrimary',
       name: 'AddModelsButton',
       onClick: 6,
       type: VirtualDomElements.Button,

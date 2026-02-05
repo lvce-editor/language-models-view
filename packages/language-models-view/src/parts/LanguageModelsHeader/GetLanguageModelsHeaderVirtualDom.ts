@@ -8,9 +8,14 @@ import { getFilterInput } from '../FilterInput/GetFilterInputVirtualDom.ts'
 export const getLanguageModelsHeaderVirtualDom = (filterValue: string): readonly VirtualDomNode[] => {
   return [
     {
-      childCount: 3,
+      childCount: 2,
       className: 'LanguageModelsHeader',
       onContextMenu: DomEventListenerFunctions.HandleHeaderContextMenu,
+      type: VirtualDomElements.Div,
+    },
+    {
+      childCount: 2,
+      className: 'SearchField',
       type: VirtualDomElements.Div,
     },
     getFilterInput(),

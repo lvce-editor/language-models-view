@@ -7,7 +7,7 @@ test('getAddModelsButton returns button with correct properties', () => {
   expect(result).toEqual([
     {
       childCount: 1,
-      className: 'Button AddModelsButton',
+      className: 'Button ButtonPrimary',
       name: 'AddModelsButton',
       onClick: 6,
       type: VirtualDomElements.Button,
