@@ -10,6 +10,7 @@ import { handleAddModelsClick } from '../HandleAddModelsClick/HandleAddModelsCli
 import { handleCheckboxChange } from '../HandleCheckboxChange/HandleCheckboxChange.ts'
 import { handleClearClick } from '../HandleClearClick/HandleClearClick.ts'
 import { handleFilterInput } from '../HandleFilterInput/HandleFilterInput.ts'
+import { handleTableContextMenu } from '../HandleTableContextMenu/HandleTableContextMenu.ts'
 import { handleTableRowClick } from '../HandleTableRowClick/HandleTableRowClick.ts'
 import * as WrapCommand from '../LanguageModelsViewStates/LanguageModelsViewStates.ts'
 import { loadContent } from '../LoadContent/LoadContent.ts'
@@ -31,6 +32,7 @@ export const commandMap = {
   'LanguageModels.handleAddModelsClick': WrapCommand.wrapCommand(handleAddModelsClick),
   'LanguageModels.handleCheckboxChange': WrapCommand.wrapCommand(handleCheckboxChange),
   'LanguageModels.handleClearClick': WrapCommand.wrapCommand(handleClearClick),
+  'LanguageModels.handleContextMenu': WrapCommand.wrapCommand(handleTableContextMenu),
   'LanguageModels.handleFilterInput': WrapCommand.wrapCommand(handleFilterInput),
   'LanguageModels.handleTableRowClick': WrapCommand.wrapCommand(handleTableRowClick),
   'LanguageModels.loadContent': WrapCommand.wrapCommand(loadContent),

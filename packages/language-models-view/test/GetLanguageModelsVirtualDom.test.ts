@@ -121,6 +121,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 2,
+      onContextMenu: DomEventListenerFunctions.HandleContextMenu,
       type: VirtualDomElements.Table,
     },
     {
@@ -310,6 +311,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 2,
+      onContextMenu: DomEventListenerFunctions.HandleContextMenu,
       type: VirtualDomElements.Table,
     },
     {
