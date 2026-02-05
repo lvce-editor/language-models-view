@@ -5,10 +5,15 @@ import { getTableHead } from './GetTableHead/GetTableHead.ts'
 import { getTableHeaderCell } from './GetTableHeaderCell/GetTableHeaderCell.ts'
 import { getTableHeaderRow } from './GetTableHeaderRow/GetTableHeaderRow.ts'
 
-export const getTableHeaderVirtualDom = (): readonly VirtualDomNode[] => {
+export const getTableHeaderVirtualDom = (filterValue: string): readonly VirtualDomNode[] => {
   return [
     getTableHead(),
     getTableHeaderRow(),
+    getTableHeaderCell(''),
+    {
+      text: '',
+      type: VirtualDomElements.Text,
+    },
     getTableHeaderCell(LanguageModelsStrings.id()),
     {
       text: LanguageModelsStrings.id(),

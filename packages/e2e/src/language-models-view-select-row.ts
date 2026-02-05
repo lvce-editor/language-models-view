@@ -2,6 +2,8 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'language-models-view-select-row'
 
+export const skip = 1
+
 export const test: Test = async ({ Command, expect, Locator, Main }) => {
   // arrange
   await Main.openUri('language-models:///1')

@@ -1,3 +1,4 @@
+import { InputSource } from '@lvce-editor/constants'
 import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsState.ts'
 
 export const handleClearClick = (state: LanguageModelsState): LanguageModelsState => {
@@ -5,5 +6,6 @@ export const handleClearClick = (state: LanguageModelsState): LanguageModelsStat
     ...state,
     filteredModels: state.models,
     filterValue: '',
+    inputSource: InputSource.Script,
   }
 }

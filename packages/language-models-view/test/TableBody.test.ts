@@ -117,9 +117,21 @@ test('getTableBodyVirtualDom returns correct structure for single model', () => 
       type: VirtualDomElements.TBody,
     },
     {
-      childCount: 4,
+      childCount: 5,
       className: 'TableRow',
       type: VirtualDomElements.Tr,
+    },
+    {
+      childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Td,
+    },
+    {
+      checked: true,
+      inputType: 'checkbox',
+      name: 'gpt-4',
+      onChange: DomEventListenerFunctions.HandleCheckboxChange,
+      type: VirtualDomElements.Input,
     },
     {
       childCount: 1,
@@ -194,9 +206,21 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
       type: VirtualDomElements.TBody,
     },
     {
-      childCount: 4,
+      childCount: 5,
       className: 'TableRow',
       type: VirtualDomElements.Tr,
+    },
+    {
+      childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Td,
+    },
+    {
+      checked: true,
+      inputType: 'checkbox',
+      name: 'gpt-4',
+      onChange: DomEventListenerFunctions.HandleCheckboxChange,
+      type: VirtualDomElements.Input,
     },
     {
       childCount: 1,
@@ -235,9 +259,21 @@ test('getTableBodyVirtualDom returns correct structure for multiple models', () 
       type: VirtualDomElements.Text,
     },
     {
-      childCount: 4,
+      childCount: 5,
       className: 'TableRow',
       type: VirtualDomElements.Tr,
+    },
+    {
+      childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Td,
+    },
+    {
+      checked: true,
+      inputType: 'checkbox',
+      name: 'claude',
+      onChange: DomEventListenerFunctions.HandleCheckboxChange,
+      type: VirtualDomElements.Input,
     },
     {
       childCount: 1,

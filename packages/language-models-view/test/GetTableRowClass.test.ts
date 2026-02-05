@@ -25,7 +25,7 @@ test('getTableRowClass should return TableRow class for default model', () => {
 test('getTableRowClass should include Selected class when model is selected', () => {
   const model = createMockLanguageModel({ selected: true })
   const result = getTableRowClass(model)
-  expect(result).toBe(`${ClassNames.Selected} ${ClassNames.TableRow}`)
+  expect(result).toBe(`${ClassNames.TableRowSelected} ${ClassNames.TableRow}`)
 })
 
 test('getTableRowClass should include Disabled class when model is disabled', () => {
@@ -37,5 +37,5 @@ test('getTableRowClass should include Disabled class when model is disabled', ()
 test('getTableRowClass should include both Selected and Disabled classes when model is both selected and disabled', () => {
   const model = createMockLanguageModel({ enabled: false, selected: true })
   const result = getTableRowClass(model)
-  expect(result).toBe(`${ClassNames.Selected} ${ClassNames.Disabled} ${ClassNames.TableRow}`)
+  expect(result).toBe(`${ClassNames.TableRowSelected} ${ClassNames.Disabled} ${ClassNames.TableRow}`)
 })

@@ -121,6 +121,7 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
     },
     {
       childCount: 2,
+      onContextMenu: DomEventListenerFunctions.HandleContextMenu,
       type: VirtualDomElements.Table,
     },
     {
@@ -128,9 +129,18 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
       type: VirtualDomElements.THead,
     },
     {
-      childCount: 4,
+      childCount: 5,
       className: 'TableRow',
       type: VirtualDomElements.Tr,
+    },
+    {
+      childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Th,
+    },
+    {
+      text: '',
+      type: VirtualDomElements.Text,
     },
     {
       childCount: 1,
@@ -175,9 +185,21 @@ test('getLanguageModelsVirtualDom returns correct structure for single model', (
       type: VirtualDomElements.TBody,
     },
     {
-      childCount: 4,
+      childCount: 5,
       className: 'TableRow',
       type: VirtualDomElements.Tr,
+    },
+    {
+      childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Td,
+    },
+    {
+      checked: true,
+      inputType: 'checkbox',
+      name: 'gpt-4',
+      onChange: DomEventListenerFunctions.HandleCheckboxChange,
+      type: VirtualDomElements.Input,
     },
     {
       childCount: 1,
@@ -289,6 +311,7 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
     },
     {
       childCount: 2,
+      onContextMenu: DomEventListenerFunctions.HandleContextMenu,
       type: VirtualDomElements.Table,
     },
     {
@@ -296,9 +319,18 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.THead,
     },
     {
-      childCount: 4,
+      childCount: 5,
       className: 'TableRow',
       type: VirtualDomElements.Tr,
+    },
+    {
+      childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Th,
+    },
+    {
+      text: '',
+      type: VirtualDomElements.Text,
     },
     {
       childCount: 1,
@@ -343,9 +375,21 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.TBody,
     },
     {
-      childCount: 4,
+      childCount: 5,
       className: 'TableRow',
       type: VirtualDomElements.Tr,
+    },
+    {
+      childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Td,
+    },
+    {
+      checked: true,
+      inputType: 'checkbox',
+      name: 'gpt-4',
+      onChange: DomEventListenerFunctions.HandleCheckboxChange,
+      type: VirtualDomElements.Input,
     },
     {
       childCount: 1,
@@ -384,9 +428,21 @@ test('getLanguageModelsVirtualDom returns correct structure for multiple models'
       type: VirtualDomElements.Text,
     },
     {
-      childCount: 4,
+      childCount: 5,
       className: 'TableRow',
       type: VirtualDomElements.Tr,
+    },
+    {
+      childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Td,
+    },
+    {
+      checked: true,
+      inputType: 'checkbox',
+      name: 'claude',
+      onChange: DomEventListenerFunctions.HandleCheckboxChange,
+      type: VirtualDomElements.Input,
     },
     {
       childCount: 1,

@@ -54,62 +54,7 @@ test('restoreState - should not restore filterValue when it is null', () => {
   expect(result.filterValue).toBe('')
 })
 
-test('restoreState - should restore x coordinate when it is a number', () => {
-  const state = createDefaultState()
-  const savedState = { x: 100 }
-  const result = RestoreState.restoreState(state, savedState)
-  expect(result.x).toBe(100)
-})
-
-test('restoreState - should restore negative x coordinate', () => {
-  const state = createDefaultState()
-  const savedState = { x: -50 }
-  const result = RestoreState.restoreState(state, savedState)
-  expect(result.x).toBe(-50)
-})
-
-test('restoreState - should not restore x when it is a string', () => {
-  const state = createDefaultState()
-  const savedState = { x: '100' }
-  const result = RestoreState.restoreState(state, savedState)
-  expect(result.x).toBe(0)
-})
-
-test('restoreState - should restore y coordinate when it is a number', () => {
-  const state = createDefaultState()
-  const savedState = { y: 200 }
-  const result = RestoreState.restoreState(state, savedState)
-  expect(result.y).toBe(200)
-})
-
-test('restoreState - should restore negative y coordinate', () => {
-  const state = createDefaultState()
-  const savedState = { y: -75 }
-  const result = RestoreState.restoreState(state, savedState)
-  expect(result.y).toBe(-75)
-})
-
-test('restoreState - should not restore y when it is a string', () => {
-  const state = createDefaultState()
-  const savedState = { y: '200' }
-  const result = RestoreState.restoreState(state, savedState)
-  expect(result.y).toBe(0)
-})
-
-test('restoreState - should restore all three values together', () => {
-  const state = createDefaultState()
-  const savedState = {
-    filterValue: 'search term',
-    x: 150,
-    y: 250,
-  }
-  const result = RestoreState.restoreState(state, savedState)
-  expect(result.filterValue).toBe('search term')
-  expect(result.x).toBe(150)
-  expect(result.y).toBe(250)
-})
-
-test('restoreState - should restore valid values and ignore invalid ones', () => {
+test('restoreState - should restore filterValue and ignore other properties', () => {
   const state = createDefaultState()
   const savedState = {
     filterValue: 'valid filter',
@@ -118,8 +63,6 @@ test('restoreState - should restore valid values and ignore invalid ones', () =>
   }
   const result = RestoreState.restoreState(state, savedState)
   expect(result.filterValue).toBe('valid filter')
-  expect(result.x).toBe(0)
-  expect(result.y).toBe(100)
 })
 
 test('restoreState - should ignore extra properties in savedState', () => {
@@ -128,13 +71,9 @@ test('restoreState - should ignore extra properties in savedState', () => {
     anotherExtra: 123,
     extraProp: 'should be ignored',
     filterValue: 'test',
-    x: 50,
-    y: 75,
   }
   const result = RestoreState.restoreState(state, savedState)
   expect(result.filterValue).toBe('test')
-  expect(result.x).toBe(50)
-  expect(result.y).toBe(75)
   expect((result as any).extraProp).toBeUndefined()
   expect((result as any).anotherExtra).toBeUndefined()
 })
@@ -166,48 +105,10 @@ test('restoreState - should restore filterValue with empty string', () => {
   expect(result.filterValue).toBe('')
 })
 
-test('restoreState - should restore x with zero', () => {
-  const state = createDefaultState()
-  const stateWithX: LanguageModelsState = {
-    ...state,
-    x: 100,
-  }
-  const savedState = { x: 0 }
-  const result = RestoreState.restoreState(stateWithX, savedState)
-  expect(result.x).toBe(0)
-})
-
-test('restoreState - should restore y with zero', () => {
-  const state = createDefaultState()
-  const stateWithY: LanguageModelsState = {
-    ...state,
-    y: 200,
-  }
-  const savedState = { y: 0 }
-  const result = RestoreState.restoreState(stateWithY, savedState)
-  expect(result.y).toBe(0)
-})
-
 test('restoreState - should handle savedState that is an array', () => {
   const state = createDefaultState()
   const result = RestoreState.restoreState(state, [])
   expect(result).toEqual(state)
-})
-
-test('restoreState - should restore large coordinate values', () => {
-  const state = createDefaultState()
-  const savedState = { x: 999_999, y: 888_888 }
-  const result = RestoreState.restoreState(state, savedState)
-  expect(result.x).toBe(999_999)
-  expect(result.y).toBe(888_888)
-})
-
-test('restoreState - should restore decimal coordinate values', () => {
-  const state = createDefaultState()
-  const savedState = { x: 123.45, y: 67.89 }
-  const result = RestoreState.restoreState(state, savedState)
-  expect(result.x).toBe(123.45)
-  expect(result.y).toBe(67.89)
 })
 
 test('restoreState - should restore filterValue with special characters', () => {
@@ -227,7 +128,7 @@ test('restoreState - should restore filterValue with unicode characters', () => 
 test('restoreState - should not mutate original state', () => {
   const state = createDefaultState()
   const originalState = { ...state }
-  const savedState = { filterValue: 'new', x: 100, y: 200 }
+  const savedState = { filterValue: 'new' }
   RestoreState.restoreState(state, savedState)
   expect(state).toEqual(originalState)
 })

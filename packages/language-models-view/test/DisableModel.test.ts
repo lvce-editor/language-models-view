@@ -1,7 +1,11 @@
-import { expect, test } from '@jest/globals'
+import { beforeEach, expect, jest, test } from '@jest/globals'
 import type { LanguageModelsState } from '../src/parts/LanguageModelsState/LanguageModelsState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { disableModel } from '../src/parts/DisableModel/DisableModel.ts'
+
+beforeEach(() => {
+  jest.spyOn(console, 'error').mockImplementation(() => {})
+})
 
 test('disableModel disables a model by id', async () => {
   const state: LanguageModelsState = {

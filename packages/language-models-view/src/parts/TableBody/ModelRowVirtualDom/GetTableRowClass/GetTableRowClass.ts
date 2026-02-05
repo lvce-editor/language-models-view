@@ -4,7 +4,7 @@ import * as ClassNames from '../../../ClassNames/ClassNames.ts'
 export const getTableRowClass = (model: LanguageModel): string => {
   const classes: string[] = []
   if (model.selected) {
-    classes.push(ClassNames.Selected)
+    classes.push(ClassNames.TableRowSelected)
   }
   if (!model.enabled) {
     classes.push(ClassNames.Disabled)
