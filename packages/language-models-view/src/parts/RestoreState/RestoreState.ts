@@ -20,15 +20,6 @@ export const restoreState = (state: LanguageModelsState, savedState: unknown): L
     updates.filterValue = savedState.filterValue
   }
 
-  // Try to restore scroll position
-  if ('x' in savedState && typeof savedState.x === 'number') {
-    updates.x = savedState.x
-  }
-
-  if ('y' in savedState && typeof savedState.y === 'number') {
-    updates.y = savedState.y
-  }
-
   return {
     ...state,
     ...updates,
