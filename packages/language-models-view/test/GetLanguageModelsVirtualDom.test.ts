@@ -29,6 +29,7 @@ test('getLanguageModelsVirtualDom returns correct structure for empty models', (
     {
       childCount: 1,
       className: 'Button ClearButton',
+      disabled: true,
       name: 'ClearButton',
       onClick: 8,
       type: VirtualDomElements.Button,
