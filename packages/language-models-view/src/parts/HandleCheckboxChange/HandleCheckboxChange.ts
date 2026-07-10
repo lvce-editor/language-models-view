@@ -3,9 +3,7 @@ import * as UpdateModel from '../UpdateModel/UpdateModel.ts'
 
 export const handleCheckboxChange = async (
   state: Readonly<LanguageModelsState>,
-  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
   targetName: Readonly<string>,
-  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
   targetChecked: Readonly<'on' | 'off'>,
 ): Promise<LanguageModelsState> => {
   const { models } = state
