@@ -5,7 +5,7 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import { renderIncremental } from '../src/parts/RenderIncremental/RenderIncremental.ts'
 
 // Helper function to create a test model
-// eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
+/* eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types */
 const createTestModel = (
   id: Readonly<string>,
   name: Readonly<string>,
