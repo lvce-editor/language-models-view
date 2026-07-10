@@ -6,11 +6,7 @@ import { renderIncremental } from '../src/parts/RenderIncremental/RenderIncremen
 
 // Helper function to create a test model
 /* eslint-disable @typescript-eslint/prefer-readonly-parameter-types */
-const createTestModel = (
-  id: string,
-  name: string,
-  enabled = true,
-): LanguageModel => ({
+const createTestModel = (id: string, name: string, enabled = true): LanguageModel => ({
   capabilities: { tools: false, vision: false },
   deprecated: false,
   enabled,
