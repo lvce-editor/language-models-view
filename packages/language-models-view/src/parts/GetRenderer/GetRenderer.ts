@@ -22,6 +22,6 @@ export const getRenderer = (diffType: number): Renderer => {
     case DiffType.RenderItems:
       return RenderItems.renderItems
     default:
-      throw new Error('Unknown renderer')
+      throw new Error('unknown renderer')
   }
 }
