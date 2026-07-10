@@ -5,6 +5,7 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import { renderIncremental } from '../src/parts/RenderIncremental/RenderIncremental.ts'
 
 // Helper function to create a test model
+/* eslint-disable @typescript-eslint/prefer-readonly-parameter-types */
 const createTestModel = (
   id: string,
   name: string,
@@ -20,6 +21,7 @@ const createTestModel = (
   provider: 'openai',
   selected: false,
 })
+/* eslint-enable @typescript-eslint/prefer-readonly-parameter-types */
 
 test('renderIncremental returns a command array with three elements', () => {
   const oldState = createDefaultState()

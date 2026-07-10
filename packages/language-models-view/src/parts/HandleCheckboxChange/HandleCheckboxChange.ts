@@ -1,6 +1,7 @@
 import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsState.ts'
 import * as UpdateModel from '../UpdateModel/UpdateModel.ts'
 
+/* eslint-disable @typescript-eslint/prefer-readonly-parameter-types */
 export const handleCheckboxChange = async (
   state: Readonly<LanguageModelsState>,
   targetName: Readonly<string>,
@@ -28,3 +29,4 @@ export const handleCheckboxChange = async (
   // Update the model with the new enabled state
   return UpdateModel.updateModel(state, model.id, newEnabled)
 }
+/* eslint-enable @typescript-eslint/prefer-readonly-parameter-types */
