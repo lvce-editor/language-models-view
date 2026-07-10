@@ -8,6 +8,7 @@ const getClassName = (isDisabled: boolean): string => {
   return ClassNames.SearchFieldButton + (isDisabled ? ' ' + ClassNames.SearchFieldButtonDisabled : '')
 }
 
+// eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
 export const getClearButton = (filterValue: Readonly<string>): readonly VirtualDomNode[] => {
   const isDisabled = filterValue === ''
   return [

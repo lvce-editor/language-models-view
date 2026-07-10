@@ -2,6 +2,7 @@ import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsS
 import * as CacheStorage from '../CacheStorage/CacheStorage.ts'
 import { getDisabledModelIds } from '../GetDisabledModelIds/GetDisabledModelIds.ts'
 
+// eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
 export const updateModel = async (
   state: Readonly<LanguageModelsState>,
   modelId: Readonly<string>,
