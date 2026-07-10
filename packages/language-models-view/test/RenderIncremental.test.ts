@@ -5,7 +5,11 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import { renderIncremental } from '../src/parts/RenderIncremental/RenderIncremental.ts'
 
 // Helper function to create a test model
-const createTestModel = (id: string, name: string, enabled = true): LanguageModel => ({
+const createTestModel = (
+  id: Readonly<string>,
+  name: Readonly<string>,
+  enabled = true,
+): LanguageModel => ({
   capabilities: { tools: false, vision: false },
   deprecated: false,
   enabled,

@@ -2,9 +2,9 @@ import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsS
 import * as UpdateModel from '../UpdateModel/UpdateModel.ts'
 
 export const handleCheckboxChange = async (
-  state: LanguageModelsState,
-  targetName: string,
-  targetChecked: 'on' | 'off',
+  state: Readonly<LanguageModelsState>,
+  targetName: Readonly<string>,
+  targetChecked: Readonly<'on' | 'off'>,
 ): Promise<LanguageModelsState> => {
   const { models } = state
 
