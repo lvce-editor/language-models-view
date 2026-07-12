@@ -11,7 +11,7 @@ test('handleAddModelsClick adds a dummy model', () => {
   }
 
   const result = handleAddModelsClick(state)
-  expect(result.models.length).toBe(1)
+  expect(result.models).toHaveLength(1)
   expect(result.models[0].capabilities).toEqual({ tools: false, vision: false })
   expect(result.models[0].name).toBe('Dummy Model')
   expect(result.models[0].provider).toBe('mock-provider')
@@ -20,7 +20,7 @@ test('handleAddModelsClick adds a dummy model', () => {
   expect(result.models[0].inputContextSize).toBe(4096)
   expect(result.models[0].outputContextSize).toBe(2048)
   expect(result.models[0].id).toMatch(/^dummy-model-\d+$/)
-  expect(result.filteredModels.length).toBe(1)
+  expect(result.filteredModels).toHaveLength(1)
 })
 
 test('handleAddModelsClick preserves all state properties and adds a model', () => {
@@ -62,7 +62,7 @@ test('handleAddModelsClick preserves all state properties and adds a model', () 
   const result = handleAddModelsClick(state)
 
   expect(result.filterValue).toBe('test filter')
-  expect(result.models.length).toBe(3)
+  expect(result.models).toHaveLength(3)
   expect(result.models[0]).toBe(state.models[0])
   expect(result.models[1]).toBe(state.models[1])
   expect(result.models[2].name).toBe('Dummy Model')
@@ -98,8 +98,8 @@ test('handleAddModelsClick does not mutate input state', () => {
   const result = handleAddModelsClick(state)
 
   expect(state.models).toBe(originalModels)
-  expect(state.models.length).toBe(originalLength)
-  expect(result.models.length).toBe(originalLength + 1)
+  expect(state.models).toHaveLength(originalLength)
+  expect(result.models).toHaveLength(originalLength + 1)
 })
 
 test('handleAddModelsClick works with empty models', () => {
@@ -110,7 +110,7 @@ test('handleAddModelsClick works with empty models', () => {
 
   const result = handleAddModelsClick(state)
 
-  expect(result.models.length).toBe(1)
+  expect(result.models).toHaveLength(1)
   expect(result.models[0].name).toBe('Dummy Model')
 })
 
@@ -159,7 +159,7 @@ test('handleAddModelsClick works with filtered models', () => {
 
   const result = handleAddModelsClick(state)
 
-  expect(result.models.length).toBe(3)
-  expect(result.filteredModels.length).toBe(1)
+  expect(result.models).toHaveLength(3)
+  expect(result.filteredModels).toHaveLength(1)
   expect(result.filteredModels).toBe(state.filteredModels)
 })
