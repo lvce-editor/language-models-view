@@ -8,7 +8,7 @@ test('getKeyBindings should return an array', () => {
 
 test('getKeyBindings should return an empty array', () => {
   const keyBindings = getKeyBindings()
-  expect(keyBindings.length).toBe(0)
+  expect(keyBindings).toHaveLength(0)
 })
 
 test('each KeyBinding should have required properties', () => {
