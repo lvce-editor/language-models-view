@@ -1,11 +1,11 @@
 import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
-import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
+import { mergeClassNames, VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as LanguageModelsStrings from '../LanguageModelsStrings/LanguageModelsStrings.ts'
 
 const getClassName = (isDisabled: boolean): string => {
-  return ClassNames.SearchFieldButton + (isDisabled ? ' ' + ClassNames.SearchFieldButtonDisabled : '')
+  return mergeClassNames(ClassNames.SearchFieldButton, isDisabled ? ClassNames.SearchFieldButtonDisabled : '')
 }
 
 export const getClearButton = (filterValue: Readonly<string>): readonly VirtualDomNode[] => {
@@ -21,7 +21,7 @@ export const getClearButton = (filterValue: Readonly<string>): readonly VirtualD
       type: VirtualDomElements.Button,
     },
     {
-      className: `${ClassNames.MaskIcon} ${ClassNames.MaskIconClearAll}`,
+      className: mergeClassNames(ClassNames.MaskIcon, ClassNames.MaskIconClearAll),
       type: VirtualDomElements.Div,
     },
   ]

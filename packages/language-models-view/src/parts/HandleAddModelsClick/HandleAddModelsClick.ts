@@ -2,6 +2,8 @@ import type { LanguageModel } from '../LanguageModel/LanguageModel.ts'
 import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsState.ts'
 
 export const handleAddModelsClick = (state: LanguageModelsState): LanguageModelsState => {
+  const { filteredModels, filterValue, models } = state
+
   // Create a dummy model
   const dummyModel: LanguageModel = {
     capabilities: { tools: false, vision: false },
@@ -16,10 +18,10 @@ export const handleAddModelsClick = (state: LanguageModelsState): LanguageModels
   }
 
   // Add the dummy model to the models array
-  const newModels = [...state.models, dummyModel]
+  const newModels = [...models, dummyModel]
 
   // Also update filteredModels if there's no active filter
-  const newFilteredModels = state.filterValue === '' ? newModels : state.filteredModels
+  const newFilteredModels = filterValue === '' ? newModels : filteredModels
 
   return {
     ...state,

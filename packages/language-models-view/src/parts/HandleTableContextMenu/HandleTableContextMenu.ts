@@ -3,7 +3,7 @@ import * as ComputeRowIndex from '../ComputeRowIndex/ComputeRowIndex.ts'
 import * as ContextMenu from '../ContextMenu/ContextMenu.ts'
 
 export const handleTableContextMenu = async (state: LanguageModelsState, x: number, y: number): Promise<LanguageModelsState> => {
-  const { filteredModels, headerHeight, rowHeight, y: stateY } = state
+  const { filteredModels, headerHeight, rowHeight, uid, y: stateY } = state
 
   // Calculate relative Y position from the top of the table
   const relativeY = y - stateY
@@ -18,7 +18,7 @@ export const handleTableContextMenu = async (state: LanguageModelsState, x: numb
     return state
   }
 
-  await ContextMenu.show2(state.uid, 96, x, y, { menuId: 96, modelId: model.id })
+  await ContextMenu.show2(uid, 96, x, y, { menuId: 96, modelId: model.id })
 
   return state
 }
