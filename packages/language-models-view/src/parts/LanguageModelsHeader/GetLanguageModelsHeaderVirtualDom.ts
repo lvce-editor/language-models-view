@@ -6,21 +6,19 @@ import { getClearButton } from '../ClearButton/GetClearButtonVirtualDom.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import { getFilterInput } from '../FilterInput/GetFilterInputVirtualDom.ts'
 
+const headerNode: VirtualDomNode = {
+  childCount: 2,
+  className: ClassNames.LanguageModelsHeader,
+  onContextMenu: DomEventListenerFunctions.HandleHeaderContextMenu,
+  type: VirtualDomElements.Div,
+}
+
+const searchFieldNode: VirtualDomNode = {
+  childCount: 2,
+  className: ClassNames.SearchField,
+  type: VirtualDomElements.Div,
+}
+
 export const getLanguageModelsHeaderVirtualDom = (filterValue: string): readonly VirtualDomNode[] => {
-  return [
-    {
-      childCount: 2,
-      className: ClassNames.LanguageModelsHeader,
-      onContextMenu: DomEventListenerFunctions.HandleHeaderContextMenu,
-      type: VirtualDomElements.Div,
-    },
-    {
-      childCount: 2,
-      className: ClassNames.SearchField,
-      type: VirtualDomElements.Div,
-    },
-    getFilterInput(),
-    ...getClearButton(filterValue),
-    ...getAddModelsButton(),
-  ]
+  return [headerNode, searchFieldNode, getFilterInput(), ...getClearButton(filterValue), ...getAddModelsButton()]
 }
