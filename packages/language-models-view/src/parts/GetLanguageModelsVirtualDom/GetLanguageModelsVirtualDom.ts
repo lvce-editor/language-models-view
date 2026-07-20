@@ -6,13 +6,21 @@ import { getLanguageModelsHeaderVirtualDom } from '../LanguageModelsHeader/GetLa
 import * as LanguageModelsStrings from '../LanguageModelsStrings/LanguageModelsStrings.ts'
 import { getTableVirtualDom } from '../Table/GetTableVirtualDom.ts'
 
+const noMatchingModelsNode: VirtualDomNode = {
+  childCount: 1,
+  className: ClassNames.NoMatchingModels,
+  type: VirtualDomElements.P,
+}
+
+const languageModelsNode: VirtualDomNode = {
+  childCount: 2,
+  className: ClassNames.LanguageModels,
+  type: VirtualDomElements.Div,
+}
+
 const getNoMatchingModelsMessage = (): readonly VirtualDomNode[] => {
   return [
-    {
-      childCount: 1,
-      className: ClassNames.NoMatchingModels,
-      type: VirtualDomElements.P,
-    },
+    noMatchingModelsNode,
     {
       text: LanguageModelsStrings.noMatchingModels(),
       type: VirtualDomElements.Text,
@@ -22,13 +30,5 @@ const getNoMatchingModelsMessage = (): readonly VirtualDomNode[] => {
 
 export const getLanguageModelsVirtualDom = (models: readonly LanguageModel[], filterValue: string): readonly VirtualDomNode[] => {
   const content = models.length === 0 ? getNoMatchingModelsMessage() : getTableVirtualDom(models, filterValue)
-  return [
-    {
-      childCount: 2,
-      className: ClassNames.LanguageModels,
-      type: VirtualDomElements.Div,
-    },
-    ...getLanguageModelsHeaderVirtualDom(filterValue),
-    ...content,
-  ]
+  return [languageModelsNode, ...getLanguageModelsHeaderVirtualDom(filterValue), ...content]
 }
