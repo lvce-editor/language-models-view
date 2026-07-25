@@ -15,6 +15,7 @@ export default [
     files: ['packages/language-models-view/test/**/*.ts'],
     rules: {
       'virtual-dom/prefer-merge-class-names': 'off',
+      'virtual-dom/prefer-constants': 'off',
       'virtual-dom/prefer-state-destructuring': 'off',
     },
   },
