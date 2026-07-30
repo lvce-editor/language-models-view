@@ -4,7 +4,6 @@ export const HandleFilterInput = 3
 export const HandleFocus = 4
 export const HandleMouseDown = 5
 export const HandleAddModelsClick = 6
-export const HandleTableRowClick = 7
 export const HandleClearClick = 8
 export const HandleCheckboxChange = 9
 export const HandleHeaderContextMenu = 10
