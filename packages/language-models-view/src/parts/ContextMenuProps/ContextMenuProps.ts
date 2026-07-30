@@ -1,8 +1,8 @@
-export interface ContextMenuPropsBase {
+interface ContextMenuPropsBase {
   readonly menuId: number
 }
 
-export interface ContextMenuPropsTableRow extends ContextMenuPropsBase {
+interface ContextMenuPropsTableRow extends ContextMenuPropsBase {
   readonly menuId: 96
   readonly modelId: string
 }
