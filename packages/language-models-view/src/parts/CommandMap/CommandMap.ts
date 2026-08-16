@@ -22,6 +22,8 @@ import { resize } from '../Resize/Resize.ts'
 import { saveState } from '../SaveState/SaveState.ts'
 import { selectTableRow } from '../SelectTableRow/SelectTableRow.ts'
 
+const handleDirectMessagePort = (port: MessagePort): Promise<void> => handleMessagePort(port, commandMap)
+
 export const commandMap = {
   'LanguageModels.create': Create.create,
   'LanguageModels.diff2': diff2,
@@ -37,7 +39,7 @@ export const commandMap = {
   'LanguageModels.handleContextMenu': WrapCommand.wrapCommand(handleTableContextMenu),
   'LanguageModels.handleFilterInput': WrapCommand.wrapCommand(handleFilterInput),
   'LanguageModels.handleHeaderContextMenu': WrapCommand.wrapCommand(handleHeaderContextMenu),
-  'LanguageModels.handleMessagePort': handleMessagePort,
+  'LanguageModels.handleMessagePort': handleDirectMessagePort,
   'LanguageModels.handleTableRowClick': WrapCommand.wrapCommand(handleTableRowClick),
   'LanguageModels.loadContent': WrapCommand.wrapCommand(loadContent),
   'LanguageModels.render2': Render2.render2,
