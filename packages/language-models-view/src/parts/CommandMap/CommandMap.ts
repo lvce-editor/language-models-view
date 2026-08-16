@@ -11,7 +11,7 @@ import { handleCheckboxChange } from '../HandleCheckboxChange/HandleCheckboxChan
 import { handleClearClick } from '../HandleClearClick/HandleClearClick.ts'
 import { handleFilterInput } from '../HandleFilterInput/HandleFilterInput.ts'
 import { handleHeaderContextMenu } from '../HandleHeaderContextMenu/HandleHeaderContextMenu.ts'
-import { handleMessagePort } from '../HandleMessagePort/HandleMessagePort.ts'
+import { handleMessagePort, setCommandMap } from '../HandleMessagePort/HandleMessagePort.ts'
 import { handleTableContextMenu } from '../HandleTableContextMenu/HandleTableContextMenu.ts'
 import { handleTableRowClick } from '../HandleTableRowClick/HandleTableRowClick.ts'
 import * as WrapCommand from '../LanguageModelsViewStates/LanguageModelsViewStates.ts'
@@ -47,3 +47,5 @@ export const commandMap = {
   'LanguageModels.selectTableRow': WrapCommand.wrapCommand(selectTableRow),
   'LanguageModels.terminate': terminate,
 }
+
+setCommandMap(commandMap)
