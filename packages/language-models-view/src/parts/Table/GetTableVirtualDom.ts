@@ -6,20 +6,19 @@ import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEven
 import { getTableBodyVirtualDom } from '../TableBody/GetTableBodyVirtualDom.ts'
 import { getTableHeaderVirtualDom } from '../TableHeader/GetTableHeaderVirtualDom.ts'
 
+const tableWrapperNode: VirtualDomNode = {
+  childCount: 1,
+  className: ClassNames.TableWrapper,
+  type: VirtualDomElements.Div,
+}
+
+const tableNode: VirtualDomNode = {
+  childCount: 2,
+  className: ClassNames.Table,
+  onContextMenu: DomEventListenerFunctions.HandleContextMenu,
+  type: VirtualDomElements.Table,
+}
+
 export const getTableVirtualDom = (models: readonly LanguageModel[], filterValue: string): readonly VirtualDomNode[] => {
-  return [
-    {
-      childCount: 1,
-      className: ClassNames.TableWrapper,
-      type: VirtualDomElements.Div,
-    },
-    {
-      childCount: 2,
-      className: ClassNames.Table,
-      onContextMenu: DomEventListenerFunctions.HandleContextMenu,
-      type: VirtualDomElements.Table,
-    },
-    ...getTableHeaderVirtualDom(filterValue),
-    ...getTableBodyVirtualDom(models),
-  ]
+  return [tableWrapperNode, tableNode, ...getTableHeaderVirtualDom(filterValue), ...getTableBodyVirtualDom(models)]
 }

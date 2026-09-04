@@ -73,7 +73,7 @@ test('getTableHeaderVirtualDom returns array with all header elements', () => {
 
 test('getTableHeaderVirtualDom returns array with 10 elements', () => {
   const result = getTableHeaderVirtualDom('')
-  expect(result.length).toEqual(12)
+  expect(result).toHaveLength(12)
 })
 
 test('getTableHeaderVirtualDom returns consistent results on multiple calls', () => {

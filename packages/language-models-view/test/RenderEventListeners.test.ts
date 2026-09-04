@@ -10,7 +10,7 @@ test('renderEventListeners should return an array', () => {
 
 test('renderEventListeners should return a readonly array', () => {
   const result = renderEventListeners()
-  expect(Object.isFrozen(result) || !Array.isArray(result.concat)).toBe(true)
+  expect([...result]).toEqual(result)
 })
 
 test('renderEventListeners should return 9 event listeners', () => {

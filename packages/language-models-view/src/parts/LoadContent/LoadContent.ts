@@ -5,10 +5,11 @@ import { getModels } from '../GetModels/GetModels.ts'
 import { restoreState } from '../RestoreState/RestoreState.ts'
 
 export const loadContent = async (state: LanguageModelsState, savedState?: unknown): Promise<LanguageModelsState> => {
+  const { cacheKey, cacheName } = state
   const models = await getModels()
 
   // Load disabled models from cache
-  const disabledModelIds = await CacheStorage.getDisabledModels(state.cacheName, state.cacheKey)
+  const disabledModelIds = await CacheStorage.getDisabledModels(cacheName, cacheKey)
 
   // Apply cached disabled state to models
   const modelsWithCachedState = models.map((model) => ({

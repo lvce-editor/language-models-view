@@ -5,6 +5,7 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import { renderIncremental } from '../src/parts/RenderIncremental/RenderIncremental.ts'
 
 // Helper function to create a test model
+
 const createTestModel = (id: string, name: string, enabled = true): LanguageModel => ({
   capabilities: { tools: false, vision: false },
   deprecated: false,
@@ -24,7 +25,7 @@ test('renderIncremental returns a command array with three elements', () => {
   const result = renderIncremental(oldState, newState)
 
   expect(Array.isArray(result)).toBe(true)
-  expect(result.length).toBe(3)
+  expect(result).toHaveLength(3)
 })
 
 test('renderIncremental returns SetPatches as the first element', () => {

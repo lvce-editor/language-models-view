@@ -16,17 +16,6 @@ export const getMenuEntries = (state: LanguageModelsState, options: ContextMenuP
 
   const entries: MenuEntry[] = []
 
-  // Add Enable Model entry if the model is currently disabled
-  if (!model.enabled) {
-    entries.push({
-      args: [model.id],
-      command: 'LanguageModels.enableModel',
-      flags: 0,
-      id: 'enable-model',
-      label: LanguageModelsStrings.enableModel(),
-    })
-  }
-
   // Add Disable Model entry if the model is currently enabled
   if (model.enabled) {
     entries.push({
@@ -35,6 +24,14 @@ export const getMenuEntries = (state: LanguageModelsState, options: ContextMenuP
       flags: 0,
       id: 'disable-model',
       label: LanguageModelsStrings.disableModel(),
+    })
+  } else {
+    entries.push({
+      args: [model.id],
+      command: 'LanguageModels.enableModel',
+      flags: 0,
+      id: 'enable-model',
+      label: LanguageModelsStrings.enableModel(),
     })
   }
 

@@ -85,5 +85,5 @@ test('RenderInputValue.renderInputValue should return array format', () => {
   const result = RenderInputValue.renderInputValue(oldState, newState)
 
   expect(Array.isArray(result)).toBe(true)
-  expect(result.length).toBe(4)
+  expect(result).toHaveLength(4)
 })

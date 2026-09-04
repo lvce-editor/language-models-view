@@ -11,6 +11,7 @@ import { handleCheckboxChange } from '../HandleCheckboxChange/HandleCheckboxChan
 import { handleClearClick } from '../HandleClearClick/HandleClearClick.ts'
 import { handleFilterInput } from '../HandleFilterInput/HandleFilterInput.ts'
 import { handleHeaderContextMenu } from '../HandleHeaderContextMenu/HandleHeaderContextMenu.ts'
+import { handleMessagePort } from '../HandleMessagePort/HandleMessagePort.ts'
 import { handleTableContextMenu } from '../HandleTableContextMenu/HandleTableContextMenu.ts'
 import { handleTableRowClick } from '../HandleTableRowClick/HandleTableRowClick.ts'
 import * as WrapCommand from '../LanguageModelsViewStates/LanguageModelsViewStates.ts'
@@ -20,6 +21,9 @@ import * as RenderEventListeners from '../RenderEventListeners/RenderEventListen
 import { resize } from '../Resize/Resize.ts'
 import { saveState } from '../SaveState/SaveState.ts'
 import { selectTableRow } from '../SelectTableRow/SelectTableRow.ts'
+
+const handleDirectMessagePort = (port: MessagePort, setAsRendererProcess = true): Promise<void> =>
+  handleMessagePort(port, commandMap, setAsRendererProcess)
 
 export const commandMap = {
   'LanguageModels.create': Create.create,
@@ -36,6 +40,7 @@ export const commandMap = {
   'LanguageModels.handleContextMenu': WrapCommand.wrapCommand(handleTableContextMenu),
   'LanguageModels.handleFilterInput': WrapCommand.wrapCommand(handleFilterInput),
   'LanguageModels.handleHeaderContextMenu': WrapCommand.wrapCommand(handleHeaderContextMenu),
+  'LanguageModels.handleMessagePort': handleDirectMessagePort,
   'LanguageModels.handleTableRowClick': WrapCommand.wrapCommand(handleTableRowClick),
   'LanguageModels.loadContent': WrapCommand.wrapCommand(loadContent),
   'LanguageModels.render2': Render2.render2,

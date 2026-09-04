@@ -49,7 +49,7 @@ test('handleClearClick clears filter value and resets filteredModels', () => {
   const result = handleClearClick(state)
 
   expect(result.filterValue).toBe('')
-  expect(result.filteredModels.length).toBe(2)
+  expect(result.filteredModels).toHaveLength(2)
   expect(result.filteredModels).toBe(state.models)
 })
 

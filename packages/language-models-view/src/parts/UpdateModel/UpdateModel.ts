@@ -2,7 +2,11 @@ import type { LanguageModelsState } from '../LanguageModelsState/LanguageModelsS
 import * as CacheStorage from '../CacheStorage/CacheStorage.ts'
 import { getDisabledModelIds } from '../GetDisabledModelIds/GetDisabledModelIds.ts'
 
-export const updateModel = async (state: LanguageModelsState, modelId: string, enabled: boolean): Promise<LanguageModelsState> => {
+export const updateModel = async (
+  state: Readonly<LanguageModelsState>,
+  modelId: Readonly<string>,
+  enabled: Readonly<boolean>,
+): Promise<LanguageModelsState> => {
   const { cacheKey, cacheName, filteredModels, models } = state
   const updatedModels = models.map((model) => {
     if (model.id === modelId) {

@@ -89,7 +89,7 @@ test('loadContent should preserve other state properties', async () => {
 
 test('loadContent should not restore state when savedState is undefined', async () => {
   const state = createMockState()
-  const result = await loadContent(state, undefined)
+  const result = await loadContent(state)
 
   expect(result.initial).toBe(false)
   expect(result.filterValue).toBe('')
