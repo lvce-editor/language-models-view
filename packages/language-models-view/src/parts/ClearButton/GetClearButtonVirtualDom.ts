@@ -4,6 +4,8 @@ import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as LanguageModelsStrings from '../LanguageModelsStrings/LanguageModelsStrings.ts'
 
+const clearButtonIconClassName = mergeClassNames(ClassNames.MaskIcon, ClassNames.MaskIconClearAll)
+
 const getClassName = (isDisabled: boolean): string => {
   return mergeClassNames(ClassNames.SearchFieldButton, isDisabled ? ClassNames.SearchFieldButtonDisabled : '')
 }
@@ -21,7 +23,7 @@ export const getClearButton = (filterValue: Readonly<string>): readonly VirtualD
       type: VirtualDomElements.Button,
     },
     {
-      className: mergeClassNames(ClassNames.MaskIcon, ClassNames.MaskIconClearAll),
+      className: clearButtonIconClassName,
       type: VirtualDomElements.Div,
     },
   ]
