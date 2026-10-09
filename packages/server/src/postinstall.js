@@ -26,15 +26,26 @@ const dirents = await readdir(serverStaticPath)
 const commitHash = dirents.find(isCommitHash) || ''
 const rendererWorkerMainPath = join(serverStaticPath, commitHash, 'packages', 'renderer-worker', 'dist', 'rendererWorkerMain.js')
 
-const content = await readFile(rendererWorkerMainPath, 'utf-8')
-
 const remoteUrl = getRemoteUrl(workerPath)
-if (!content.includes('// const languageModelsViewWorkerUrl = ')) {
-  const occurrence = `const languageModelsViewWorkerUrl = \`\${assetDir}/packages/language-models-view/dist/languageModelsViewMain.js\``
 
-  const replacement = `// const languageModelsViewWorkerUrl = \`\${assetDir}/packages/language-models-view/dist/languageModelsViewMain.js\`
-const languageModelsViewWorkerUrl = \`${remoteUrl}\``
-
-  const newContent = content.replace(occurrence, replacement)
-  await writeFile(rendererWorkerMainPath, newContent)
+const replace = async (path, occurrence, replacement) => {
+  const content = await readFile(path, 'utf8')
+  if (content.includes(replacement)) {
+    return
+  }
+  if (!content.includes(occurrence)) {
+    throw new Error(`Could not find expected language models worker URL in ${path}`)
+  }
+  await writeFile(path, content.replace(occurrence, replacement))
 }
+
+await replace(
+  rendererWorkerMainPath,
+  '`${assetDir}/packages/renderer-worker/node_modules/@lvce-editor/language-models-view/dist/languageModelsViewMain.js`',
+  `\`${remoteUrl}\``,
+)
+await replace(
+  join(serverStaticPath, 'index.html'),
+  `"develop.languageModelsViewPath": "/${commitHash}/packages/language-models-view/dist/languageModelsViewMain.js"`,
+  `"develop.languageModelsViewPath": "${remoteUrl}"`,
+)
