@@ -27,13 +27,21 @@ const content = await readFile(rendererWorkerPath, 'utf8')
 const workerPath = join(root, '.tmp/dist/dist/languageModelsViewMain.js')
 const remoteUrl = getRemoteUrl(workerPath)
 
-const occurrence = `// const languageModelsViewWorkerUrl = \`\${assetDir}/packages/language-models-view/dist/languageModelsViewMain.js\`
-const languageModelsViewWorkerUrl = \`${remoteUrl}\``
-const replacement = `const languageModelsViewWorkerUrl = \`\${assetDir}/packages/language-models-view/dist/languageModelsViewMain.js\``
+const occurrence = `\`${remoteUrl}\``
+const replacement = '`${assetDir}/packages/language-models-view/dist/languageModelsViewMain.js`'
 if (!content.includes(occurrence)) {
-  throw new Error('occurrence not found')
+  throw new Error('Could not find development language models worker URL in static renderer')
 }
-const newContent = content.replace(occurrence, replacement)
-await writeFile(rendererWorkerPath, newContent)
+await writeFile(rendererWorkerPath, content.replace(occurrence, replacement))
+
+const indexPath = join(root, 'dist', 'index.html')
+const indexContent = await readFile(indexPath, 'utf8')
+const indexOccurrence = `"develop.languageModelsViewPath": "${remoteUrl}"`
+const indexReplacement = `"develop.languageModelsViewPath": "/language-models-view/${commitHash}/packages/language-models-view/dist/languageModelsViewMain.js"`
+if (!indexContent.includes(indexOccurrence)) {
+  throw new Error('Could not find development language models worker URL in static configuration')
+}
+await writeFile(indexPath, indexContent.replace(indexOccurrence, indexReplacement))
+await cp(workerPath, join(root, 'dist', commitHash, 'packages', 'language-models-view', 'dist', 'languageModelsViewMain.js'))
 
 await cp(join(root, 'dist'), join(root, '.tmp', 'static'), { recursive: true })
